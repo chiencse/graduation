@@ -1,0 +1,12 @@
+[Unit]
+Description=Graduation site: static files + RSVP/guestbook API (127.0.0.1:8088)
+
+[Service]
+WorkingDirectory=%h/apps/totnghiep
+ExecStart=/usr/bin/python3 %h/apps/totnghiep/server.py
+Environment=APP_DIR=%h/apps/totnghiep
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=default.target

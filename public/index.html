@@ -1,0 +1,1226 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#050A1C">
+<meta name="description" content="Thân mời bạn đến dự Lễ tốt nghiệp của Nông Minh Chiến, Kỹ sư Khoa học Máy tính, Trường Đại học Bách Khoa TP.HCM.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Thiệp mời Lễ tốt nghiệp · Nông Minh Chiến">
+<meta property="og:url" content="https://totnghiep.mchieens.io.vn/">
+<meta property="og:image" content="https://totnghiep.mchieens.io.vn/og.jpg?v=2">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Thiệp mời Lễ tốt nghiệp của Nông Minh Chiến">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:description" content="Chủ nhật, 25.10.2026 · Trường Đại học Bách Khoa, 268 Lý Thường Kiệt, TP.HCM">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 48'%3E%3Cpath d='M32 4 2 17l30 13 30-13z' fill='%23D4B06A'/%3E%3Cpath d='M14 23v11c0 4 8 8 18 8s18-4 18-8V23l-18 8z' fill='%23D4B06A' opacity='.78'/%3E%3C/svg%3E">
+<title>Minh Chiến Graduation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Be+Vietnam+Pro:wght@300;400;500&family=Dancing+Script:wght@500;600&family=JetBrains+Mono:wght@400&display=swap">
+<style>
+:root{
+  color-scheme:dark;
+  --navy:#050A1C; --navy-2:#0A1330; --navy-3:#141F45;
+  --gold:#D4B06A; --gold-soft:#F0DCA6; --gold-deep:#9C7E45;
+  --ivory:#F7F0DF; --ink:#1A2236; --ink-soft:#4A5470;
+  --text:#ECE8DF; --muted:#A7AECA; --line:rgba(212,176,106,.3);
+  --glass:rgba(16,24,60,.42);
+  --metal:linear-gradient(100deg,#9A7434 0%,#F3DC9E 20%,#FFF7DD 32%,#D4AE63 46%,#8E6B30 60%,#EBD08F 78%,#FFF2CA 90%,#B8914A 100%);
+  --serif:"Cormorant Garamond","Iowan Old Style","Times New Roman",serif;
+  --sans:"Be Vietnam Pro",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --script:"Dancing Script","Snell Roundhand",cursive;
+  --dawn:0; --sun:0;
+  padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--navy);color:var(--text);font-family:var(--sans);font-weight:300;font-size:16px;line-height:1.7}
+img{max-width:100%}
+[hidden]{display:none!important}
+h1,h2,h3{font-family:var(--serif);font-weight:500;text-wrap:balance;margin:0;color:var(--ivory)}
+p{margin:0}
+button,a{font-family:inherit}
+:focus-visible{outline:2px solid var(--gold-soft);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1080px;margin:0 auto;padding-inline:20px}
+section{padding-block:96px}
+.metal{background:var(--metal);background-size:200% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shimmer 8s linear infinite}
+@keyframes shimmer{to{background-position:-200% center}}
+
+/* ---------- Sky: night fades into dawn as you scroll ---------- */
+.sky{position:fixed;inset:0;z-index:0;pointer-events:none}
+.sky-night{background:
+  radial-gradient(ellipse 70% 45% at 15% 0%,rgba(130,110,210,.34),transparent 70%),
+  radial-gradient(ellipse 60% 40% at 90% 30%,rgba(70,110,200,.36),transparent 70%),
+  linear-gradient(180deg,#111C44 0%,#1B2A5E 45%,#2A3C7A 100%)}
+.sky-dawn{opacity:var(--dawn);background:
+  radial-gradient(ellipse 80% 45% at 50% 108%,rgba(255,214,150,.75),transparent 70%),
+  linear-gradient(180deg,#1A1D4E 0%,#332A62 38%,#5E3769 58%,#A65A75 76%,#E3907A 90%,#F6C994 100%)}
+.sun{position:fixed;left:85%;bottom:0;width:300px;height:300px;margin-left:-150px;z-index:0;pointer-events:none;border-radius:50%;
+  --rise:calc(150px + 33vh);
+  background:radial-gradient(circle,#FFF8E2 0 18%,#FFE2A3 30%,rgba(255,200,130,.35) 48%,transparent 68%);
+  transform:translateY(calc(100% - var(--sun) * var(--rise)));opacity:calc(var(--sun) * 1.4)}
+/* Bách Khoa campus: a dark silhouette under the night sky, warm at dawn */
+.campus{position:fixed;left:50%;bottom:0;width:min(100vw,1100px);height:min(52vh,520px);transform:translateX(-50%);z-index:0;pointer-events:none;
+  background:url(/assets/bk-campus.jpg) center 80%/cover no-repeat;
+  -webkit-mask-image:linear-gradient(to bottom,transparent 0%,#000 46%),linear-gradient(to right,transparent 0%,#000 16%,#000 84%,transparent 100%);
+  -webkit-mask-composite:source-in;mask-image:linear-gradient(to bottom,transparent 0%,#000 46%),linear-gradient(to right,transparent 0%,#000 16%,#000 84%,transparent 100%);mask-composite:intersect}
+.campus-night{opacity:var(--cn,0);filter:brightness(.68) saturate(.8) contrast(1.02)}
+.campus-dawn{opacity:var(--cd,0);mix-blend-mode:multiply;filter:brightness(1.18) saturate(.95)}
+.bk-mark{display:block;background:var(--metal);background-size:200% auto;-webkit-mask:url(/assets/bk-logo.png) center/contain no-repeat;mask:url(/assets/bk-logo.png) center/contain no-repeat}
+.intro-crest{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:26px;font-size:11px;font-weight:500;letter-spacing:.3em;text-transform:uppercase;color:var(--gold)}
+.intro-crest .bk-mark{width:30px;height:30px}
+.letter img{width:30px;height:auto;margin:0 auto 2px}
+.crest{display:grid;justify-items:center;margin:0 auto 10px}
+.crest .bk-mark{width:50px;height:50px;margin-bottom:-30px;position:relative;z-index:1;filter:drop-shadow(0 0 12px rgba(240,210,140,.35))}
+.crest .laurel{width:150px;margin:0}
+.foot-logo{display:block;width:34px;height:auto;margin:0 auto 10px}
+#sky,#skyfx,#confetti,#cursorfx{position:fixed;inset:0;width:100%;height:100%;pointer-events:none}
+#sky,#skyfx{z-index:0}
+#confetti{z-index:50}
+#cursorfx{z-index:60}
+main,footer{position:relative;z-index:1}
+
+/* ---------- Buttons ---------- */
+.btn{display:inline-flex;align-items:center;gap:10px;justify-content:center;padding:13px 26px;border-radius:999px;border:1px solid var(--gold);
+  background:transparent;color:var(--gold-soft);font-size:14px;font-weight:400;letter-spacing:.06em;text-decoration:none;cursor:pointer;transition:background .25s,color .25s}
+.btn:hover{background:rgba(212,176,106,.12)}
+.btn.solid{background:var(--gold);color:var(--navy);font-weight:500}
+.btn.solid:hover{background:var(--gold-soft)}
+.btn:disabled{opacity:.6;cursor:progress}
+.label{font-size:12px;font-weight:500;letter-spacing:.3em;text-transform:uppercase;color:var(--gold)}
+
+/* ---------- 1. Envelope ---------- */
+.intro{position:relative;text-align:center;padding-block:84px 48px}
+.moon{position:absolute;top:26px;right:8%;width:78px;height:78px;border-radius:50%;pointer-events:none;
+  background:radial-gradient(circle at 38% 36%,#FFF9E6,#F1DFB0 55%,#D9C08A);box-shadow:0 0 40px 8px rgba(255,238,195,.28),0 0 120px 30px rgba(255,230,170,.10)}
+.moon::after{content:"";position:absolute;inset:0;border-radius:50%;background:
+  radial-gradient(circle at 62% 60%,rgba(170,140,90,.28) 0 9%,transparent 10%),
+  radial-gradient(circle at 34% 64%,rgba(170,140,90,.22) 0 6%,transparent 7%),
+  radial-gradient(circle at 55% 30%,rgba(170,140,90,.18) 0 5%,transparent 6%)}
+.intro .to{font-family:var(--serif);font-style:italic;font-size:20px;color:var(--muted)}
+.intro .guest{font-family:var(--serif);font-size:clamp(32px,5vw,44px);color:var(--gold-soft);margin:2px 0 36px}
+.envelope{position:relative;width:min(440px,100%);aspect-ratio:3/2;margin:0 auto;perspective:1400px;cursor:pointer;border:0;background:none;padding:0;display:block;transition:transform .6s,opacity .6s}
+.env-back{position:absolute;inset:0;border-radius:6px;background:linear-gradient(180deg,#0F1A3D,#0A1330);border:1px solid rgba(212,176,106,.35);box-shadow:0 30px 70px -20px #000,0 0 60px -10px rgba(212,176,106,.25)}
+.letter{position:absolute;left:6%;right:6%;top:8%;height:86%;background:var(--ivory);color:var(--ink);border-radius:4px;display:grid;place-content:center;gap:6px;text-align:center;padding:18px;
+  transition:transform 1s cubic-bezier(.2,.8,.2,1) .45s;z-index:2;box-shadow:0 10px 30px -10px rgba(0,0,0,.5)}
+.letter::before{content:"";position:absolute;inset:8px;border:1px solid rgba(156,126,69,.55);border-radius:2px;pointer-events:none}
+.letter small{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold-deep);font-weight:500}
+.letter strong{font-family:var(--serif);font-weight:600;font-size:clamp(22px,4.4vw,28px);line-height:1.15}
+.letter span{font-family:var(--serif);font-style:italic;color:var(--ink-soft);font-size:15px}
+.env-pocket{position:absolute;inset:0;z-index:3;border-radius:6px;background:linear-gradient(160deg,#18265A,#0C1638);clip-path:polygon(0 0,50% 54%,100% 0,100% 100%,0 100%)}
+.env-flap{position:absolute;left:0;right:0;top:0;height:60%;z-index:4;background:linear-gradient(180deg,#1E2F6A,#122050);clip-path:polygon(0 0,100% 0,50% 100%);transform-origin:top center;transition:transform .7s cubic-bezier(.5,0,.3,1),z-index 0s .35s}
+.env-pocket::after,.env-flap::after{content:"";position:absolute;inset:0;background:radial-gradient(1px 1px at 20% 70%,#fff8,transparent),radial-gradient(1px 1px at 70% 80%,#fff6,transparent),radial-gradient(1.5px 1.5px at 85% 60%,#f3dc9e,transparent),radial-gradient(1px 1px at 40% 90%,#fff5,transparent)}
+.seal{position:absolute;left:50%;top:60%;z-index:5;width:74px;height:74px;margin:-37px 0 0 -37px;border-radius:50%;display:grid;place-items:center;
+  background:radial-gradient(circle at 35% 30%,#e5c98f,#b08a4a 60%,#8a6a33);box-shadow:0 4px 12px rgba(0,0,0,.45),inset 0 -3px 6px rgba(0,0,0,.25),inset 0 2px 4px rgba(255,255,255,.35);
+  font-family:var(--serif);font-weight:600;font-size:26px;color:#5c4520;transition:transform .5s,opacity .4s}
+.seal::after{content:"";position:absolute;inset:7px;border-radius:50%;border:1px dashed rgba(92,69,32,.5)}
+.envelope.open .seal{transform:scale(.6) translateY(-20px);opacity:0}
+.envelope.open .env-flap{transform:rotateX(180deg);z-index:1}
+.envelope.open .letter{transform:translateY(-52%)}
+.hint{margin-top:28px;color:var(--ivory);text-shadow:0 1px 3px rgba(5,10,28,.9),0 0 18px rgba(5,10,28,.9);font-size:14px;letter-spacing:.08em;display:grid;gap:14px;justify-items:center}
+.hint .pulse{width:8px;height:8px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 0 rgba(201,169,110,.6);animation:pulse 2s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 14px rgba(201,169,110,0)}100%{box-shadow:0 0 0 0 rgba(201,169,110,0)}}
+.intro.opened .hint{visibility:hidden}
+.ghost{position:fixed;z-index:45;border-radius:4px;pointer-events:none;background:var(--ivory);border:1px solid rgba(212,176,106,.8);
+  transition:background 1s,box-shadow 1s,opacity .35s;box-shadow:0 30px 60px -20px rgba(0,0,0,.6)}
+.ghost.dark{background:#0E1638;box-shadow:0 0 90px -20px rgba(212,176,106,.45)}
+
+/* ---------- 2. Invitation card ---------- */
+.invite{padding-block:24px 96px}
+.card{max-width:720px;margin:0 auto;position:relative;text-align:center;border-radius:4px;
+  padding:clamp(30px,6vw,64px) clamp(20px,6vw,64px);
+  background:linear-gradient(180deg,rgba(24,36,84,.62),rgba(14,22,56,.7));backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  box-shadow:0 40px 90px -30px rgba(0,0,0,.7),0 0 90px -20px rgba(212,176,106,.3);transition:opacity .3s}
+.card::before{content:"";position:absolute;inset:12px;border:1px solid rgba(212,176,106,.8);pointer-events:none}
+.card::after{content:"";position:absolute;inset:17px;border:1px solid rgba(212,176,106,.28);pointer-events:none}
+.card > *{position:relative;z-index:1}
+.card.arriving{opacity:0}
+.card.arrived{animation:arrive 1.4s ease-out}
+@keyframes arrive{0%{box-shadow:0 0 0 0 rgba(240,220,166,.6),0 40px 90px -30px #000}100%{box-shadow:0 0 0 30px rgba(240,220,166,0),0 40px 90px -30px #000}}
+.laurel{width:120px;height:auto;margin:0 auto 10px;display:block;color:var(--gold)}
+.kicker{font-size:11px;letter-spacing:.34em;text-transform:uppercase;color:var(--gold);font-weight:500}
+.card .guest-name{font-family:var(--serif);font-size:clamp(30px,5vw,40px);font-weight:600;color:var(--gold-soft);margin-top:14px}
+.card .lead{font-family:var(--serif);font-size:20px;color:var(--muted);margin:14px auto 0;max-width:40ch;line-height:1.5}
+.card .name{font-family:var(--serif);font-weight:600;font-size:clamp(42px,7vw,64px);line-height:1.05;margin-top:12px;filter:drop-shadow(0 0 20px rgba(240,210,140,.22))}
+.card .major{font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-top:8px}
+.divider{display:flex;align-items:center;gap:14px;justify-content:center;margin:30px auto;color:var(--gold);max-width:320px}
+.divider::before,.divider::after{content:"";flex:1;height:1px;background:rgba(212,176,106,.5)}
+.when-where{display:grid;grid-template-columns:1fr auto 1fr;gap:22px;align-items:center}
+.when-where .col{display:grid;gap:4px}
+.when-where .lbl{font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);font-weight:500}
+.when-where .big{font-family:var(--serif);font-size:26px;font-weight:600;line-height:1.15;color:var(--ivory)}
+.when-where .sm{font-size:14px;color:var(--muted)}
+.date-block{border-inline:1px solid rgba(212,176,106,.5);padding-inline:24px}
+.date-block .day{font-family:var(--serif);font-size:68px;font-weight:600;line-height:1;font-variant-numeric:lining-nums}
+.date-block .mo{font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--muted)}
+.countdown{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;max-width:380px;margin:30px auto 0}
+.cd{border:1px solid var(--line);border-radius:6px;padding:10px 4px 6px;background:rgba(10,18,48,.35)}
+.cd b{display:block;font-family:var(--serif);font-weight:500;font-size:30px;line-height:1;color:var(--ivory);font-variant-numeric:tabular-nums lining-nums}
+.cd span{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.cd-label{font-size:12px;color:var(--muted);margin-top:22px;letter-spacing:.06em}
+.schedule{margin:30px auto 0;max-width:420px;text-align:left}
+.schedule div{display:grid;grid-template-columns:70px 1fr;gap:16px;padding:10px 0;border-bottom:1px dotted rgba(212,176,106,.45)}
+.schedule div:last-child{border-bottom:0}
+.schedule b{font-family:var(--serif);font-weight:600;font-size:19px;font-variant-numeric:tabular-nums lining-nums;color:var(--gold)}
+.schedule span{font-size:15px}
+.dress{margin-top:22px;font-size:14px;color:var(--muted)}
+.dress b{font-weight:500;color:var(--ivory)}
+.card-actions{margin-top:30px;display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.copy-note{font-size:12px;color:var(--muted);margin-top:10px;min-height:1.4em}
+
+/* ---------- 3. RSVP ---------- */
+.rsvp-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:56px;align-items:center}
+.rsvp-copy{display:grid;gap:16px}
+.rsvp-copy h2{font-size:clamp(40px,6vw,60px);line-height:1.02}
+.rsvp-copy h2 em{color:var(--gold-soft)}
+.rsvp-copy p{color:var(--muted);max-width:38ch}
+.panel{border:1px solid var(--line);border-radius:10px;padding:32px;background:var(--glass);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+form{display:grid;gap:18px}
+label{display:grid;gap:7px;font-size:13px;color:var(--muted);letter-spacing:.04em}
+input,textarea,select{font:inherit;font-size:15px;font-weight:400;color:var(--ivory);background:rgba(40,60,110,.32);border:1px solid var(--line);border-radius:6px;padding:12px 14px;width:100%}
+input:focus,textarea:focus,select:focus{outline:none;border-color:var(--gold)}
+textarea{resize:vertical;min-height:96px}
+.choice{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.choice input{position:absolute;opacity:0;pointer-events:none}
+.choice label{display:flex;align-items:center;justify-content:center;padding:12px;border:1px solid var(--line);border-radius:6px;cursor:pointer;color:var(--text);font-size:14px;text-align:center;transition:.2s}
+.choice label:has(input:checked){background:var(--gold);border-color:var(--gold);color:var(--navy);font-weight:500}
+.choice label:has(input:focus-visible){outline:2px solid var(--gold-soft);outline-offset:2px}
+.form-row{display:grid;grid-template-columns:1fr 110px;gap:12px}
+.form-error{color:#F2B1A6;font-size:13px;margin:0}
+.form-error:empty{display:none}
+.thanks-msg{display:grid;gap:10px;text-align:center;padding:24px 6px}
+.thanks-msg h4{font-family:var(--serif);font-size:30px;font-weight:500;margin:0;color:var(--gold-soft)}
+.thanks-msg p{color:var(--muted)}
+.demo-note{font-size:12px;color:var(--muted);opacity:.8;margin-top:14px}
+
+/* ---------- 4. Story ---------- */
+.story-open{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:56px;align-items:center;margin-bottom:96px}
+.portrait{position:relative;aspect-ratio:4/5;max-width:340px;width:100%;margin:0 auto;border-radius:200px 200px 8px 8px;border:1px solid var(--gold);padding:12px;box-shadow:0 0 60px -12px rgba(212,176,106,.35)}
+.portrait-inner{width:100%;height:100%;border-radius:190px 190px 4px 4px;background:linear-gradient(180deg,#141F45,#070D24);display:grid;place-items:center;align-content:center;gap:14px;color:var(--muted);font-size:13px;text-align:center}
+.portrait-inner svg{width:90px;height:auto}
+.portrait .tag{position:absolute;bottom:-18px;left:50%;transform:translateX(-50%);white-space:nowrap;background:var(--navy);border:1px solid var(--gold);color:var(--gold-soft);border-radius:999px;padding:6px 18px;font-size:12px;letter-spacing:.24em;text-transform:uppercase}
+.story-text{display:grid;gap:22px}
+.story-text h2{font-size:clamp(40px,6vw,64px);line-height:1}
+.story-text .big-num{font-family:var(--serif);font-size:clamp(76px,11vw,128px);line-height:.85;font-weight:500;color:transparent;-webkit-text-stroke:1px var(--gold);font-variant-numeric:lining-nums}
+.story-text p{font-family:var(--serif);font-size:23px;line-height:1.5;color:var(--text);max-width:34ch}
+.story-text .facts{font-family:var(--sans);font-size:13px;letter-spacing:.08em;color:var(--muted)}
+.chapters{display:grid;gap:110px}
+.chapter{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:48px;align-items:center}
+.chapter:nth-child(even) .ch-text{order:2}
+.ch-text{display:grid;gap:10px}
+.ch-year{font-family:var(--serif);font-size:clamp(72px,10vw,120px);line-height:.85;font-weight:500;color:transparent;-webkit-text-stroke:1px var(--gold);font-variant-numeric:lining-nums}
+.ch-text h3{font-size:clamp(28px,3.4vw,36px);line-height:1.15}
+.ch-text p{color:var(--muted);max-width:42ch}
+.strip{display:flex;gap:18px;overflow-x:auto;padding:14px 6px 22px;scroll-snap-type:x mandatory;scrollbar-width:thin;scrollbar-color:var(--line) transparent}
+.pol{flex:0 0 auto;width:190px;scroll-snap-align:start;border:0;cursor:pointer;text-align:left;font:inherit;background:var(--ivory);color:var(--ink);padding:9px 9px 12px;border-radius:2px;
+  box-shadow:0 18px 30px -18px rgba(0,0,0,.8);transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+.pol:nth-child(3n+1){transform:rotate(-2deg)}
+.pol:nth-child(3n+2){transform:rotate(1.4deg) translateY(10px)}
+.pol:nth-child(3n){transform:rotate(-.6deg)}
+.pol:hover{transform:rotate(0) translateY(-4px)}
+.pol .ph{display:grid;place-items:center;align-content:center;gap:6px;aspect-ratio:4/5;background:linear-gradient(160deg,var(--navy-3),var(--navy));color:var(--muted);font-size:11px;text-align:center;overflow:hidden}
+.pol .ph svg{width:26px;height:26px;color:var(--gold)}
+.pol .ph{position:relative}
+.pol .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.pol b{display:block;font-family:var(--script);font-weight:600;font-size:19px;line-height:1.2;padding:10px 3px 0}
+.strip-note{text-align:center;color:var(--muted);font-size:13px;margin-top:40px}
+
+.then-now{max-width:780px;margin:120px auto 0;display:grid;gap:18px;text-align:center}
+.then-now h3{font-size:clamp(32px,4vw,42px)}
+.then-now > p{color:var(--muted)}
+.compare{position:relative;aspect-ratio:4/5;width:min(460px,100%);margin:0 auto;border:1px solid var(--gold);padding:10px;border-radius:4px;user-select:none;touch-action:none;text-align:center}
+.compare .layer{position:absolute;inset:10px;display:grid;place-items:center;align-content:center;gap:10px;overflow:hidden;color:var(--muted);font-size:13px}
+.compare .layer img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.compare .then{background:linear-gradient(160deg,#2a2a36,#171a26)}
+.compare .now{background:linear-gradient(160deg,var(--navy-3),var(--navy));clip-path:inset(0 0 0 var(--pos,50%))}
+.compare .yr{position:absolute;top:14px;font-family:var(--serif);font-size:28px;color:var(--ivory);z-index:2;text-shadow:0 2px 10px rgba(0,0,0,.6);pointer-events:none}
+.compare .then .yr{left:18px}.compare .now .yr{right:18px}
+.compare .handle{position:absolute;top:10px;bottom:10px;left:calc(10px + (100% - 20px) * var(--p,.5));width:2px;background:var(--gold);z-index:3;pointer-events:none}
+.compare .handle::after{content:"‹ ›";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:42px;height:42px;border-radius:50%;background:var(--gold);color:var(--navy);display:grid;place-items:center;font-size:18px;font-weight:500;letter-spacing:4px}
+.compare input[type=range]{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;z-index:4;margin:0}
+.compare:has(input:focus-visible) .handle::after{outline:2px solid var(--ivory);outline-offset:3px}
+.tn-actions{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+
+.lightbox{position:fixed;inset:0;z-index:70;background:rgba(6,12,26,.94);display:grid;place-items:center;padding:24px}
+.lightbox figure{margin:0;max-width:min(900px,100%);display:grid;gap:14px;text-align:center}
+.lightbox img{max-height:75vh;width:auto;max-width:100%;margin:0 auto;border:8px solid var(--ivory);border-radius:2px}
+.lightbox figcaption{font-family:var(--script);font-size:28px;color:var(--gold-soft)}
+.lightbox .lb-row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+
+/* ---------- 5. Thanks ---------- */
+.thanks-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:end;margin-bottom:44px}
+.thanks-head h2{font-size:clamp(40px,6vw,60px);line-height:1.02}
+.thanks-head p{color:var(--muted)}
+.thanks-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.flip{border:0;padding:0;background:none;color:inherit;text-align:left;cursor:pointer;perspective:1200px;font:inherit}
+.flip-inner{display:grid;transition:transform .8s cubic-bezier(.3,.7,.2,1);transform-style:preserve-3d;min-height:320px}
+.flip.flipped .flip-inner{transform:rotateY(180deg)}
+.face{grid-area:1/1;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:8px;padding:30px 26px;display:grid;align-content:space-between;gap:20px}
+.front{background:linear-gradient(170deg,rgba(28,38,84,.85),rgba(10,16,44,.9));border:1px solid var(--line)}
+.front .icon{width:48px;height:48px;color:var(--gold)}
+.front h3{font-size:30px}
+.front .who{font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold)}
+.front .tap{font-size:13px;color:var(--muted)}
+.back{background:var(--ivory);color:var(--ink);transform:rotateY(180deg)}
+.back p{font-family:var(--serif);font-size:19px;line-height:1.5;font-style:italic}
+.back .sign{font-family:var(--script);font-size:24px;color:var(--gold-deep)}
+.flip.parents{grid-column:span 3}
+.flip.parents .flip-inner{min-height:240px}
+.flip.parents .face{grid-template-columns:auto 1fr;align-items:center;gap:30px;padding:36px 40px}
+.flip.parents .back{grid-template-columns:1fr}
+.flip.parents .front h3{font-size:clamp(32px,4.5vw,44px)}
+
+/* ---------- 6. Guestbook ---------- */
+.gb-grid{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:48px;align-items:start}
+.gb-side{position:sticky;top:calc(env(safe-area-inset-top,0px) + 24px);display:grid;gap:18px}
+.gb-side h2{font-size:clamp(40px,6vw,58px);line-height:1.02}
+.gb-side > p{color:var(--muted)}
+.wall{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;align-content:start}
+.note{background:var(--ivory);color:var(--ink);border-radius:3px;padding:18px 18px 14px;display:grid;gap:10px;box-shadow:0 12px 24px -12px rgba(0,0,0,.6)}
+.note:nth-child(3n+1){transform:rotate(-1.2deg)}
+.note:nth-child(3n+2){transform:rotate(.8deg)}
+.note:nth-child(3n){transform:rotate(-.4deg)}
+.note p{font-family:var(--serif);font-size:17px;line-height:1.45;font-style:italic}
+.note .by{font-size:12px;letter-spacing:.08em;color:var(--gold-deep);font-weight:500;display:flex;justify-content:space-between;gap:8px}
+.note .by em{font-style:normal;color:var(--ink-soft);font-weight:400}
+.note.new{animation:drop .6s cubic-bezier(.2,.8,.2,1)}
+@keyframes drop{from{transform:translateY(-16px) rotate(-3deg);opacity:.2}}
+.wall-empty{grid-column:1/-1;color:var(--muted);font-style:italic;text-align:center;padding:40px 0}
+
+/* ---------- 7. Finale (dawn) ---------- */
+.finale{text-align:center;padding-block:140px 220px}
+.finale .label{color:#FFE6B8}
+.finale h2{font-size:clamp(42px,7vw,76px);line-height:1.04;max-width:16ch;margin:22px auto 0;text-shadow:0 2px 30px rgba(40,20,60,.45)}
+.finale h2 em{color:#FFE6B8}
+.finale p{color:#F3E4E4;max-width:46ch;margin:24px auto 36px;text-shadow:0 1px 14px rgba(40,20,60,.5)}
+.cap-btn svg{width:22px;height:22px}
+footer{padding-block:0 36px;text-align:center;color:var(--ivory);text-shadow:0 1px 10px rgba(30,12,30,.85);font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:500}
+
+/* ---------- Floating RSVP bar & music ---------- */
+.fab{position:fixed;left:50%;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:30;transform:translate(-50%,140%);transition:transform .45s cubic-bezier(.2,.8,.2,1);
+  display:flex;align-items:center;gap:12px;padding:8px 8px 8px 20px;border-radius:999px;background:rgba(8,12,34,.82);border:1px solid var(--line);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  box-shadow:0 14px 40px -12px rgba(0,0,0,.7);white-space:nowrap;max-width:calc(100% - 32px)}
+.fab.show{transform:translate(-50%,0)}
+.fab span{font-size:14px;color:var(--text)}
+.fab .btn{padding:9px 18px}
+.music{position:fixed;top:calc(14px + env(safe-area-inset-top,0px));right:14px;z-index:30;width:44px;height:44px;border-radius:50%;border:1px solid var(--line);
+  background:rgba(8,12,34,.7);color:var(--gold-soft);display:grid;place-items:center;cursor:pointer;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.music svg{width:20px;height:20px}
+.music .bars{display:none;gap:2px;align-items:end;height:16px}
+.music .bars i{width:3px;background:var(--gold-soft);border-radius:1px;animation:eq 1s ease-in-out infinite}
+.music .bars i:nth-child(2){animation-delay:.2s}.music .bars i:nth-child(3){animation-delay:.4s}
+@keyframes eq{0%,100%{height:4px}50%{height:16px}}
+.music[aria-pressed="true"] svg{display:none}
+.music[aria-pressed="true"] .bars{display:flex}
+
+/* ---------- Star cursor ---------- */
+.cur-dot,.cur-ring{position:fixed;left:0;top:0;pointer-events:none;z-index:61;opacity:0;transition:opacity .3s}
+.cur-dot{width:14px;height:14px;margin:-7px 0 0 -7px;
+  background:radial-gradient(circle,#FFF7DD 0 18%,transparent 20%),conic-gradient(from 45deg,transparent 0 20%,#F3DC9E 23% 27%,transparent 30% 45%,#F3DC9E 48% 52%,transparent 55% 70%,#F3DC9E 73% 77%,transparent 80% 95%,#F3DC9E 98%);
+  -webkit-mask:radial-gradient(circle,#000 30%,transparent 72%);mask:radial-gradient(circle,#000 30%,transparent 72%);filter:drop-shadow(0 0 6px rgba(255,236,190,.9))}
+.cur-ring{width:34px;height:34px;margin:-17px 0 0 -17px;border:1px solid rgba(240,220,166,.55);border-radius:50%;transition:opacity .3s,width .25s,height .25s,margin .25s,background .25s,border-color .25s}
+.cur-ring.hover{width:56px;height:56px;margin:-28px 0 0 -28px;background:rgba(212,176,106,.10);border-color:rgba(240,220,166,.9)}
+.cur-ring.down{width:24px;height:24px;margin:-12px 0 0 -12px}
+html.star-cursor.cur-on .cur-dot,html.star-cursor.cur-on .cur-ring{opacity:1}
+html.star-cursor.cur-text .cur-dot,html.star-cursor.cur-text .cur-ring{opacity:0}
+html.star-cursor,html.star-cursor *{cursor:none}
+html.star-cursor input:not([type=radio]):not([type=range]),html.star-cursor textarea,html.star-cursor select{cursor:text}
+html.star-cursor .compare input[type=range]{cursor:ew-resize}
+
+/* ---------- Theme switcher (preview only) ---------- */
+.theme-switch{position:fixed;top:calc(14px + env(safe-area-inset-top,0px));left:14px;z-index:31;display:flex;gap:4px;padding:4px;border-radius:999px;
+  background:rgba(8,12,34,.72);border:1px solid var(--line);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.theme-switch button{border:0;background:none;color:var(--muted);font:500 12px var(--sans);padding:7px 12px;border-radius:999px;cursor:pointer;white-space:nowrap}
+.theme-switch button[aria-pressed="true"]{background:var(--gold);color:var(--navy)}
+
+/* ================= Theme B · Giấy ngà nhũ vàng ================= */
+html.t-paper{color-scheme:light;
+  --text:#2E3550; --muted:#6E6A5E; --line:rgba(156,126,69,.38); --gold:#A8843F; --gold-soft:#8C6A2F; --ink-navy:#14213D;
+  --glass:rgba(255,252,245,.82);
+  --metal:linear-gradient(100deg,#6E5122 0%,#B8914A 22%,#D9B977 34%,#9C7A3C 48%,#6E5122 62%,#B8914A 80%,#D9B977 92%,#8C6A2F 100%)}
+html.t-paper body{background:#F4EDDE}
+.t-paper .sky-night{background:
+  radial-gradient(1.5px 1.5px at 12% 18%,rgba(184,145,74,.55),transparent),radial-gradient(1.5px 1.5px at 78% 9%,rgba(184,145,74,.5),transparent),
+  radial-gradient(1px 1px at 64% 32%,rgba(184,145,74,.45),transparent),radial-gradient(1.5px 1.5px at 30% 72%,rgba(184,145,74,.45),transparent),
+  radial-gradient(1px 1px at 88% 64%,rgba(184,145,74,.5),transparent),radial-gradient(1px 1px at 46% 52%,rgba(184,145,74,.35),transparent),
+  radial-gradient(ellipse 80% 60% at 50% 0%,#FBF6EA,transparent 70%),linear-gradient(180deg,#F6F0E2,#EFE6D2)}
+.t-paper .sky-dawn,.t-paper .sun,.t-paper #sky,.t-paper #skyfx,.t-paper .moon{display:none}
+.t-paper .campus-night{opacity:calc(var(--cn,0) * .5);mix-blend-mode:multiply;filter:sepia(.5) saturate(.55) brightness(1.05)}
+.t-paper .campus-dawn{opacity:calc(var(--cd,0) * .55);mix-blend-mode:multiply;filter:sepia(.45) saturate(.6) brightness(1.05)}
+.t-paper h1,.t-paper h2,.t-paper h3{color:var(--ink-navy)}
+.t-paper .intro .to{color:var(--muted)}
+.t-paper .intro .guest{color:var(--ink-navy)}
+.t-paper .hint{color:var(--ink-navy);text-shadow:0 0 12px #F4EDDE,0 0 4px #F4EDDE}
+.t-paper .env-back{box-shadow:0 30px 60px -24px rgba(20,33,61,.45)}
+.t-paper .card{background:#FFFCF5;color:var(--text);box-shadow:0 30px 70px -30px rgba(20,33,61,.35)}
+.t-paper .card::before{border-color:rgba(156,126,69,.85)}
+.t-paper .card::after{border-color:rgba(156,126,69,.3)}
+.t-paper .card .guest-name,.t-paper .when-where .big,.t-paper .dress b{color:var(--ink-navy)}
+.t-paper .card .name{filter:none}
+.t-paper .cd{background:#F6EFE0}
+.t-paper .cd b{color:var(--ink-navy)}
+.t-paper .schedule div{border-bottom-color:rgba(156,126,69,.4)}
+.t-paper .btn{color:var(--ink-navy);border-color:var(--gold)}
+.t-paper .btn:hover{background:rgba(168,132,63,.1)}
+.t-paper .btn.solid{background:var(--ink-navy);border-color:var(--ink-navy);color:#F0DCA6}
+.t-paper .btn.solid:hover{background:#22325A}
+.t-paper .panel{background:var(--glass)}
+.t-paper input,.t-paper textarea,.t-paper select{background:#FFFDF8;color:var(--ink-navy)}
+.t-paper .choice label{color:var(--ink-navy)}
+.t-paper .choice label:has(input:checked){background:var(--ink-navy);border-color:var(--ink-navy);color:#F0DCA6}
+.t-paper .form-error{color:#B4432F}
+.t-paper .portrait{box-shadow:0 20px 50px -24px rgba(20,33,61,.4)}
+.t-paper .portrait-inner{background:linear-gradient(180deg,#EDE4D0,#E2D6BC)}
+.t-paper .portrait .tag{background:#FFFCF5;color:var(--ink-navy)}
+.t-paper .pol,.t-paper .note{background:#FFFDF8;box-shadow:0 16px 30px -18px rgba(20,33,61,.45)}
+.t-paper .front{background:#FFFCF5;box-shadow:0 16px 40px -26px rgba(20,33,61,.4)}
+.t-paper .back{background:var(--ink-navy);color:#F4EDDE}
+.t-paper .back .sign{color:#E9D29A}
+.t-paper .finale .label{color:var(--gold)}
+.t-paper .finale h2,.t-paper .finale p{text-shadow:none}
+.t-paper .finale h2 em{color:var(--gold-soft)}
+.t-paper .finale p{color:var(--text)}
+.t-paper footer{color:var(--ink-navy);text-shadow:none}
+.t-paper .fab{background:rgba(20,33,61,.92)}
+.t-paper .fab span{color:#F4EDDE}
+.t-paper .music,.t-paper .theme-switch{background:rgba(255,252,245,.85);color:var(--ink-navy)}
+.t-paper .theme-switch button[aria-pressed="true"]{background:var(--ink-navy);color:#F0DCA6}
+.t-paper .cur-ring{border-color:rgba(156,126,69,.7)}
+.t-paper .ghost.dark{background:#FFFCF5}
+
+/* ================= Theme C · Chòm sao Bách Khoa ================= */
+html.t-stars{--accent:#7DB7FF;--accent-soft:#CFE3FF;--line:rgba(125,183,255,.28);--muted:#9FB3D9;--mono:"JetBrains Mono",ui-monospace,Menlo,monospace}
+.t-stars .sky-night{background:
+  radial-gradient(ellipse 70% 45% at 15% 0%,rgba(60,90,200,.28),transparent 70%),
+  radial-gradient(ellipse 60% 40% at 90% 40%,rgba(30,120,200,.22),transparent 70%),
+  linear-gradient(180deg,#040817 0%,#0A1532 55%,#0E1D44 100%)}
+.t-stars .sky-dawn,.t-stars .sun{display:none}
+.t-stars .label,.t-stars .kicker,.t-stars .intro-crest,.t-stars .when-where .lbl,.t-stars .cd span,.t-stars .date-block .mo,.t-stars .facts,.t-stars .who,.t-stars .portrait .tag{font-family:var(--mono);letter-spacing:.12em;text-transform:none}
+.t-stars .label::before,.t-stars .kicker::before{content:"// ";opacity:.6}
+.t-stars .label,.t-stars .kicker,.t-stars .when-where .lbl,.t-stars .who{color:var(--accent)}
+.t-stars .ch-year,.t-stars .story-text .big-num{font-family:var(--mono);font-weight:400;-webkit-text-stroke:0;color:var(--accent);font-size:clamp(46px,7vw,84px);line-height:1}
+.t-stars .ch-year::before{content:"// ";color:var(--muted);opacity:.6}
+.t-stars .schedule b,.t-stars .cd b{font-family:var(--mono);font-weight:400}
+.t-stars .schedule b{color:var(--accent)}
+.t-stars .cd b{font-size:26px}
+.t-stars .card::before{border-color:rgba(125,183,255,.55)}
+.t-stars .card::after{border-color:rgba(212,176,106,.3)}
+.t-stars .card{box-shadow:0 40px 90px -30px #000,0 0 90px -20px rgba(125,183,255,.28)}
+.t-stars .btn{border-color:var(--accent);color:var(--accent-soft)}
+.t-stars .btn:hover{background:rgba(125,183,255,.12)}
+.t-stars .btn.solid{border-color:var(--gold);color:var(--navy)}
+.t-stars .pol b{font-family:var(--mono);font-weight:400;font-size:12px;line-height:1.4;padding-top:8px}
+.t-stars .intro .guest{color:#EAF2FF}
+.t-stars .portrait,.t-stars .compare{border-color:var(--accent)}
+.t-stars .compare .handle,.t-stars .compare .handle::after{background:var(--accent)}
+.t-stars .front .icon{color:var(--accent)}
+.t-stars .campus-night{filter:grayscale(.85) brightness(.5) contrast(1.15)}
+.t-stars .campus-dawn{display:none}
+.t-stars .finale h2 em{color:var(--accent-soft)}
+.t-stars .finale p{color:var(--muted)}
+.t-stars footer{color:var(--muted)}
+.t-stars .theme-switch button[aria-pressed="true"]{background:var(--accent);color:#040817}
+
+/* ---------- Responsive ---------- */
+@media (max-width:820px){
+  section{padding-block:72px}
+  .rsvp-grid,.story-open,.chapter,.thanks-head,.gb-grid{grid-template-columns:1fr;gap:32px}
+  .chapter:nth-child(even) .ch-text{order:0}
+  .chapters{gap:80px}
+  .story-open{margin-bottom:72px}
+  .portrait{max-width:260px}
+  .thanks-grid{grid-template-columns:1fr}
+  .flip.parents{grid-column:auto}
+  .flip.parents .face{grid-template-columns:1fr;padding:30px 26px}
+  .gb-side{position:static}
+  .pol{width:160px}
+  .sun{left:86%;width:200px;height:200px;margin-left:-100px;--rise:calc(100px + 30vh)}
+}
+@media (max-width:560px){
+  .when-where{grid-template-columns:1fr;gap:18px}
+  .date-block{border-inline:0;border-block:1px solid rgba(212,176,106,.5);padding:16px 0}
+  .wall{grid-template-columns:1fr}
+  .panel{padding:24px 20px}
+  .form-row{grid-template-columns:1fr}
+  .fab span{display:none}
+  .fab{padding:6px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{transition-duration:.01ms!important;animation:none!important}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="cap" viewBox="0 0 64 48">
+      <path d="M32 4 2 17l30 13 30-13L32 4Z" fill="currentColor"/>
+      <path d="M14 23v11c0 4 8 8 18 8s18-4 18-8V23l-18 8-18-8Z" fill="currentColor" opacity=".78"/>
+      <path d="M56 19v15" stroke="currentColor" stroke-width="2" fill="none"/>
+      <circle cx="56" cy="37" r="3" fill="currentColor"/>
+    </symbol>
+  </defs>
+</svg>
+
+<div class="sky sky-night" aria-hidden="true"></div>
+<canvas id="sky" aria-hidden="true"></canvas>
+<div class="sky sky-dawn" aria-hidden="true"></div>
+<div class="sun" aria-hidden="true"></div>
+<div class="campus campus-night" aria-hidden="true"></div>
+<div class="campus campus-dawn" aria-hidden="true"></div>
+<canvas id="skyfx" aria-hidden="true"></canvas>
+<canvas id="confetti" aria-hidden="true"></canvas>
+<canvas id="cursorfx" aria-hidden="true"></canvas>
+
+<button class="music" id="music" type="button" aria-pressed="false" aria-label="Bật nhạc nền">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 18V5l11-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="17" cy="16" r="3"/></svg>
+  <span class="bars" aria-hidden="true"><i></i><i></i><i></i></span>
+</button>
+
+<div class="theme-switch" id="themeSwitch" role="group" aria-label="Chọn theme" hidden>
+  <button type="button" data-t="dawn">Bình minh</button><button type="button" data-t="paper">Giấy ngà</button><button type="button" data-t="stars">Chòm sao</button>
+</div>
+
+<main>
+  <!-- 1. Envelope -->
+  <section class="intro wrap" id="intro">
+    <span class="moon" aria-hidden="true"></span>
+    <div class="intro-crest"><span class="bk-mark" aria-hidden="true"></span>ĐH Bách Khoa TP.HCM</div>
+    <p class="to">Thân gửi</p>
+    <p class="guest" id="guestTop">Quý khách</p>
+    <button class="envelope" id="envelope" type="button" aria-label="Mở thiệp mời">
+      <span class="env-back"></span>
+      <span class="letter">
+        <img src="/assets/bk-logo.png" alt="" width="30" height="30">
+        <small>Thiệp mời · Lễ tốt nghiệp</small>
+        <strong>Nông Minh Chiến</strong>
+        <span>Chủ nhật, 25 · 10 · 2026</span>
+      </span>
+      <span class="env-pocket"></span>
+      <span class="env-flap"></span>
+      <span class="seal">MC</span>
+    </button>
+    <div class="hint"><span class="pulse"></span>Chạm vào con dấu để mở thiệp</div>
+  </section>
+
+  <!-- 2. Invitation -->
+  <section class="invite" id="invite">
+    <div class="wrap">
+      <div class="card" id="card">
+        <div class="crest" aria-hidden="true"><span class="bk-mark"></span><svg class="laurel" viewBox="0 0 120 40" fill="currentColor" id="laurel"></svg></div>
+        <p class="kicker">Trân trọng kính mời</p>
+        <p class="guest-name" id="inviteTo">Quý khách</p>
+        <p class="lead">đến chung vui cùng mình trong ngày đánh dấu cột mốc quan trọng nhất của thời sinh viên, Lễ Tốt Nghiệp của</p>
+        <p class="name metal">Nông Minh Chiến</p>
+        <p class="major">Kỹ sư · Khoa học Máy tính</p>
+        <div class="divider"><svg width="22" height="16" viewBox="0 0 64 48"><use href="#cap"/></svg></div>
+        <div class="when-where">
+          <div class="col"><span class="lbl">Thời gian</span><span class="big">08:00 sáng</span><span class="sm">Đón khách từ 07:30</span></div>
+          <div class="col date-block"><span class="mo">Chủ nhật</span><span class="day metal">25</span><span class="mo">Tháng 10 · 2026</span></div>
+          <div class="col"><span class="lbl">Địa điểm</span><span class="big">ĐH Bách Khoa</span><span class="sm">268 Lý Thường Kiệt, Phường Diên Hồng, TP. Hồ Chí Minh</span></div>
+        </div>
+        <p class="cd-label" id="cdLabel">Còn lại đến giờ làm lễ</p>
+        <div class="countdown" role="timer" aria-live="off">
+          <div class="cd"><b id="cdD">00</b><span>Ngày</span></div>
+          <div class="cd"><b id="cdH">00</b><span>Giờ</span></div>
+          <div class="cd"><b id="cdM">00</b><span>Phút</span></div>
+          <div class="cd"><b id="cdS">00</b><span>Giây</span></div>
+        </div>
+        <div class="schedule" aria-label="Lịch trình buổi lễ">
+          <div><b>07:30</b><span>Đón khách tại cổng Lý Thường Kiệt</span></div>
+          <div><b>08:00</b><span>Khai mạc buổi lễ</span></div>
+          <div><b>09:00</b><span>Trao bằng tốt nghiệp</span></div>
+          <div><b>10:30</b><span>Chụp ảnh lưu niệm tại sân trường</span></div>
+        </div>
+        <p class="dress"><b>Trang phục:</b> lịch sự, gợi ý tông trắng hoặc xanh navy</p>
+        <div class="card-actions">
+          <a class="btn solid" href="#rsvp">Xác nhận tham dự</a>
+          <a class="btn" id="mapLink" target="_blank" rel="noopener">Chỉ đường</a>
+          <a class="btn" id="calLink" target="_blank" rel="noopener">Thêm vào lịch</a>
+          <button class="btn" id="copyAddr" type="button">Sao chép địa chỉ</button>
+        </div>
+        <p class="copy-note" id="copyNote" aria-live="polite"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. RSVP -->
+  <section id="rsvp">
+    <div class="wrap rsvp-grid">
+      <div class="rsvp-copy">
+        <span class="label">Hồi âm</span>
+        <h2>Bạn sẽ <em>đến</em> chứ?</h2>
+        <p>Cho mình biết trước ngày 18/10 để mình chuẩn bị chỗ ngồi và một bó hoa cảm ơn thật chu đáo nhé.</p>
+      </div>
+      <div class="panel">
+        <form id="rsvpForm">
+          <label for="rName">Họ và tên<input id="rName" name="name" required placeholder="Nguyễn Văn A" autocomplete="name"></label>
+          <div class="choice" role="radiogroup" aria-label="Bạn có tham dự không">
+            <label><input type="radio" name="attend" value="yes" id="rYes" checked><span>Mình sẽ đến</span></label>
+            <label><input type="radio" name="attend" value="no" id="rNo"><span>Tiếc quá, không đến được</span></label>
+          </div>
+          <div class="form-row">
+            <label for="rWith">Đi cùng ai<input id="rWith" name="with" placeholder="Gia đình, bạn bè…"></label>
+            <label for="rCount">Số người<select id="rCount" name="count"><option>1</option><option>2</option><option>3</option><option>4</option><option>5+</option></select></label>
+          </div>
+          <p class="form-error" id="rsvpError" role="alert"></p>
+          <button class="btn solid" type="submit">Gửi xác nhận</button>
+        </form>
+        <div class="thanks-msg" id="rsvpThanks" hidden>
+          <h4 id="rsvpTitle">Cảm ơn bạn!</h4>
+          <p id="rsvpText">Hẹn gặp bạn vào sáng Chủ nhật, 25/10.</p>
+          <button class="btn" type="button" id="rsvpAgain">Sửa phản hồi</button>
+        </div>
+        <p class="demo-note">Bản demo: phản hồi chưa được gửi đi, chỉ hiển thị trên máy bạn.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Story -->
+  <section id="story">
+    <div class="wrap">
+      <div class="story-open">
+        <div class="portrait">
+          <div class="portrait-inner">
+            <svg viewBox="0 0 64 48" style="color:var(--gold)"><use href="#cap"/></svg>
+            <span>Ảnh chân dung lễ phục<br>đặt tại đây</span>
+          </div>
+          <span class="tag">Class of 2026</span>
+        </div>
+        <div class="story-text">
+          <span class="label">Câu chuyện bốn năm</span>
+          <span class="big-num" id="daysBig">1.511</span>
+          <p>ngày trước, mình bước chân vào Bách Khoa với chiếc ba lô và thật nhiều bỡ ngỡ. Đây là những gì đã xảy ra từ đó.</p>
+          <span class="facts">128 tín chỉ · 1 luận văn · vô số đêm debug</span>
+        </div>
+      </div>
+
+      <div class="chapters">
+        <article class="chapter">
+          <div class="ch-text"><span class="ch-year">2022</span><h3>Tân sinh viên K22</h3><p>Lần đầu bước vào Bách Khoa, lạc đường giữa các toà nhà và bắt đầu làm quen với những người bạn đầu tiên.</p></div>
+          <div class="strip" data-year="2022"></div>
+        </article>
+        <article class="chapter">
+          <div class="ch-text"><span class="ch-year">2023</span><h3>Những mùa thi đại cương</h3><p>Giải tích, Vật lý, Đại số tuyến tính. Những đêm ôn bài ở thư viện và những dòng code đầu tiên chạy được.</p></div>
+          <div class="strip" data-year="2023"></div>
+        </article>
+        <article class="chapter">
+          <div class="ch-text"><span class="ch-year">2024</span><h3>Chọn con đường Khoa học Máy tính</h3><p>Cấu trúc dữ liệu, Hệ điều hành, Mạng máy tính. Đồ án đầu tiên và những lần debug xuyên đêm cùng nhóm.</p></div>
+          <div class="strip" data-year="2024"></div>
+        </article>
+        <article class="chapter">
+          <div class="ch-text"><span class="ch-year">2025</span><h3>Thực tập tại GeekUp</h3><p>Geek Internship: thực tập backend, lần đầu viết code cho người dùng thật, học cách làm việc nhóm, nhận review và trưởng thành hơn mỗi ngày. Thêm một học bổng để tự thưởng cho mình.</p></div>
+          <div class="strip" data-year="2025"></div>
+        </article>
+        <article class="chapter">
+          <div class="ch-text"><span class="ch-year">2026</span><h3>Năm cuối: luận văn, bạn bè &amp; VNG</h3><p>Bài báo khoa học đầu tay, đứng trước hội đồng bảo vệ luận văn, một chuyến đi cuối năm tư cùng hội bạn, và công việc đầu tiên tại VNG. Rồi chiếc mũ được tung lên.</p></div>
+          <div class="strip" data-year="2026"></div>
+        </article>
+      </div>
+      <p class="strip-note">Chạm vào ảnh để xem lớn hơn.</p>
+
+      <div class="then-now">
+        <h3>Ngày ấy &amp; Bây giờ</h3>
+        <p>Kéo thanh ở giữa để thấy bốn năm đã thay đổi mình thế nào.</p>
+        <div class="compare" id="compare" style="--pos:50%;--p:.5">
+          <div class="layer then" id="thenLayer"><img src="/assets/photos/then-2022.jpg?v=2" alt="Năm 2022" style="object-position:82% 40%"><span class="yr">2022</span></div>
+          <div class="layer now" id="nowLayer"><img src="/assets/photos/now-2026.jpg?v=2" alt="Năm 2026" style="inset:0 -30% 0 auto;width:130%;object-position:50% 16%"><span class="yr">2026</span></div>
+          <span class="handle"></span>
+          <input type="range" id="cmpRange" min="0" max="100" value="50" aria-label="Kéo để so sánh năm 2022 và 2026">
+        </div>
+        
+      </div>
+    </div>
+  </section>
+  <input type="file" id="filePick" accept="image/*" hidden>
+  <div class="lightbox" id="lightbox" hidden role="dialog" aria-modal="true" aria-label="Xem ảnh">
+    <figure>
+      <img id="lbImg" alt="">
+      <figcaption id="lbCap"></figcaption>
+      <div class="lb-row">
+        <button class="btn" type="button" id="lbPrev">← Trước</button>
+        <button class="btn" type="button" id="lbClose">Đóng</button>
+        <button class="btn" type="button" id="lbNext">Sau →</button>
+      </div>
+    </figure>
+  </div>
+
+  <!-- 6. Guestbook -->
+  <section id="guestbook">
+    <div class="wrap gb-grid">
+      <div class="gb-side">
+        <span class="label">Sổ lưu bút</span>
+        <h2>Để lại vài dòng nhé</h2>
+        <p>Một lời chúc nhỏ sẽ là món quà lớn. Mọi lời chúc đều được dán lên bức tường bên cạnh.</p>
+        <form id="gbForm">
+          <label for="gName">Tên của bạn<input id="gName" required placeholder="Tên hoặc biệt danh" maxlength="60"></label>
+          <label for="gMsg">Lời chúc<textarea id="gMsg" required maxlength="280" placeholder="Chúc mừng tân kỹ sư…"></textarea></label>
+          <p class="form-error" id="gbError" role="alert"></p>
+          <button class="btn solid" type="submit">Dán lên tường</button>
+        </form>
+        <p class="demo-note">Bản demo: lời chúc chỉ lưu trên máy bạn.</p>
+      </div>
+      <div class="wall" id="wall"></div>
+    </div>
+  </section>
+
+  <!-- 7. Finale -->
+  <section class="finale">
+    <div class="wrap">
+      <span class="label" id="finaleLabel">Bình minh</span>
+      <h2>Đêm đã qua. <em>Một chương mới</em> bắt đầu.</h2>
+      <p>Cảm ơn vì đã là một phần trong hành trình của mình. Hẹn gặp bạn ở Bách Khoa, nơi mọi thứ bắt đầu.</p>
+      <button class="btn solid cap-btn" id="tossCap" type="button"><svg viewBox="0 0 64 48"><use href="#cap"/></svg>Tung mũ chúc mừng</button>
+    </div>
+  </section>
+</main>
+<footer><img class="foot-logo" src="/assets/bk-logo.png" alt="Logo Trường Đại học Bách Khoa TP.HCM" width="34" height="34">Nông Minh Chiến · Khoa học Máy tính · Bách Khoa 2022 – 2026</footer>
+
+<div class="fab" id="fab" aria-hidden="true">
+  <span>Bạn sẽ đến dự chứ?</span>
+  <a class="btn solid" href="#rsvp" tabindex="-1">Xác nhận tham dự</a>
+</div>
+
+<script>
+(function(){
+  const EVENT = new Date("2026-10-25T08:00:00+07:00");
+  const START = new Date("2022-09-05T00:00:00+07:00");
+  const ADDRESS = "268 Lý Thường Kiệt, Phường Diên Hồng, TP. Hồ Chí Minh";
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const $ = id => document.getElementById(id);
+  const root = document.documentElement;
+  const THEMES = ["dawn","paper","stars"];
+  let THEME = "dawn";
+  try { const q = new URLSearchParams(location.search).get("theme"); if(location.pathname.startsWith("/preview") && THEMES.includes(q)) THEME = q; } catch(e){}
+  function applyTheme(t){
+    THEME = t; THEMES.forEach(x => root.classList.toggle("t-" + x, x === t));
+    document.querySelectorAll("#themeSwitch button").forEach(b => b.setAttribute("aria-pressed", b.dataset.t === t));
+    const fl = document.getElementById("finaleLabel"); if(fl) fl.textContent = t === "paper" ? "Lời cuối" : t === "stars" ? "return 0;" : "Bình minh";
+    if(typeof updateSky === "function") updateSky();
+  }
+  const store = {
+    get(k, d){ try { const v = localStorage.getItem(k); return v ? JSON.parse(v) : d; } catch(e){ return d; } },
+    set(k, v){ try { localStorage.setItem(k, JSON.stringify(v)); } catch(e){} }
+  };
+
+  /* ---- Personalised guest name: ?to=Cô Lan  or  #Co-Lan ---- */
+  function guestName(){
+    let n = "";
+    try { n = new URLSearchParams(location.search).get("to") || ""; } catch(e){}
+    if(!n && location.hash.length > 1){
+      const t = location.hash.slice(1);
+      if(!["intro","invite","rsvp","story","thanks","guestbook"].includes(t)) n = decodeURIComponent(t).replace(/[-_]+/g," ");
+    }
+    return n.trim().slice(0,40);
+  }
+  const g = guestName();
+  if(g){ $("guestTop").textContent = g; $("inviteTo").textContent = g; $("rName").value = g; }
+
+  /* ---- Links ---- */
+  $("mapLink").href = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent("Trường Đại học Bách Khoa, 268 Lý Thường Kiệt, TP. Hồ Chí Minh");
+  $("calLink").href = "https://calendar.google.com/calendar/render?" + new URLSearchParams({
+    action:"TEMPLATE", text:"Lễ tốt nghiệp Nông Minh Chiến", dates:"20261025T003000Z/20261025T040000Z",
+    location:"Trường Đại học Bách Khoa, " + ADDRESS, details:"Lễ tốt nghiệp Kỹ sư Khoa học Máy tính. Đón khách từ 07:30."
+  });
+  $("copyAddr").addEventListener("click", () => {
+    const text = "Trường Đại học Bách Khoa, " + ADDRESS;
+    try { navigator.clipboard.writeText(text).then(() => $("copyNote").textContent = "Đã sao chép địa chỉ.", () => $("copyNote").textContent = text); }
+    catch(e){ $("copyNote").textContent = text; }
+  });
+
+  /* ---- Days & countdown ---- */
+  $("daysBig").textContent = Math.round((EVENT - START) / 86400000).toLocaleString("vi-VN");
+  function tick(){
+    let diff = Math.max(0, EVENT - Date.now());
+    if(diff === 0) $("cdLabel").textContent = "Buổi lễ đã diễn ra. Cảm ơn bạn đã đến!";
+    const d = Math.floor(diff/86400000); diff -= d*86400000;
+    const h = Math.floor(diff/3600000); diff -= h*3600000;
+    const m = Math.floor(diff/60000); diff -= m*60000;
+    const s = Math.floor(diff/1000);
+    $("cdD").textContent = String(d).padStart(2,"0"); $("cdH").textContent = String(h).padStart(2,"0");
+    $("cdM").textContent = String(m).padStart(2,"0"); $("cdS").textContent = String(s).padStart(2,"0");
+  }
+  tick(); setInterval(tick, 1000);
+
+  /* ---- Laurel ---- */
+  (function(){
+    let out = "";
+    for(const side of [-1,1]) for(let i=0;i<7;i++){
+      const t = i/6, cx = 60 + side*(12 + t*40), cy = 34 - Math.sin(t*Math.PI)*18 - t*6, rot = side*(-60 + t*80);
+      out += `<ellipse cx="${cx.toFixed(1)}" cy="${cy.toFixed(1)}" rx="5.2" ry="2.1" transform="rotate(${rot.toFixed(0)} ${cx.toFixed(1)} ${cy.toFixed(1)})" opacity="${(.55+t*.45).toFixed(2)}"/>`;
+    }
+    $("laurel").innerHTML = out + `<circle cx="60" cy="34" r="2"/>`;
+  })();
+
+  /* ---- Fireworks engine ---- */
+  function makeFx(canvas){
+    const c = canvas.getContext("2d"); let parts = [], rockets = [], raf = 0;
+    function size(){ const d = devicePixelRatio || 1; canvas.width = innerWidth*d; canvas.height = innerHeight*d; c.setTransform(d,0,0,d,0,0); }
+    size(); addEventListener("resize", size);
+    const PAL = {
+      dawn: [["#F3DC9E","#FFF7DD","#D4AE63"],["#FFE9B8","#F6C77A","#FFFFFF"],["#E9D29A","#B9C8FF","#FFFFFF"],["#F7C9A8","#F3DC9E","#FFF2CA"]],
+      paper: [["#9C7A3C","#14213D","#B8914A"],["#8C6A2F","#C9A35A","#2A3A66"],["#B8914A","#6E5122","#14213D"]],
+      stars: [["#7DB7FF","#FFFFFF","#CFE3FF"],["#F3DC9E","#7DB7FF","#FFFFFF"],["#A9CCFF","#E9D29A","#FFFFFF"]]
+    };
+    function burst(x, y, o = {}){
+      const palettes = PAL[THEME] || PAL.dawn, pal = palettes[Math.floor(Math.random()*palettes.length)];
+      const n = o.n || 90, sp = o.speed || 4.2, ring = Math.random() < .35;
+      for(let i=0;i<n;i++){
+        const a = (i/n)*Math.PI*2 + Math.random()*.08, v = sp * (ring ? .92 + Math.random()*.1 : .35 + Math.random()*.75);
+        parts.push({x, y, vx:Math.cos(a)*v, vy:Math.sin(a)*v, life:0, max:55 + Math.random()*45, c:pal[i % pal.length], s:1 + Math.random()*1.6, fl:Math.random() < .4});
+      }
+      for(let i=0;i<14;i++) parts.push({x, y, vx:(Math.random()-.5)*1.4, vy:(Math.random()-.5)*1.4, life:0, max:30, c:THEME === "paper" ? "#B8914A" : "#FFFFFF", s:2.4});
+      go();
+    }
+    function launch(tx, ty, o = {}){ rockets.push({x: tx + (Math.random()-.5)*80, y: innerHeight + 10, tx, ty, o}); go(); }
+    function caps(x, y, n, power = 1){
+      for(let i=0;i<n;i++){
+        const a = -Math.PI/2 + (Math.random()-.5)*1.3, v = (8 + Math.random()*7) * power;
+        parts.push({x, y, vx:Math.cos(a)*v, vy:Math.sin(a)*v, life:0, max:150, cap:true, r:(Math.random()-.5)*1.2, vr:(Math.random()-.5)*.25, sc:.75 + Math.random()*.5});
+      }
+      go();
+    }
+    function go(){ if(!raf) raf = requestAnimationFrame(step); }
+    function drawCap(p){
+      c.save(); c.translate(p.x, p.y); c.rotate(p.r); c.scale(p.sc, p.sc); c.globalAlpha = Math.min(1,(p.max - p.life)/40);
+      c.fillStyle = "#0A1330"; c.strokeStyle = "#E9D29A"; c.lineWidth = 1.2;
+      c.beginPath(); c.moveTo(0,-9); c.lineTo(16,-2); c.lineTo(0,5); c.lineTo(-16,-2); c.closePath(); c.fill(); c.stroke();
+      c.fillRect(-8,1,16,6); c.strokeRect(-8,1,16,6);
+      c.strokeStyle = "#F3DC9E"; c.beginPath(); c.moveTo(12,-2); c.lineTo(12,10); c.stroke();
+      c.fillStyle = "#F3DC9E"; c.beginPath(); c.arc(12,11,1.8,0,7); c.fill();
+      c.restore();
+    }
+    function step(){
+      c.globalCompositeOperation = "destination-out"; c.fillStyle = "rgba(0,0,0,.2)"; c.fillRect(0,0,innerWidth,innerHeight);
+      c.globalCompositeOperation = THEME === "paper" ? "source-over" : "lighter";
+      rockets = rockets.filter(r => {
+        const dx = r.tx - r.x, dy = r.ty - r.y, d = Math.hypot(dx,dy);
+        if(d < 12){ burst(r.tx, r.ty, r.o); return false; }
+        const v = Math.max(6, d*.06); r.x += dx/d*v; r.y += dy/d*v;
+        c.fillStyle = THEME === "paper" ? "#9C7A3C" : "#FFE9B8"; c.beginPath(); c.arc(r.x, r.y, 1.8, 0, 7); c.fill();
+        return true;
+      });
+      parts = parts.filter(p => p.life < p.max);
+      for(const p of parts){
+        p.life++;
+        if(p.cap){ p.vy += .22; p.vx *= .99; p.x += p.vx; p.y += p.vy; p.r += p.vr; continue; }
+        p.vx *= .965; p.vy = p.vy*.965 + .045; p.x += p.vx; p.y += p.vy;
+        let a = 1 - p.life/p.max; if(p.fl && p.life > p.max*.5) a *= Math.random() < .5 ? .2 : 1;
+        c.globalAlpha = Math.max(0,a); c.fillStyle = p.c; c.beginPath(); c.arc(p.x, p.y, p.s, 0, 7); c.fill();
+      }
+      c.globalAlpha = 1;
+      const cs = parts.filter(p => p.cap);
+      if(cs.length){ c.globalCompositeOperation = "source-over"; cs.forEach(drawCap); }
+      if(parts.length || rockets.length) raf = requestAnimationFrame(step);
+      else { raf = 0; c.globalCompositeOperation = "source-over"; c.clearRect(0,0,innerWidth,innerHeight); }
+    }
+    return {burst, launch, caps};
+  }
+  const front = makeFx($("confetti")), back = makeFx($("skyfx"));
+  function celebrate(x, y, n, withCaps){
+    if(reduce) return;
+    front.burst(x, Math.max(80, y), {n: 110, speed: 5});
+    const shots = Math.max(2, Math.round(n/40));
+    for(let i=0;i<shots;i++) setTimeout(() => front.launch(innerWidth*(.15 + Math.random()*.7), innerHeight*(.12 + Math.random()*.3), {n: 90 + Math.random()*40}), 250 + i*380);
+    if(withCaps) front.caps(x, y, 14);
+  }
+
+  /* ---- Sky: stars, shooting stars, night → dawn ---- */
+  let starVis = 1;
+  (function(){
+    const cv = $("sky"), c = cv.getContext("2d");
+    let stars = [], shoot = null, W = 0, H = 0, nextShoot = performance.now() + 4000;
+    function size(){
+      const d = devicePixelRatio || 1; W = innerWidth; H = innerHeight; cv.width = W*d; cv.height = H*d; c.setTransform(d,0,0,d,0,0);
+      stars = Array.from({length: Math.min(420, Math.round(W*H/3600))}, () => ({x:Math.random()*W, y:Math.random()*H, r:Math.random() < .08 ? 1.5 + Math.random() : .4 + Math.random()*.9,
+        a:.3 + Math.random()*.7, sp:.5 + Math.random()*2, ph:Math.random()*7, warm:Math.random() < .25}));
+      if(reduce) draw(0);
+    }
+    function draw(t){
+      c.clearRect(0,0,W,H);
+      for(const s of stars){
+        const a = (reduce ? s.a : s.a * (.55 + .45*Math.sin(t/1000*s.sp + s.ph))) * starVis;
+        if(a < .02) continue;
+        c.globalAlpha = a; c.fillStyle = s.warm ? "#F3DC9E" : "#FFFFFF"; c.beginPath(); c.arc(s.x, s.y, s.r, 0, 7); c.fill();
+        if(s.r > 1.5){ c.globalAlpha = a*.25; c.fillRect(s.x - s.r*3, s.y - .3, s.r*6, .6); c.fillRect(s.x - .3, s.y - s.r*3, .6, s.r*6); }
+      }
+      c.globalAlpha = 1;
+      if(THEME === "stars") drawGraph(t);
+      if(!reduce){
+        if(!shoot && t > nextShoot && starVis > .5) shoot = {x:Math.random()*W*.7 + W*.2, y:Math.random()*H*.3, vx:-9 - Math.random()*4, vy:4 + Math.random()*2, life:0};
+        if(shoot){
+          shoot.life++; shoot.x += shoot.vx; shoot.y += shoot.vy;
+          const gr = c.createLinearGradient(shoot.x, shoot.y, shoot.x - shoot.vx*10, shoot.y - shoot.vy*10);
+          gr.addColorStop(0, `rgba(255,247,221,${.95*starVis})`); gr.addColorStop(1, "rgba(255,247,221,0)");
+          c.strokeStyle = gr; c.lineWidth = 1.6; c.beginPath(); c.moveTo(shoot.x, shoot.y); c.lineTo(shoot.x - shoot.vx*10, shoot.y - shoot.vy*10); c.stroke();
+          if(shoot.life > 60){ shoot = null; nextShoot = t + 6000 + Math.random()*7000; }
+        }
+        requestAnimationFrame(draw);
+      }
+    }
+    /* Constellations: bright stars become graph nodes; edges link near neighbours and the cursor */
+    let mx = -999, my = -999;
+    addEventListener("mousemove", e => { mx = e.clientX; my = e.clientY; }, {passive:true});
+    function drawGraph(t){
+      const nodes = stars.filter(s => s.r > 1.1).slice(0, 70);
+      const drift = reduce ? 0 : t/1000;
+      const pts = nodes.map((s,i) => ({x: s.x + Math.sin(drift*.15 + i)*6, y: s.y + Math.cos(drift*.12 + i*1.3)*6}));
+      c.lineWidth = .7;
+      for(let i=0;i<pts.length;i++){
+        for(let j=i+1;j<pts.length;j++){
+          const d = Math.hypot(pts[i].x - pts[j].x, pts[i].y - pts[j].y);
+          if(d < 150){ c.strokeStyle = `rgba(125,183,255,${(1 - d/150)*.38})`; c.beginPath(); c.moveTo(pts[i].x, pts[i].y); c.lineTo(pts[j].x, pts[j].y); c.stroke(); }
+        }
+        const dm = Math.hypot(pts[i].x - mx, pts[i].y - my);
+        if(dm < 200){ c.strokeStyle = `rgba(243,220,158,${(1 - dm/200)*.6})`; c.beginPath(); c.moveTo(pts[i].x, pts[i].y); c.lineTo(mx, my); c.stroke(); }
+        c.fillStyle = "#CFE3FF"; c.globalAlpha = .9; c.beginPath(); c.arc(pts[i].x, pts[i].y, 1.8, 0, 7); c.fill(); c.globalAlpha = 1;
+      }
+    }
+    size(); addEventListener("resize", size);
+    if(!reduce) requestAnimationFrame(draw);
+  })();
+  const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
+  const smooth = t => t*t*(3 - 2*t);
+  let skyQueued = false;
+  function updateSky(){
+    skyQueued = false;
+    const max = document.documentElement.scrollHeight - innerHeight;
+    const p = max > 0 ? scrollY / max : 0;
+    let dawn = smooth(clamp((p - .3) / .66, 0, 1)), sun = smooth(clamp((p - .82) / .18, 0, 1));
+    if(THEME !== "dawn"){ dawn = 0; sun = 0; }
+    root.style.setProperty("--dawn", dawn.toFixed(3));
+    root.style.setProperty("--sun", sun.toFixed(3));
+    const top = clamp(1 - scrollY / (innerHeight * 1.3), 0, 1), end = smooth(clamp((p - .78) / .22, 0, 1));
+    root.style.setProperty("--cn", (THEME === "stars" ? Math.max(top, end) : top).toFixed(3));
+    root.style.setProperty("--cd", smooth(clamp((p - .74) / .26, 0, 1)).toFixed(3));
+    starVis = 1 - dawn*.9;
+    updateFab();
+  }
+  addEventListener("scroll", () => { if(!skyQueued){ skyQueued = true; requestAnimationFrame(updateSky); } }, {passive:true});
+  addEventListener("resize", updateSky);
+
+  /* Ambient fireworks behind the opening screen */
+  const intro = $("intro");
+  if(!reduce){
+    let introVisible = true;
+    new IntersectionObserver(es => { introVisible = es[0].isIntersecting; }, {threshold:.25}).observe(intro);
+    setInterval(() => {
+      if(!introVisible || document.hidden || THEME === "paper") return;
+      const r = intro.getBoundingClientRect();
+      const side = Math.random() < .5 ? .08 + Math.random()*.25 : .67 + Math.random()*.25;
+      back.launch(innerWidth*side, Math.max(40, r.top + r.height*(.12 + Math.random()*.3)), {n: 60 + Math.random()*40, speed: 3.4});
+    }, 2300);
+  }
+
+  /* ---- Envelope: the letter flies out and becomes the invitation card ---- */
+  const env = $("envelope"), card = $("card");
+  const ease = t => t < .5 ? 4*t*t*t : 1 - Math.pow(-2*t + 2, 3)/2;
+  function letterToCard(){
+    const letter = env.querySelector(".letter"), r1 = letter.getBoundingClientRect();
+    const targetScroll = Math.max(0, card.getBoundingClientRect().top + scrollY - 24);
+    const startScroll = scrollY, cw = card.offsetWidth, ch = Math.min(card.offsetHeight, innerHeight - 48);
+    const cl = card.getBoundingClientRect().left;
+    if(reduce){ scrollTo({top: targetScroll, behavior: "instant"}); return; }
+    const ghost = document.createElement("div"); ghost.className = "ghost";
+    Object.assign(ghost.style, {left: r1.left + "px", top: r1.top + "px", width: r1.width + "px", height: r1.height + "px"});
+    document.body.append(ghost); card.classList.add("arriving");
+    requestAnimationFrame(() => ghost.classList.add("dark"));
+    const t0 = performance.now(), dur = 1100;
+    (function frame(t){
+      const k = Math.min(1, (t - t0) / dur), e = ease(k);
+      scrollTo({top: startScroll + (targetScroll - startScroll) * e, behavior: "instant"});
+      ghost.style.left = (r1.left + (cl - r1.left) * e) + "px";
+      ghost.style.top = (r1.top + (24 - r1.top) * e) + "px";
+      ghost.style.width = (r1.width + (cw - r1.width) * e) + "px";
+      ghost.style.height = (r1.height + (ch - r1.height) * e) + "px";
+      if(k < 1) return requestAnimationFrame(frame);
+      card.classList.remove("arriving"); card.classList.add("arrived");
+      ghost.style.opacity = "0"; setTimeout(() => ghost.remove(), 400);
+      const r = card.getBoundingClientRect();
+      celebrate(r.left + r.width/2, r.top + 80, 160);
+    })(t0);
+  }
+  env.addEventListener("click", () => {
+    if(env.classList.contains("open")) return;
+    env.classList.add("open"); intro.classList.add("opened");
+    setTimeout(letterToCard, reduce ? 0 : 1500);
+  });
+
+  /* ---- Flip cards ---- */
+  document.querySelectorAll(".flip").forEach(b => b.addEventListener("click", () => {
+    const on = b.classList.toggle("flipped"); b.setAttribute("aria-pressed", on);
+  }));
+
+  /* ---- Floating RSVP bar ---- */
+  const fab = $("fab"), rsvpSec = $("rsvp"), invSec = $("invite");
+  let responded = false;
+  function updateFab(){
+    const inv = invSec.getBoundingClientRect(), rs = rsvpSec.getBoundingClientRect();
+    const show = !responded && inv.bottom < innerHeight*.4 && !(rs.top < innerHeight && rs.bottom > 0) && scrollY < document.documentElement.scrollHeight - innerHeight*1.6;
+    fab.classList.toggle("show", show);
+    fab.setAttribute("aria-hidden", !show);
+    fab.querySelector("a").tabIndex = show ? 0 : -1;
+  }
+
+  /* ---- RSVP & guestbook: live when the site's API answers, local demo otherwise ---- */
+  let live = false;
+  async function api(path, body){
+    const res = await fetch(path, body ? {method:"POST", headers:{"Content-Type":"application/json"}, body:JSON.stringify(body)} : {cache:"no-store"});
+    let data = {}; try { data = await res.json(); } catch(e){}
+    if(!res.ok) throw new Error(data.error || "Chưa gửi được, bạn thử lại sau ít phút nhé.");
+    return data;
+  }
+  const rf = $("rsvpForm"), rt = $("rsvpThanks"), rErr = $("rsvpError"), rBtn = rf.querySelector("button[type=submit]");
+  let clientId = store.get("mc-rsvp-id", null);
+  if(!clientId){ clientId = crypto.randomUUID ? crypto.randomUUID() : Date.now().toString(36) + Math.random().toString(36).slice(2); store.set("mc-rsvp-id", clientId); }
+  function showThanks(r){
+    const yes = r.attend === "yes";
+    $("rsvpTitle").textContent = yes ? `Cảm ơn ${r.name}!` : `Cảm ơn ${r.name} đã báo cho mình`;
+    $("rsvpText").textContent = yes
+      ? `Đã ghi nhận ${r.count} người. Hẹn gặp bạn lúc 07:30 sáng Chủ nhật, 25/10 tại cổng Lý Thường Kiệt.`
+      : "Tiếc quá, nhưng lời chúc của bạn vẫn rất ý nghĩa. Hãy để lại vài dòng trong sổ lưu bút nhé.";
+    rf.hidden = true; rt.hidden = false; responded = true; updateFab();
+  }
+  const prev = store.get("mc-rsvp", null);
+  if(prev){ rf.name.value = prev.name; rf.attend.value = prev.attend; rf.with.value = prev.with || ""; rf.count.value = prev.count; showThanks(prev); }
+  rf.addEventListener("submit", async e => {
+    e.preventDefault();
+    const r = {name: rf.name.value.trim(), attend: rf.attend.value, with: rf.with.value.trim(), count: rf.count.value};
+    if(!r.name) return;
+    rErr.textContent = ""; rBtn.disabled = true; rBtn.textContent = "Đang gửi…";
+    try {
+      if(live) await api("/api/rsvp", {...r, client_id: clientId, invited_as: g});
+      store.set("mc-rsvp", r); showThanks(r);
+      if(r.attend === "yes"){ const b = rt.getBoundingClientRect(); celebrate(b.left + b.width/2, b.top, 70, true); }
+    } catch(err){ rErr.textContent = err.message; }
+    finally { rBtn.disabled = false; rBtn.textContent = "Gửi xác nhận"; }
+  });
+  $("rsvpAgain").addEventListener("click", () => { rt.hidden = true; rf.hidden = false; rf.name.focus(); });
+
+  const KEY = "mc-grad-wishes";
+  const samples = [
+    {n:"Lớp CS K22", m:"Chúc mừng tân kỹ sư! Bốn năm deadline dí sát nút cuối cùng cũng về đích rồi.", sample:true},
+    {n:"Chị Hai", m:"Tự hào về em lắm. Chặng tiếp theo cứ vững vàng mà bước nhé!", sample:true},
+    {n:"Team đồ án", m:"Cảm ơn ông vì những đêm merge code không conflict. Chúc mừng nha!", sample:true}
+  ];
+  let mine = store.get(KEY, []), liveWishes = [];
+  const wall = $("wall"), gf = $("gbForm"), gErr = $("gbError"), gBtn = gf.querySelector("button[type=submit]");
+  function render(freshId){
+    const list = live ? liveWishes : [...mine.slice().reverse().map((w,i) => ({...w, id: "local" + i})), ...samples];
+    wall.innerHTML = "";
+    if(!list.length){ const p = document.createElement("p"); p.className = "wall-empty"; p.textContent = "Chưa có lời chúc nào. Bạn hãy là người đầu tiên nhé!"; wall.append(p); return; }
+    list.forEach(w => {
+      const d = document.createElement("div"); d.className = "note" + (freshId != null && w.id === freshId ? " new" : "");
+      const p = document.createElement("p"); p.textContent = "“" + w.m + "”";
+      const by = document.createElement("span"); by.className = "by";
+      const nm = document.createElement("span"); nm.textContent = "— " + w.n; by.append(nm);
+      if(w.sample){ const em = document.createElement("em"); em.textContent = "lời chúc mẫu"; by.append(em); }
+      d.append(p, by); wall.append(d);
+    });
+  }
+  async function loadWishes(){
+    try {
+      const d = await api("/api/wishes");
+      liveWishes = d.wishes.map(w => ({id: w.id, n: w.name, m: w.message}));
+      if(!live){ live = true; document.querySelectorAll(".demo-note").forEach(n => n.hidden = true); }
+      render();
+    } catch(e){ if(!live) render(); }
+  }
+  render(); loadWishes();
+  setInterval(() => { if(live && !document.hidden) loadWishes(); }, 30000);
+  gf.addEventListener("submit", async e => {
+    e.preventDefault();
+    const n = $("gName").value.trim(), m = $("gMsg").value.trim(); if(!n || !m) return;
+    gErr.textContent = ""; gBtn.disabled = true;
+    try {
+      if(live){ const d = await api("/api/wishes", {name: n, message: m}); liveWishes.unshift({id: d.id, n, m}); render(d.id); }
+      else { mine.push({n, m}); store.set(KEY, mine); render("local0"); }
+      $("gMsg").value = "";
+      const b = gBtn.getBoundingClientRect(); celebrate(b.left + b.width/2, b.top, 40);
+    } catch(err){ gErr.textContent = err.message; }
+    finally { gBtn.disabled = false; }
+  });
+
+  /* ---- Story photo strips ---- */
+  const P = "/assets/photos/";
+  const PHOTOS = [
+    {y:2022, t:"Ngày đầu đến Bách Khoa", f:"2022-campus"}, {y:2022, t:"Những bữa cơm sinh viên", f:"2022-meal"},
+    {y:2023, t:"Vở ghi mùa thi", f:"2023-notes"}, {y:2023, t:"Lab mạch số", f:"2023-lab"}, {y:2023, t:"Bảng đen & sơ đồ", f:"2023-board"},
+    {y:2024, t:"Kiến trúc máy tính", f:"2024-cpu"}, {y:2024, t:"Những dòng mã khó nhằn", f:"2024-code"}, {y:2024, t:"Sinh nhật giữa mùa deadline", f:"2024-birthday"},
+    {y:2025, t:"Geek Internship tại GeekUp", f:"2025-geek"}, {y:2025, t:"Học bổng Golf Bách Khoa", f:"2025-scholarship"},
+    {y:2026, t:"Bài báo khoa học đầu tay", f:"2026-paper"}, {y:2026, t:"Những trang luận văn", f:"2026-thesis"}, {y:2026, t:"Chuyến đi cuối năm tư", f:"2026-trip"}, {y:2026, t:"Công việc đầu tiên tại VNG", f:"2026-vng"}, {y:2026, t:"Hoàng hôn cuối thời sinh viên", f:"2026-sunset"}
+  ].map(p => ({...p, src: P + p.f + ".jpg", thumb: P + p.f + "-sm.jpg"}));
+  const picker = $("filePick"); let pickTarget = null;
+  function renderStrip(year){
+    const strip = document.querySelector(`.strip[data-year="${year}"]`); strip.innerHTML = "";
+    PHOTOS.filter(p => p.y === year).forEach(p => {
+      const b = document.createElement("button"); b.type = "button"; b.className = "pol";
+      const ph = document.createElement("span"); ph.className = "ph";
+      if(p.src){ const im = document.createElement("img"); im.src = p.thumb || p.src; im.alt = p.t; im.loading = "lazy"; ph.append(im); }
+      else ph.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="10" r="2"/><path d="m21 16-5-5-9 8"/></svg><span>Chạm để thêm ảnh</span>';
+      const cap = document.createElement("b"); cap.textContent = p.t;
+      b.append(ph, cap);
+      b.setAttribute("aria-label", (p.src ? "Xem ảnh: " : "Thêm ảnh: ") + p.t);
+      b.addEventListener("click", () => p.src ? openLb(p) : (pickTarget = p, picker.click()));
+      strip.append(b);
+    });
+  }
+  [2022,2023,2024,2025,2026].forEach(renderStrip);
+  picker.addEventListener("change", () => {
+    const f = picker.files && picker.files[0]; picker.value = "";
+    if(!f || !pickTarget) return;
+    const url = URL.createObjectURL(f);
+    if(pickTarget === "then" || pickTarget === "now"){
+      const layer = $(pickTarget + "Layer");
+      layer.querySelectorAll("img,svg,span:not(.yr)").forEach(n => n.remove());
+      const im = document.createElement("img"); im.src = url; im.alt = pickTarget === "then" ? "Năm 2022" : "Năm 2026"; layer.prepend(im);
+    } else { pickTarget.src = url; pickTarget.thumb = url; renderStrip(pickTarget.y); }
+    pickTarget = null;
+  });
+  const lb = $("lightbox"); let lbList = [], lbI = 0;
+  function showLb(){ const p = lbList[lbI]; $("lbImg").src = p.src; $("lbImg").alt = p.t; $("lbCap").textContent = p.t + " · " + p.y; }
+  function openLb(p){ lbList = PHOTOS.filter(x => x.src); lbI = lbList.indexOf(p); showLb(); lb.hidden = false; $("lbClose").focus(); }
+  function moveLb(d){ if(!lbList.length) return; lbI = (lbI + d + lbList.length) % lbList.length; showLb(); }
+  $("lbClose").addEventListener("click", () => lb.hidden = true);
+  $("lbPrev").addEventListener("click", () => moveLb(-1));
+  $("lbNext").addEventListener("click", () => moveLb(1));
+  lb.addEventListener("click", e => { if(e.target === lb) lb.hidden = true; });
+  addEventListener("keydown", e => {
+    if(lb.hidden) return;
+    if(e.key === "Escape") lb.hidden = true;
+    if(e.key === "ArrowLeft") moveLb(-1);
+    if(e.key === "ArrowRight") moveLb(1);
+  });
+  const cmp = $("compare"), rng = $("cmpRange");
+  rng.addEventListener("input", () => { cmp.style.setProperty("--pos", rng.value + "%"); cmp.style.setProperty("--p", rng.value/100); });
+  document.querySelectorAll("[data-pick]").forEach(b => b.addEventListener("click", () => { pickTarget = b.dataset.pick; picker.click(); }));
+
+  /* ---- Finale ---- */
+  $("tossCap").addEventListener("click", e => {
+    const r = e.currentTarget.getBoundingClientRect();
+    celebrate(r.left + r.width/2, r.top, 240, true);
+  });
+
+  /* ---- Music box: a soft generative melody, made in the browser ---- */
+  (function(){
+    const btn = $("music"); let ctx = null, master = null, timer = null, nextT = 0, beat = 0;
+    const chords = [[146.83,220.00,293.66,369.99,440.00,587.33],[123.47,185.00,246.94,293.66,369.99,493.88],[98.00,196.00,246.94,293.66,392.00,493.88],[110.00,220.00,277.18,329.63,440.00,554.37]];
+    const melody = [587.33,659.25,739.99,880.00,987.77,1174.66];
+    function bell(freq, t, dur, vol){
+      const o = ctx.createOscillator(), o2 = ctx.createOscillator(), gn = ctx.createGain();
+      o.type = "sine"; o.frequency.value = freq; o2.type = "sine"; o2.frequency.value = freq*2.01;
+      const g2 = ctx.createGain(); g2.gain.value = .18;
+      o.connect(gn); o2.connect(g2); g2.connect(gn); gn.connect(master);
+      gn.gain.setValueAtTime(0, t); gn.gain.linearRampToValueAtTime(vol, t + .012); gn.gain.exponentialRampToValueAtTime(.0001, t + dur);
+      o.start(t); o2.start(t); o.stop(t + dur + .05); o2.stop(t + dur + .05);
+    }
+    function schedule(){
+      while(nextT < ctx.currentTime + .3){
+        const bar = Math.floor(beat / 8) % chords.length, ch = chords[bar], pos = beat % 8;
+        if(pos === 0) bell(ch[0], nextT, 3.2, .16);
+        if(pos === 4) bell(ch[1], nextT, 2.2, .08);
+        const arp = [2,3,4,5,4,3,2,3][pos];
+        bell(ch[arp], nextT, 1.6, .055);
+        if(Math.random() < .28 && pos % 2 === 0) bell(melody[Math.floor(Math.random()*melody.length)], nextT + .01, 1.8, .045);
+        nextT += .42; beat++;
+      }
+    }
+    btn.addEventListener("click", async () => {
+      const on = btn.getAttribute("aria-pressed") !== "true";
+      btn.setAttribute("aria-pressed", on); btn.setAttribute("aria-label", on ? "Tắt nhạc nền" : "Bật nhạc nền");
+      try {
+        if(on){
+          if(!ctx){
+            ctx = new (window.AudioContext || window.webkitAudioContext)();
+            master = ctx.createGain(); master.gain.value = 0;
+            const delay = ctx.createDelay(), fb = ctx.createGain(), wet = ctx.createGain();
+            delay.delayTime.value = .36; fb.gain.value = .38; wet.gain.value = .35;
+            master.connect(ctx.destination); master.connect(delay); delay.connect(fb); fb.connect(delay); delay.connect(wet); wet.connect(ctx.destination);
+          }
+          await ctx.resume(); nextT = ctx.currentTime + .1;
+          master.gain.cancelScheduledValues(ctx.currentTime); master.gain.linearRampToValueAtTime(.9, ctx.currentTime + 1.2);
+          timer = setInterval(schedule, 100);
+        } else if(ctx){
+          master.gain.cancelScheduledValues(ctx.currentTime); master.gain.linearRampToValueAtTime(0, ctx.currentTime + .5);
+          clearInterval(timer); setTimeout(() => { if(btn.getAttribute("aria-pressed") !== "true") ctx.suspend(); }, 600);
+        }
+      } catch(e){ btn.setAttribute("aria-pressed", "false"); }
+    });
+  })();
+
+  /* ---- Star cursor, stardust and a few graduation caps on every click ---- */
+  (function(){
+    if(reduce) return;
+    const fine = matchMedia("(hover:hover) and (pointer:fine)").matches;
+    const cv = $("cursorfx"), c = cv.getContext("2d");
+    let dust = [], raf = 0, lastX = -1, lastY = -1;
+    function size(){ const d = devicePixelRatio || 1; cv.width = innerWidth*d; cv.height = innerHeight*d; c.setTransform(d,0,0,d,0,0); }
+    size(); addEventListener("resize", size);
+    const TONES = {dawn:["#FFF7DD","#F3DC9E","#E9C77E","#FFFFFF"], paper:["#B8914A","#9C7A3C","#D9B977","#14213D"], stars:["#CFE3FF","#7DB7FF","#F3DC9E","#FFFFFF"]};
+    function add(x, y, n, spread){
+      for(let i=0;i<n;i++){
+        const a = Math.random()*Math.PI*2, v = Math.random()*spread;
+        dust.push({x, y, vx:Math.cos(a)*v, vy:Math.sin(a)*v + .25, life:0, max:34 + Math.random()*26, s:1.5 + Math.random()*2.8, rot:Math.random()*Math.PI, c:(TONES[THEME] || TONES.dawn)[Math.floor(Math.random()*4)]});
+      }
+      if(!raf) raf = requestAnimationFrame(step);
+    }
+    function star(x, y, s, rot){
+      c.save(); c.translate(x, y); c.rotate(rot); c.beginPath();
+      for(let i=0;i<8;i++){ const r = i % 2 ? s*.28 : s, a = i*Math.PI/4; c.lineTo(Math.cos(a)*r, Math.sin(a)*r); }
+      c.closePath(); c.fill(); c.restore();
+    }
+    function step(){
+      c.clearRect(0,0,innerWidth,innerHeight); c.globalCompositeOperation = THEME === "paper" ? "source-over" : "lighter";
+      dust = dust.filter(p => p.life < p.max);
+      for(const p of dust){
+        p.life++; p.vx *= .96; p.vy = p.vy*.96 + .03; p.x += p.vx; p.y += p.vy; p.rot += .04;
+        const t = p.life/p.max; c.globalAlpha = (1 - t) * (t < .15 ? t/.15 : 1); c.fillStyle = p.c; star(p.x, p.y, p.s*(1 - t*.5), p.rot);
+      }
+      c.globalAlpha = 1; c.globalCompositeOperation = "source-over";
+      raf = dust.length ? requestAnimationFrame(step) : 0;
+      if(!raf) c.clearRect(0,0,innerWidth,innerHeight);
+    }
+    if(fine){
+      const dot = document.createElement("div"); dot.className = "cur-dot";
+      const ring = document.createElement("div"); ring.className = "cur-ring";
+      document.body.append(ring, dot); root.classList.add("star-cursor");
+      let mx = innerWidth/2, my = innerHeight/2, rx = mx, ry = my;
+      const hoverSel = "a,button,label,[role=button],.pol,.flip,.envelope";
+      addEventListener("mousemove", e => {
+        mx = e.clientX; my = e.clientY; root.classList.add("cur-on");
+        dot.style.transform = `translate(${mx}px,${my}px)`;
+        const t = e.target;
+        root.classList.toggle("cur-text", !!t.closest("input:not([type=radio]):not([type=range]),textarea,select"));
+        ring.classList.toggle("hover", !!t.closest(hoverSel));
+        const d = lastX < 0 ? 0 : Math.hypot(mx - lastX, my - lastY);
+        if(d > 6){ add(mx, my, Math.min(3, 1 + Math.floor(d/18)), .6); lastX = mx; lastY = my; }
+        if(lastX < 0){ lastX = mx; lastY = my; }
+      }, {passive:true});
+      document.addEventListener("mouseleave", () => root.classList.remove("cur-on"));
+      addEventListener("mousedown", () => ring.classList.add("down"));
+      addEventListener("mouseup", () => ring.classList.remove("down"));
+      (function follow(){ rx += (mx - rx)*.18; ry += (my - ry)*.18; ring.style.transform = `translate(${rx}px,${ry}px)`; requestAnimationFrame(follow); })();
+    }
+    addEventListener("pointerdown", e => {
+      add(e.clientX, e.clientY, 14, 3.2);
+      if(!e.target.closest("input,textarea,select,label,.lightbox,.compare")) front.caps(e.clientX, e.clientY, 2 + Math.floor(Math.random()*2), .55);
+    }, {passive:true});
+  })();
+
+  const sw = $("themeSwitch");
+  if(location.pathname.startsWith("/preview")){
+    sw.hidden = false;
+    sw.addEventListener("click", e => {
+      const b = e.target.closest("button"); if(!b) return;
+      applyTheme(b.dataset.t);
+      try { const u = new URL(location.href); u.searchParams.set("theme", b.dataset.t); history.replaceState(null, "", u); } catch(err){}
+    });
+  }
+  applyTheme(THEME);
+})();
+</script>
+</body>
+</html>

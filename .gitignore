@@ -1,0 +1,10 @@
+# Secrets and live data stay on the server only
+admin.token
+data/
+*.db
+*.db-shm
+*.db-wal
+# Old copies kept for rollback
+backup/
+__pycache__/
+.DS_Store

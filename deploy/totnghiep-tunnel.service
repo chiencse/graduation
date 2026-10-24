@@ -1,0 +1,11 @@
+[Unit]
+Description=Cloudflare Tunnel for totnghiep.mchieens.io.vn
+After=network-online.target totnghiep-web.service
+
+[Service]
+ExecStart=/usr/local/bin/cloudflared --no-autoupdate --config %h/.cloudflared/totnghiep.yml tunnel run
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=default.target

@@ -1,0 +1,7 @@
+tunnel: 15e832a6-a613-4ad5-8b82-4810a668462e
+credentials-file: /home/chieens/.cloudflared/15e832a6-a613-4ad5-8b82-4810a668462e.json
+
+ingress:
+  - hostname: totnghiep.mchieens.io.vn
+    service: http://127.0.0.1:8088
+  - service: http_status:404
