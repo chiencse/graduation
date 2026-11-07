@@ -70,10 +70,10 @@ section{padding-block:96px}
 .campus-dawn{opacity:var(--cd,0);mix-blend-mode:multiply;filter:brightness(1.18) saturate(.95)}
 .bk-mark{display:block;background:var(--metal);background-size:200% auto;-webkit-mask:url(/assets/bk-logo.png) center/contain no-repeat;mask:url(/assets/bk-logo.png) center/contain no-repeat}
 .intro-crest{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:26px;font-size:11px;font-weight:500;letter-spacing:.3em;text-transform:uppercase;color:var(--gold)}
-.intro-crest .bk-mark{width:30px;height:30px}
+.intro-crest .bk-logo{width:34px;height:auto}
 .letter img{width:30px;height:auto;margin:0 auto 2px}
 .crest{display:grid;justify-items:center;margin:0 auto 10px}
-.crest .bk-mark{width:50px;height:50px;margin-bottom:-30px;position:relative;z-index:1;filter:drop-shadow(0 0 12px rgba(240,210,140,.35))}
+.crest .bk-logo{width:56px;height:auto;margin-bottom:-30px;position:relative;z-index:1;filter:drop-shadow(0 3px 8px rgba(11,42,110,.3))}
 .crest .laurel{width:150px;margin:0}
 .foot-logo{display:block;width:34px;height:auto;margin:0 auto 10px}
 #sky,#skyfx,#confetti,#cursorfx{position:fixed;inset:0;width:100%;height:100%;pointer-events:none}
@@ -577,13 +577,13 @@ html.t-dawn body{background:#BFDDF8}
 <main>
   <!-- 1. Envelope -->
   <section class="intro wrap" id="intro">
-    <div class="intro-crest"><span class="bk-mark" aria-hidden="true"></span>ĐH Bách Khoa TP.HCM</div>
+    <div class="intro-crest"><img class="bk-logo" src="/assets/bk-logo.png?v=2" alt="" width="34" height="34">ĐH Bách Khoa TP.HCM</div>
     <p class="to">Thân gửi</p>
     <p class="guest" id="guestTop">Quý khách</p>
     <button class="envelope" id="envelope" type="button" aria-label="Mở thiệp mời">
       <span class="env-back"></span>
       <span class="letter">
-        <img src="/assets/bk-logo.png" alt="" width="30" height="30">
+        <img src="/assets/bk-logo.png?v=2" alt="" width="30" height="30">
         <small>Thiệp mời · Lễ tốt nghiệp</small>
         <strong>Nông Minh Chiến</strong>
         <span>Chủ nhật, 25 · 10 · 2026</span>
@@ -599,7 +599,7 @@ html.t-dawn body{background:#BFDDF8}
   <section class="invite" id="invite">
     <div class="wrap">
       <div class="card" id="card">
-        <div class="crest" aria-hidden="true"><span class="bk-mark"></span><svg class="laurel" viewBox="0 0 120 40" fill="currentColor" id="laurel"></svg></div>
+        <div class="crest" aria-hidden="true"><img class="bk-logo" src="/assets/bk-logo.png?v=2" alt="" width="56" height="57"><svg class="laurel" viewBox="0 0 120 40" fill="currentColor" id="laurel"></svg></div>
         <p class="kicker">Trân trọng kính mời</p>
         <p class="guest-name" id="inviteTo">Quý khách</p>
         <p class="lead">đến chung vui cùng mình trong ngày đánh dấu cột mốc quan trọng nhất của thời sinh viên, Lễ Tốt Nghiệp của</p>
@@ -755,7 +755,7 @@ html.t-dawn body{background:#BFDDF8}
     </div>
   </section>
 </main>
-<footer><img class="foot-logo" src="/assets/bk-logo.png" alt="Logo Trường Đại học Bách Khoa TP.HCM" width="34" height="34">Nông Minh Chiến · Khoa học Máy tính · Bách Khoa 2022 – 2026</footer>
+<footer><img class="foot-logo" src="/assets/bk-logo.png?v=2" alt="Logo Trường Đại học Bách Khoa TP.HCM" width="34" height="34">Nông Minh Chiến · Khoa học Máy tính · Bách Khoa 2022 – 2026</footer>
 
 <div class="fab" id="fab" aria-hidden="true">
   <span>Bạn sẽ đến dự chứ?</span>
@@ -974,7 +974,7 @@ html.t-dawn body{background:#BFDDF8}
     root.style.setProperty("--dawn", dawn.toFixed(3));
     root.style.setProperty("--sun", sun.toFixed(3));
     const top = clamp(1 - scrollY / (innerHeight * 1.3), 0, 1), end = smooth(clamp((p - .78) / .22, 0, 1));
-    root.style.setProperty("--cn", (THEME === "stars" ? Math.max(top, end) : top).toFixed(3));
+    root.style.setProperty("--cn", (THEME === "stars" ? Math.max(top, end) : THEME === "dawn" ? Math.max(top, .7) : top).toFixed(3));
     root.style.setProperty("--cd", smooth(clamp((p - .74) / .26, 0, 1)).toFixed(3));
     starVis = 1 - dawn*.9;
     updateFab();
