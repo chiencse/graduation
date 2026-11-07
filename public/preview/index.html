@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#050A1C">
+<meta name="theme-color" content="#0A2E86">
 <meta name="description" content="Thân mời bạn đến dự Lễ tốt nghiệp của Nông Minh Chiến, Kỹ sư Khoa học Máy tính, Trường Đại học Bách Khoa TP.HCM.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Thiệp mời Lễ tốt nghiệp · Nông Minh Chiến">
@@ -26,7 +26,7 @@
   --gold:#D4B06A; --gold-soft:#F0DCA6; --gold-deep:#9C7E45;
   --ivory:#F7F0DF; --ink:#1A2236; --ink-soft:#4A5470;
   --text:#ECE8DF; --muted:#A7AECA; --line:rgba(212,176,106,.3);
-  --glass:rgba(16,24,60,.42);
+  --glass:rgba(10,40,120,.38);
   --metal:linear-gradient(100deg,#9A7434 0%,#F3DC9E 20%,#FFF7DD 32%,#D4AE63 46%,#8E6B30 60%,#EBD08F 78%,#FFF2CA 90%,#B8914A 100%);
   --serif:"Cormorant Garamond","Iowan Old Style","Times New Roman",serif;
   --sans:"Be Vietnam Pro",system-ui,-apple-system,"Segoe UI",sans-serif;
@@ -51,12 +51,12 @@ section{padding-block:96px}
 /* ---------- Sky: night fades into dawn as you scroll ---------- */
 .sky{position:fixed;inset:0;z-index:0;pointer-events:none}
 .sky-night{background:
-  radial-gradient(ellipse 70% 45% at 15% 0%,rgba(130,110,210,.34),transparent 70%),
-  radial-gradient(ellipse 60% 40% at 90% 30%,rgba(70,110,200,.36),transparent 70%),
-  linear-gradient(180deg,#111C44 0%,#1B2A5E 45%,#2A3C7A 100%)}
+  radial-gradient(ellipse 70% 45% at 15% 0%,rgba(43,154,232,.30),transparent 70%),
+  radial-gradient(ellipse 60% 40% at 90% 30%,rgba(30,110,230,.34),transparent 70%),
+  linear-gradient(180deg,#061C5A 0%,#0A2E86 45%,#1244A6 100%)}
 .sky-dawn{opacity:var(--dawn);background:
-  radial-gradient(ellipse 80% 45% at 50% 108%,rgba(255,214,150,.75),transparent 70%),
-  linear-gradient(180deg,#1A1D4E 0%,#332A62 38%,#5E3769 58%,#A65A75 76%,#E3907A 90%,#F6C994 100%)}
+  radial-gradient(ellipse 80% 45% at 50% 108%,rgba(255,240,205,.7),transparent 70%),
+  linear-gradient(180deg,#0B3394 0%,#1458C0 36%,#2380DA 58%,#4FA6EC 78%,#A9D6F7 100%)}
 .sun{position:fixed;left:85%;bottom:0;width:300px;height:300px;margin-left:-150px;z-index:0;pointer-events:none;border-radius:50%;
   --rise:calc(150px + 33vh);
   background:radial-gradient(circle,#FFF8E2 0 18%,#FFE2A3 30%,rgba(255,200,130,.35) 48%,transparent 68%);
@@ -131,7 +131,7 @@ main,footer{position:relative;z-index:1}
 .invite{padding-block:24px 96px}
 .card{max-width:720px;margin:0 auto;position:relative;text-align:center;border-radius:4px;
   padding:clamp(30px,6vw,64px) clamp(20px,6vw,64px);
-  background:linear-gradient(180deg,rgba(24,36,84,.62),rgba(14,22,56,.7));backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  background:linear-gradient(180deg,rgba(16,52,140,.58),rgba(8,34,104,.66));backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
   box-shadow:0 40px 90px -30px rgba(0,0,0,.7),0 0 90px -20px rgba(212,176,106,.3);transition:opacity .3s}
 .card::before{content:"";position:absolute;inset:12px;border:1px solid rgba(212,176,106,.8);pointer-events:none}
 .card::after{content:"";position:absolute;inset:17px;border:1px solid rgba(212,176,106,.28);pointer-events:none}
@@ -179,7 +179,7 @@ main,footer{position:relative;z-index:1}
 .panel{border:1px solid var(--line);border-radius:10px;padding:32px;background:var(--glass);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
 form{display:grid;gap:18px}
 label{display:grid;gap:7px;font-size:13px;color:var(--muted);letter-spacing:.04em}
-input,textarea,select{font:inherit;font-size:15px;font-weight:400;color:var(--ivory);background:rgba(40,60,110,.32);border:1px solid var(--line);border-radius:6px;padding:12px 14px;width:100%}
+input,textarea,select{font:inherit;font-size:15px;font-weight:400;color:var(--ivory);background:rgba(6,32,98,.62);border:1px solid var(--line);border-radius:6px;padding:12px 14px;width:100%}
 input:focus,textarea:focus,select:focus{outline:none;border-color:var(--gold)}
 textarea{resize:vertical;min-height:96px}
 .choice{display:grid;grid-template-columns:1fr 1fr;gap:10px}
@@ -227,20 +227,6 @@ textarea{resize:vertical;min-height:96px}
 .pol b{display:block;font-family:var(--script);font-weight:600;font-size:19px;line-height:1.2;padding:10px 3px 0}
 .strip-note{text-align:center;color:var(--muted);font-size:13px;margin-top:40px}
 
-.then-now{max-width:780px;margin:120px auto 0;display:grid;gap:18px;text-align:center}
-.then-now h3{font-size:clamp(32px,4vw,42px)}
-.then-now > p{color:var(--muted)}
-.compare{position:relative;aspect-ratio:4/5;width:min(460px,100%);margin:0 auto;border:1px solid var(--gold);padding:10px;border-radius:4px;user-select:none;touch-action:none;text-align:center}
-.compare .layer{position:absolute;inset:10px;display:grid;place-items:center;align-content:center;gap:10px;overflow:hidden;color:var(--muted);font-size:13px}
-.compare .layer img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.compare .then{background:linear-gradient(160deg,#2a2a36,#171a26)}
-.compare .now{background:linear-gradient(160deg,var(--navy-3),var(--navy));clip-path:inset(0 0 0 var(--pos,50%))}
-.compare .yr{position:absolute;top:14px;font-family:var(--serif);font-size:28px;color:var(--ivory);z-index:2;text-shadow:0 2px 10px rgba(0,0,0,.6);pointer-events:none}
-.compare .then .yr{left:18px}.compare .now .yr{right:18px}
-.compare .handle{position:absolute;top:10px;bottom:10px;left:calc(10px + (100% - 20px) * var(--p,.5));width:2px;background:var(--gold);z-index:3;pointer-events:none}
-.compare .handle::after{content:"‹ ›";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:42px;height:42px;border-radius:50%;background:var(--gold);color:var(--navy);display:grid;place-items:center;font-size:18px;font-weight:500;letter-spacing:4px}
-.compare input[type=range]{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;z-index:4;margin:0}
-.compare:has(input:focus-visible) .handle::after{outline:2px solid var(--ivory);outline-offset:3px}
 .tn-actions{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
 
 .lightbox{position:fixed;inset:0;z-index:70;background:rgba(6,12,26,.94);display:grid;place-items:center;padding:24px}
@@ -277,6 +263,7 @@ textarea{resize:vertical;min-height:96px}
 .gb-side{position:sticky;top:calc(env(safe-area-inset-top,0px) + 24px);display:grid;gap:18px}
 .gb-side h2{font-size:clamp(40px,6vw,58px);line-height:1.02}
 .gb-side > p{color:var(--muted)}
+.gb-side label,.gb-side > p{color:#EAF3FF;text-shadow:0 1px 8px rgba(4,24,80,.9)}
 .wall{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;align-content:start}
 .note{background:var(--ivory);color:var(--ink);border-radius:3px;padding:18px 18px 14px;display:grid;gap:10px;box-shadow:0 12px 24px -12px rgba(0,0,0,.6)}
 .note:nth-child(3n+1){transform:rotate(-1.2deg)}
@@ -292,21 +279,21 @@ textarea{resize:vertical;min-height:96px}
 /* ---------- 7. Finale (dawn) ---------- */
 .finale{text-align:center;padding-block:140px 220px}
 .finale .label{color:#FFE6B8}
-.finale h2{font-size:clamp(42px,7vw,76px);line-height:1.04;max-width:16ch;margin:22px auto 0;text-shadow:0 2px 30px rgba(40,20,60,.45)}
+.finale h2{font-size:clamp(42px,7vw,76px);line-height:1.04;max-width:16ch;margin:22px auto 0;text-shadow:0 2px 30px rgba(4,24,80,.5)}
 .finale h2 em{color:#FFE6B8}
-.finale p{color:#F3E4E4;max-width:46ch;margin:24px auto 36px;text-shadow:0 1px 14px rgba(40,20,60,.5)}
+.finale p{color:#EAF3FF;max-width:46ch;margin:24px auto 36px;text-shadow:0 1px 14px rgba(4,24,80,.6)}
 .cap-btn svg{width:22px;height:22px}
-footer{padding-block:0 36px;text-align:center;color:var(--ivory);text-shadow:0 1px 10px rgba(30,12,30,.85);font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:500}
+footer{padding-block:0 36px;text-align:center;color:var(--ivory);text-shadow:0 1px 10px rgba(4,24,80,.9);font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:500}
 
 /* ---------- Floating RSVP bar & music ---------- */
 .fab{position:fixed;left:50%;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:30;transform:translate(-50%,140%);transition:transform .45s cubic-bezier(.2,.8,.2,1);
-  display:flex;align-items:center;gap:12px;padding:8px 8px 8px 20px;border-radius:999px;background:rgba(8,12,34,.82);border:1px solid var(--line);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  display:flex;align-items:center;gap:12px;padding:8px 8px 8px 20px;border-radius:999px;background:rgba(6,32,98,.84);border:1px solid var(--line);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
   box-shadow:0 14px 40px -12px rgba(0,0,0,.7);white-space:nowrap;max-width:calc(100% - 32px)}
 .fab.show{transform:translate(-50%,0)}
 .fab span{font-size:14px;color:var(--text)}
 .fab .btn{padding:9px 18px}
 .music{position:fixed;top:calc(14px + env(safe-area-inset-top,0px));right:14px;z-index:30;width:44px;height:44px;border-radius:50%;border:1px solid var(--line);
-  background:rgba(8,12,34,.7);color:var(--gold-soft);display:grid;place-items:center;cursor:pointer;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+  background:rgba(6,32,98,.72);color:var(--gold-soft);display:grid;place-items:center;cursor:pointer;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
 .music svg{width:20px;height:20px}
 .music .bars{display:none;gap:2px;align-items:end;height:16px}
 .music .bars i{width:3px;background:var(--gold-soft);border-radius:1px;animation:eq 1s ease-in-out infinite}
@@ -331,7 +318,7 @@ html.star-cursor .compare input[type=range]{cursor:ew-resize}
 
 /* ---------- Theme switcher (preview only) ---------- */
 .theme-switch{position:fixed;top:calc(14px + env(safe-area-inset-top,0px));left:14px;z-index:31;display:flex;gap:4px;padding:4px;border-radius:999px;
-  background:rgba(8,12,34,.72);border:1px solid var(--line);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+  background:rgba(6,32,98,.74);border:1px solid var(--line);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
 .theme-switch button{border:0;background:none;color:var(--muted);font:500 12px var(--sans);padding:7px 12px;border-radius:999px;cursor:pointer;white-space:nowrap}
 .theme-switch button[aria-pressed="true"]{background:var(--gold);color:var(--navy)}
 
@@ -622,17 +609,6 @@ html.t-stars{--accent:#7DB7FF;--accent-soft:#CFE3FF;--line:rgba(125,183,255,.28)
       </div>
       <p class="strip-note">Chạm vào ảnh để xem lớn hơn.</p>
 
-      <div class="then-now">
-        <h3>Ngày ấy &amp; Bây giờ</h3>
-        <p>Kéo thanh ở giữa để thấy bốn năm đã thay đổi mình thế nào.</p>
-        <div class="compare" id="compare" style="--pos:50%;--p:.5">
-          <div class="layer then" id="thenLayer"><img src="/assets/photos/then-2022.jpg?v=2" alt="Năm 2022" style="object-position:82% 40%"><span class="yr">2022</span></div>
-          <div class="layer now" id="nowLayer"><img src="/assets/photos/now-2026.jpg?v=2" alt="Năm 2026" style="inset:0 -30% 0 auto;width:130%;object-position:50% 16%"><span class="yr">2026</span></div>
-          <span class="handle"></span>
-          <input type="range" id="cmpRange" min="0" max="100" value="50" aria-label="Kéo để so sánh năm 2022 và 2026">
-        </div>
-        
-      </div>
     </div>
   </section>
   <input type="file" id="filePick" accept="image/*" hidden>
@@ -1094,9 +1070,6 @@ html.t-stars{--accent:#7DB7FF;--accent-soft:#CFE3FF;--line:rgba(125,183,255,.28)
     if(e.key === "ArrowLeft") moveLb(-1);
     if(e.key === "ArrowRight") moveLb(1);
   });
-  const cmp = $("compare"), rng = $("cmpRange");
-  rng.addEventListener("input", () => { cmp.style.setProperty("--pos", rng.value + "%"); cmp.style.setProperty("--p", rng.value/100); });
-  document.querySelectorAll("[data-pick]").forEach(b => b.addEventListener("click", () => { pickTarget = b.dataset.pick; picker.click(); }));
 
   /* ---- Finale ---- */
   $("tossCap").addEventListener("click", e => {
