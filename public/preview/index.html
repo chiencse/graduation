@@ -467,8 +467,8 @@ html.t-dawn body{background:#BFDDF8}
 .t-dawn .clouds{opacity:calc(.75 + var(--dawn,0) * .2)}
 .t-dawn .campus-night{opacity:calc(var(--cn,0) * .7);filter:saturate(.9) brightness(1.04)}
 /* softer edge fade so more of the campus shows */
-.t-dawn .campus{-webkit-mask-image:linear-gradient(to bottom,transparent 0%,#000 22%),linear-gradient(to right,transparent 0%,#000 7%,#000 93%,transparent 100%);
-  mask-image:linear-gradient(to bottom,transparent 0%,#000 22%),linear-gradient(to right,transparent 0%,#000 7%,#000 93%,transparent 100%)}
+.t-dawn .campus{-webkit-mask-image:linear-gradient(to bottom,transparent 0%,#000 32%),linear-gradient(to right,transparent 0%,#000 11%,#000 89%,transparent 100%);
+  mask-image:linear-gradient(to bottom,transparent 0%,#000 32%),linear-gradient(to right,transparent 0%,#000 11%,#000 89%,transparent 100%)}
 .t-dawn .campus-dawn{filter:brightness(1.1) saturate(.9)}
 .t-dawn .fall.spark > span{background:radial-gradient(circle,#FFF4CF 0 14%,rgba(232,190,100,.75) 34%,transparent 66%)}
 .t-dawn h1,.t-dawn h2,.t-dawn h3{color:var(--ink-navy)}
@@ -501,7 +501,7 @@ html.t-dawn body{background:#BFDDF8}
 .t-dawn .finale h2,.t-dawn .finale p{text-shadow:0 0 18px rgba(255,255,255,.8)}
 .t-dawn .finale h2 em{color:var(--gold-soft)}
 .t-dawn .finale p{color:var(--text)}
-.t-dawn footer{color:var(--ink-navy);text-shadow:0 0 10px rgba(255,255,255,.9)}
+.t-dawn footer{color:var(--ink-navy);text-shadow:0 0 10px rgba(255,255,255,.9);padding-top:56px;background:linear-gradient(to top,rgba(255,255,255,.88) 30%,rgba(255,255,255,0))}
 .t-dawn .fab{background:rgba(11,42,110,.9)}
 .t-dawn .fab span{color:#F4F8FF}
 .t-dawn .music,.t-dawn .theme-switch{background:rgba(255,255,255,.82);color:var(--ink-navy)}
@@ -511,6 +511,20 @@ html.t-dawn body{background:#BFDDF8}
 .t-dawn .cur-ring{border-color:rgba(11,42,110,.5)}
 .t-dawn .ghost.dark{background:#FFFFFF}
 
+/* ---------- Daylight: keep free text legible over the campus strip ---------- */
+.t-dawn .story-text p,.t-dawn .story-text .facts,.t-dawn .ch-text h3,.t-dawn .ch-text p,.t-dawn .rsvp-copy p,.t-dawn .rsvp-copy h2,.t-dawn .gb-side h2,.t-dawn .strip-note{text-shadow:0 0 12px rgba(255,255,255,.95),0 0 3px rgba(255,255,255,.9)}
+@media (max-width:560px){
+  .t-dawn .campus{height:34vh}
+  .t-dawn .campus-night{opacity:calc(var(--cn,0) * .55)}
+  .sdots{display:none}
+  .story-text p{font-size:19px}
+  .story-text .big-num{font-size:68px}
+  .ch-year{font-size:60px}
+  .intro .guest{margin-bottom:28px}
+  .card{padding:30px 18px}
+  .card .name{font-size:40px}
+  .moon{width:58px;height:58px;right:5%}
+}
 /* ---------- Responsive ---------- */
 @media (max-width:820px){
   section{padding-block:72px}
