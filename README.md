@@ -1,4 +1,4 @@
-# totnghiep.mchieens.io.vn
+# grad.mchieens.io.vn
 
 Trang web kiêm thiệp mời Lễ tốt nghiệp của Nông Minh Chiến (Khoa học Máy tính, ĐH Bách Khoa TP.HCM).
 
@@ -29,4 +29,4 @@ Lần chạy đầu tiên, server tự tạo `data/site.db` và `admin.token`.
 
 - `systemctl --user restart totnghiep-web`: chỉ cần khi sửa `server.py`. File tĩnh thì chép đè là xong.
 - Tunnel: `totnghiep-tunnel` chạy `cloudflared --config ~/.cloudflared/totnghiep.yml tunnel run`. File credentials của tunnel không nằm trong repo.
-- Link mời riêng: `https://totnghiep.mchieens.io.vn/?to=Tên khách`
+- Link mời riêng: `https://grad.mchieens.io.vn/?to=Tên khách`

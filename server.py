@@ -25,7 +25,7 @@ APP_DIR = Path(os.environ.get("APP_DIR", Path.home() / "apps" / "totnghiep"))
 PUBLIC = APP_DIR / "public"
 DB_PATH = APP_DIR / "data" / "site.db"
 TOKEN_PATH = APP_DIR / "admin.token"
-SITE_URL = os.environ.get("SITE_URL", "https://totnghiep.mchieens.io.vn")
+SITE_URL = os.environ.get("SITE_URL", "https://grad.mchieens.io.vn")
 HOST, PORT = "127.0.0.1", int(os.environ.get("PORT", "8088"))
 
 # Each IP gets at most this many writes per window.
