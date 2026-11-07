@@ -525,6 +525,13 @@ html.t-dawn body{background:#BFDDF8}
   .card .name{font-size:40px}
   .moon{width:58px;height:58px;right:5%}
 }
+/* ---------- One-click RSVP ---------- */
+.rsvp-inline{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:18px auto 0;max-width:440px}
+.rsvp-inline input{flex:1 1 200px;width:auto}
+.rsvp-status{margin:14px auto 0;max-width:46ch;font-size:15px;color:var(--text);min-height:0}
+.rsvp-status:empty{display:none}
+.rsvp-status .linkbtn{border:0;background:none;padding:0 0 0 6px;color:var(--gold);font:inherit;font-weight:500;text-decoration:underline;cursor:pointer}
+.btn.done,.t-dawn .btn.solid.done,.t-paper .btn.solid.done{background:#1F7A4D;border-color:#1F7A4D;color:#fff}
 /* ---------- Responsive ---------- */
 @media (max-width:820px){
   section{padding-block:72px}
@@ -643,44 +650,17 @@ html.t-dawn body{background:#BFDDF8}
         </div>
         <p class="dress"><b>Trang phục:</b> lịch sự, gợi ý tông trắng hoặc xanh navy</p>
         <div class="card-actions">
-          <a class="btn solid" href="#rsvp">Xác nhận tham dự</a>
+          <button class="btn solid" type="button" data-rsvp>Xác nhận tham dự</button>
           <a class="btn" id="mapLink" target="_blank" rel="noopener">Chỉ đường</a>
           <a class="btn" id="calLink" target="_blank" rel="noopener">Thêm vào lịch</a>
           <button class="btn" id="copyAddr" type="button">Sao chép địa chỉ</button>
         </div>
-        <p class="copy-note" id="copyNote" aria-live="polite"></p>
-      </div>
-    </div>
-  </section>
-
-  <!-- 3. RSVP -->
-  <section id="rsvp">
-    <div class="wrap rsvp-grid">
-      <div class="rsvp-copy">
-        <span class="label">Hồi âm</span>
-        <h2>Bạn sẽ <em>đến</em> chứ?</h2>
-        <p>Cho mình biết trước ngày 18/10 để mình chuẩn bị chỗ ngồi và một bó hoa cảm ơn thật chu đáo nhé.</p>
-      </div>
-      <div class="panel">
-        <form id="rsvpForm">
-          <label for="rName">Họ và tên<input id="rName" name="name" required placeholder="Nguyễn Văn A" autocomplete="name"></label>
-          <div class="choice" role="radiogroup" aria-label="Bạn có tham dự không">
-            <label><input type="radio" name="attend" value="yes" id="rYes" checked><span>Mình sẽ đến</span></label>
-            <label><input type="radio" name="attend" value="no" id="rNo"><span>Tiếc quá, không đến được</span></label>
-          </div>
-          <div class="form-row">
-            <label for="rWith">Đi cùng ai<input id="rWith" name="with" placeholder="Gia đình, bạn bè…"></label>
-            <label for="rCount">Số người<select id="rCount" name="count"><option>1</option><option>2</option><option>3</option><option>4</option><option>5+</option></select></label>
-          </div>
-          <p class="form-error" id="rsvpError" role="alert"></p>
+        <form class="rsvp-inline" id="rsvpInline" hidden>
+          <input id="rName" name="name" required placeholder="Tên của bạn" autocomplete="name" aria-label="Tên của bạn">
           <button class="btn solid" type="submit">Gửi xác nhận</button>
         </form>
-        <div class="thanks-msg" id="rsvpThanks" hidden>
-          <h4 id="rsvpTitle">Cảm ơn bạn!</h4>
-          <p id="rsvpText">Hẹn gặp bạn vào sáng Chủ nhật, 25/10.</p>
-          <button class="btn" type="button" id="rsvpAgain">Sửa phản hồi</button>
-        </div>
-        <p class="demo-note">Bản demo: phản hồi chưa được gửi đi, chỉ hiển thị trên máy bạn.</p>
+        <p class="rsvp-status" id="rsvpStatus" aria-live="polite"></p>
+        <p class="copy-note" id="copyNote" aria-live="polite"></p>
       </div>
     </div>
   </section>
@@ -776,7 +756,7 @@ html.t-dawn body{background:#BFDDF8}
 
 <div class="fab" id="fab" aria-hidden="true">
   <span>Bạn sẽ đến dự chứ?</span>
-  <a class="btn solid" href="#rsvp" tabindex="-1">Xác nhận tham dự</a>
+  <button class="btn solid" type="button" data-rsvp tabindex="-1">Xác nhận tham dự</button>
 </div>
 
 <script>
@@ -1052,14 +1032,14 @@ html.t-dawn body{background:#BFDDF8}
   }));
 
   /* ---- Floating RSVP bar ---- */
-  const fab = $("fab"), rsvpSec = $("rsvp"), invSec = $("invite");
+  const fab = $("fab"), invSec = $("invite");
   let responded = false;
   function updateFab(){
-    const inv = invSec.getBoundingClientRect(), rs = rsvpSec.getBoundingClientRect();
-    const show = !responded && inv.bottom < innerHeight*.4 && !(rs.top < innerHeight && rs.bottom > 0) && scrollY < document.documentElement.scrollHeight - innerHeight*1.6;
+    const inv = invSec.getBoundingClientRect();
+    const show = !responded && inv.bottom < innerHeight*.4 && scrollY < document.documentElement.scrollHeight - innerHeight*1.6;
     fab.classList.toggle("show", show);
     fab.setAttribute("aria-hidden", !show);
-    fab.querySelector("a").tabIndex = show ? 0 : -1;
+    fab.querySelector("button").tabIndex = show ? 0 : -1;
   }
 
   /* ---- RSVP & guestbook: live when the site's API answers, local demo otherwise ---- */
@@ -1070,32 +1050,50 @@ html.t-dawn body{background:#BFDDF8}
     if(!res.ok) throw new Error(data.error || "Chưa gửi được, bạn thử lại sau ít phút nhé.");
     return data;
   }
-  const rf = $("rsvpForm"), rt = $("rsvpThanks"), rErr = $("rsvpError"), rBtn = rf.querySelector("button[type=submit]");
+  /* One click: the guest name from the invite link is the RSVP */
+  const rsvpBtns = [...document.querySelectorAll("[data-rsvp]")], rStatus = $("rsvpStatus"), rInline = $("rsvpInline");
   let clientId = store.get("mc-rsvp-id", null);
   if(!clientId){ clientId = crypto.randomUUID ? crypto.randomUUID() : Date.now().toString(36) + Math.random().toString(36).slice(2); store.set("mc-rsvp-id", clientId); }
-  function showThanks(r){
-    const yes = r.attend === "yes";
-    $("rsvpTitle").textContent = yes ? `Cảm ơn ${r.name}!` : `Cảm ơn ${r.name} đã báo cho mình`;
-    $("rsvpText").textContent = yes
-      ? `Đã ghi nhận ${r.count} người. Hẹn gặp bạn lúc 07:30 sáng Chủ nhật, 25/10 tại cổng Lý Thường Kiệt.`
-      : "Tiếc quá, nhưng lời chúc của bạn vẫn rất ý nghĩa. Hãy để lại vài dòng trong sổ lưu bút nhé.";
-    rf.hidden = true; rt.hidden = false; responded = true; updateFab();
+  let current = store.get("mc-rsvp", null);
+  function renderRsvp(){
+    responded = !!current;
+    const yes = current && current.attend === "yes";
+    rsvpBtns.forEach(b => { b.textContent = yes ? "Đã xác nhận ✓" : "Xác nhận tham dự"; b.classList.toggle("done", !!yes); });
+    rStatus.textContent = "";
+    if(current){
+      rStatus.append(yes
+        ? `Cảm ơn ${current.name}! Mình đã ghi nhận bạn sẽ đến, hẹn gặp lúc 07:30 sáng Chủ nhật, 25/10.`
+        : `Đã ghi nhận ${current.name} không đến được. Cảm ơn bạn đã báo cho mình.`);
+      const change = document.createElement("button"); change.type = "button"; change.className = "linkbtn";
+      change.textContent = yes ? "Không đến được?" : "Mình sẽ đến";
+      change.addEventListener("click", () => sendRsvp(current.name, yes ? "no" : "yes"));
+      rStatus.append(change);
+    }
+    updateFab();
   }
-  const prev = store.get("mc-rsvp", null);
-  if(prev){ rf.name.value = prev.name; rf.attend.value = prev.attend; rf.with.value = prev.with || ""; rf.count.value = prev.count; showThanks(prev); }
-  rf.addEventListener("submit", async e => {
-    e.preventDefault();
-    const r = {name: rf.name.value.trim(), attend: rf.attend.value, with: rf.with.value.trim(), count: rf.count.value};
-    if(!r.name) return;
-    rErr.textContent = ""; rBtn.disabled = true; rBtn.textContent = "Đang gửi…";
+  async function sendRsvp(name, attend, from){
+    const r = {name, attend, with: "", count: attend === "yes" ? "1" : "0"};
+    rsvpBtns.forEach(b => b.disabled = true); rStatus.textContent = "Đang gửi…";
     try {
-      if(live) await api("/api/rsvp", {...r, client_id: clientId, invited_as: g});
-      store.set("mc-rsvp", r); showThanks(r);
-      if(r.attend === "yes"){ const b = rt.getBoundingClientRect(); celebrate(b.left + b.width/2, b.top, 70, true); }
-    } catch(err){ rErr.textContent = err.message; }
-    finally { rBtn.disabled = false; rBtn.textContent = "Gửi xác nhận"; }
+      try { await api("/api/rsvp", {...r, client_id: clientId, invited_as: g}); }
+      catch(err){ if(live) throw err; }   // no API (offline demo): keep it on this device
+      current = r; store.set("mc-rsvp", r); rInline.hidden = true; renderRsvp();
+      if(attend === "yes"){ const b = (from || rsvpBtns[0]).getBoundingClientRect(); celebrate(b.left + b.width/2, b.top, 90, true); }
+    } catch(err){ rStatus.textContent = err.message; }
+    finally { rsvpBtns.forEach(b => b.disabled = false); }
+  }
+  rsvpBtns.forEach(b => b.addEventListener("click", () => {
+    if(current && current.attend === "yes"){ $("card").scrollIntoView({behavior: reduce ? "auto" : "smooth", block: "center"}); return; }
+    const name = (current && current.name) || g;
+    if(name) return sendRsvp(name, "yes", b);
+    rInline.hidden = false; $("card").scrollIntoView({behavior: reduce ? "auto" : "smooth", block: "center"});
+    setTimeout(() => $("rName").focus(), reduce ? 0 : 450);
+  }));
+  rInline.addEventListener("submit", e => {
+    e.preventDefault();
+    const name = $("rName").value.trim(); if(name) sendRsvp(name, "yes", rInline.querySelector("button"));
   });
-  $("rsvpAgain").addEventListener("click", () => { rt.hidden = true; rf.hidden = false; rf.name.focus(); });
+  renderRsvp();
 
   const KEY = "mc-grad-wishes";
   const samples = [
@@ -1321,7 +1319,7 @@ html.t-dawn body{background:#BFDDF8}
     }));
   }
   (function(){
-    const SECS = [["intro","Phong bì"],["invite","Thiệp mời"],["rsvp","Xác nhận tham dự"],["story","Câu chuyện bốn năm"],["guestbook","Sổ lưu bút"],["finale","Lời cuối"]];
+    const SECS = [["intro","Phong bì"],["invite","Thiệp mời"],["story","Câu chuyện bốn năm"],["guestbook","Sổ lưu bút"],["finale","Lời cuối"]];
     const nav = $("sdots"), els = SECS.map(([id]) => $(id)).filter(Boolean);
     nav.innerHTML = SECS.map(([id, label], i) => `<button type="button" data-i="${i}" aria-label="${label}"></button>`).join("");
     const btns = [...nav.querySelectorAll("button")];
