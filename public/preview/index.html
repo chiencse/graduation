@@ -51,12 +51,12 @@ section{padding-block:96px}
 /* ---------- Sky: night fades into dawn as you scroll ---------- */
 .sky{position:fixed;inset:0;z-index:0;pointer-events:none}
 .sky-night{background:
-  radial-gradient(ellipse 70% 45% at 15% 0%,rgba(43,154,232,.30),transparent 70%),
+  radial-gradient(ellipse 70% 45% at 15% 0%,rgba(70,175,245,.34),transparent 70%),
   radial-gradient(ellipse 60% 40% at 90% 30%,rgba(30,110,230,.34),transparent 70%),
-  linear-gradient(180deg,#061C5A 0%,#0A2E86 45%,#1244A6 100%)}
+  linear-gradient(180deg,#0E3088 0%,#1646AE 45%,#2160CC 100%)}
 .sky-dawn{opacity:var(--dawn);background:
   radial-gradient(ellipse 80% 45% at 50% 108%,rgba(255,240,205,.7),transparent 70%),
-  linear-gradient(180deg,#0B3394 0%,#1458C0 36%,#2380DA 58%,#4FA6EC 78%,#A9D6F7 100%)}
+  linear-gradient(180deg,#1A4FBC 0%,#2470D6 34%,#3A92E6 56%,#6AB6F2 76%,#BFE2FB 100%)}
 .sun{position:fixed;left:85%;bottom:0;width:300px;height:300px;margin-left:-150px;z-index:0;pointer-events:none;border-radius:50%;
   --rise:calc(150px + 33vh);
   background:radial-gradient(circle,#FFF8E2 0 18%,#FFE2A3 30%,rgba(255,200,130,.35) 48%,transparent 68%);
@@ -66,7 +66,7 @@ section{padding-block:96px}
   background:url(/assets/bk-campus.jpg) center 80%/cover no-repeat;
   -webkit-mask-image:linear-gradient(to bottom,transparent 0%,#000 46%),linear-gradient(to right,transparent 0%,#000 16%,#000 84%,transparent 100%);
   -webkit-mask-composite:source-in;mask-image:linear-gradient(to bottom,transparent 0%,#000 46%),linear-gradient(to right,transparent 0%,#000 16%,#000 84%,transparent 100%);mask-composite:intersect}
-.campus-night{opacity:var(--cn,0);filter:brightness(.68) saturate(.8) contrast(1.02)}
+.campus-night{opacity:var(--cn,0);filter:brightness(.78) saturate(.85) contrast(1.02)}
 .campus-dawn{opacity:var(--cd,0);mix-blend-mode:multiply;filter:brightness(1.18) saturate(.95)}
 .bk-mark{display:block;background:var(--metal);background-size:200% auto;-webkit-mask:url(/assets/bk-logo.png) center/contain no-repeat;mask:url(/assets/bk-logo.png) center/contain no-repeat}
 .intro-crest{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:26px;font-size:11px;font-weight:500;letter-spacing:.3em;text-transform:uppercase;color:var(--gold)}
@@ -93,7 +93,7 @@ main,footer{position:relative;z-index:1}
 
 /* ---------- 1. Envelope ---------- */
 .intro{position:relative;text-align:center;padding-block:84px 48px}
-.moon{position:absolute;top:26px;right:8%;width:78px;height:78px;border-radius:50%;pointer-events:none;
+.moon{position:fixed;z-index:0;top:calc(30px + env(safe-area-inset-top,0px));right:9%;transform:translateY(calc(var(--moonset,0) * 62vh)) scale(calc(1 - var(--moonset,0) * .15));opacity:calc(1 - var(--moonset,0) * 1.05);width:78px;height:78px;border-radius:50%;pointer-events:none;
   background:radial-gradient(circle at 38% 36%,#FFF9E6,#F1DFB0 55%,#D9C08A);box-shadow:0 0 40px 8px rgba(255,238,195,.28),0 0 120px 30px rgba(255,230,170,.10)}
 .moon::after{content:"";position:absolute;inset:0;border-radius:50%;background:
   radial-gradient(circle at 62% 60%,rgba(170,140,90,.28) 0 9%,transparent 10%),
@@ -455,6 +455,7 @@ html.t-stars{--accent:#7DB7FF;--accent-soft:#CFE3FF;--line:rgba(125,183,255,.28)
 <div class="sky sky-night" aria-hidden="true"></div>
 <canvas id="sky" aria-hidden="true"></canvas>
 <div class="sky sky-dawn" aria-hidden="true"></div>
+<div class="moon" aria-hidden="true"></div>
 <div class="sun" aria-hidden="true"></div>
 <div class="campus campus-night" aria-hidden="true"></div>
 <div class="campus campus-dawn" aria-hidden="true"></div>
@@ -474,7 +475,6 @@ html.t-stars{--accent:#7DB7FF;--accent-soft:#CFE3FF;--line:rgba(125,183,255,.28)
 <main>
   <!-- 1. Envelope -->
   <section class="intro wrap" id="intro">
-    <span class="moon" aria-hidden="true"></span>
     <div class="intro-crest"><span class="bk-mark" aria-hidden="true"></span>ĐH Bách Khoa TP.HCM</div>
     <p class="to">Thân gửi</p>
     <p class="guest" id="guestTop">Quý khách</p>
@@ -865,7 +865,9 @@ html.t-stars{--accent:#7DB7FF;--accent-soft:#CFE3FF;--line:rgba(125,183,255,.28)
     skyQueued = false;
     const max = document.documentElement.scrollHeight - innerHeight;
     const p = max > 0 ? scrollY / max : 0;
-    let dawn = smooth(clamp((p - .3) / .66, 0, 1)), sun = smooth(clamp((p - .82) / .18, 0, 1));
+    let dawn = smooth(clamp((p - .25) / .7, 0, 1)), sun = smooth(clamp((p - .3) / .65, 0, 1));
+    const moonset = THEME === "dawn" ? smooth(clamp(p / .5, 0, 1)) : 0;
+    root.style.setProperty("--moonset", moonset.toFixed(3));
     if(THEME !== "dawn"){ dawn = 0; sun = 0; }
     root.style.setProperty("--dawn", dawn.toFixed(3));
     root.style.setProperty("--sun", sun.toFixed(3));
