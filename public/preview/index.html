@@ -465,15 +465,10 @@ html.t-dawn body{background:#BFDDF8}
   linear-gradient(180deg,#9BCBF6 0%,#C2E0FA 42%,#E2F1FD 78%,#F7FBFF 100%)}
 .t-dawn #sky{display:none}
 .t-dawn .clouds{opacity:calc(.75 + var(--dawn,0) * .2)}
-/* campus photo fills the whole screen, no faded edges */
-.t-dawn .campus{left:0;width:100%;height:100%;transform:none;background-position:center 62%;-webkit-mask-image:none;mask-image:none}
-.t-dawn .campus-night{opacity:calc(var(--cn,0) * .72);filter:saturate(.95) brightness(1.06)}
-.t-dawn .campus-dawn{display:none}
-.t-dawn .moon,.t-dawn .sun{z-index:1}
-/* frosted panels keep text readable over the full photo */
-.t-dawn .ch-text,.t-dawn .rsvp-copy,.t-dawn .story-text,.t-dawn .gb-side,.t-dawn .finale .wrap{background:rgba(255,255,255,.62);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-radius:16px;padding:24px 28px;box-shadow:0 18px 40px -26px rgba(11,42,110,.45)}
-.t-dawn .finale .wrap{max-width:760px;padding-block:40px}
-.t-dawn .intro .to,.t-dawn .intro .guest,.t-dawn .intro-crest{text-shadow:0 0 14px rgba(255,255,255,.95),0 0 4px rgba(255,255,255,.9)}
+.t-dawn .campus-night{opacity:calc(var(--cn,0) * .7);filter:saturate(.9) brightness(1.04)}
+/* softer edge fade so more of the campus shows */
+.t-dawn .campus{-webkit-mask-image:linear-gradient(to bottom,transparent 0%,#000 22%),linear-gradient(to right,transparent 0%,#000 7%,#000 93%,transparent 100%);
+  mask-image:linear-gradient(to bottom,transparent 0%,#000 22%),linear-gradient(to right,transparent 0%,#000 7%,#000 93%,transparent 100%)}
 .t-dawn .campus-dawn{filter:brightness(1.1) saturate(.9)}
 .t-dawn .fall.spark > span{background:radial-gradient(circle,#FFF4CF 0 14%,rgba(232,190,100,.75) 34%,transparent 66%)}
 .t-dawn h1,.t-dawn h2,.t-dawn h3{color:var(--ink-navy)}
@@ -982,7 +977,7 @@ html.t-dawn body{background:#BFDDF8}
     root.style.setProperty("--dawn", dawn.toFixed(3));
     root.style.setProperty("--sun", sun.toFixed(3));
     const top = clamp(1 - scrollY / (innerHeight * 1.3), 0, 1), end = smooth(clamp((p - .78) / .22, 0, 1));
-    root.style.setProperty("--cn", (THEME === "stars" ? Math.max(top, end) : THEME === "dawn" ? Math.max(top, .72 + end * .28) : top).toFixed(3));
+    root.style.setProperty("--cn", (THEME === "stars" ? Math.max(top, end) : THEME === "dawn" ? Math.max(top, .7) : top).toFixed(3));
     root.style.setProperty("--cd", smooth(clamp((p - .74) / .26, 0, 1)).toFixed(3));
     starVis = 1 - dawn*.9;
     updateFab();
