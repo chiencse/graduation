@@ -706,11 +706,11 @@ html.t-dawn body{background:#BFDDF8}
 
       <div class="chapters">
         <article class="chapter">
-          <div class="ch-text"><span class="ch-year">2022</span><h3>Tân sinh viên K22</h3><p>Lần đầu bước vào Bách Khoa, lạc đường giữa các toà nhà và bắt đầu làm quen với những người bạn đầu tiên.</p></div>
+          <div class="ch-text"><span class="ch-year">2022</span><h3>Tân sinh viên K22</h3><p>Lần đầu bước vào Bách Khoa ở cơ sở Dĩ An: tấm thẻ sinh viên, ngày hội Khoa, buổi lab mạch số đầu tiên và những dòng C++ đầu tiên.</p></div>
           <div class="strip" data-year="2022"></div>
         </article>
         <article class="chapter">
-          <div class="ch-text"><span class="ch-year">2023</span><h3>Những mùa thi đại cương</h3><p>Giải tích, Vật lý, Đại số tuyến tính. Những đêm ôn bài ở thư viện và những dòng code đầu tiên chạy được.</p></div>
+          <div class="ch-text"><span class="ch-year">2023</span><h3>Học sâu hơn, nghiên cứu đầu tiên</h3><p>Kiến trúc máy tính, Xác suất thống kê và những buổi trên giảng đường. Lần đầu thử làm nghiên cứu, và một sinh nhật đáng nhớ cùng bạn bè.</p></div>
           <div class="strip" data-year="2023"></div>
         </article>
         <article class="chapter">
@@ -1144,9 +1144,11 @@ html.t-dawn body{background:#BFDDF8}
   /* ---- Story photo strips ---- */
   const P = "/assets/photos/";
   const PHOTOS = [
-    {y:2022, t:"Ngày đầu đến Bách Khoa", f:"2022-campus"}, {y:2022, t:"Những bữa cơm sinh viên", f:"2022-meal"},
-    {y:2023, t:"Vở ghi mùa thi", f:"2023-notes"}, {y:2023, t:"Lab mạch số", f:"2023-lab"}, {y:2023, t:"Bảng đen & sơ đồ", f:"2023-board"},
-    {y:2024, t:"Kiến trúc máy tính", f:"2024-cpu"}, {y:2024, t:"Những dòng mã khó nhằn", f:"2024-code"}, {y:2024, t:"Sinh nhật giữa mùa deadline", f:"2024-birthday"},
+    {y:2022, t:"Ngày hội Khoa Máy tính", f:"2022-cse"}, {y:2022, t:"Những tối đi học về", f:"2022-selfie"}, {y:2022, t:"Lab mạch số đầu tiên", f:"2022-lab"},
+    {y:2022, t:"Thẻ sinh viên K22", f:"2022-card"}, {y:2022, t:"Những dòng C++ đầu tiên", f:"2022-cpp"}, {y:2022, t:"Toà H1, cơ sở Dĩ An", f:"2022-h1"},
+    {y:2023, t:"Kiến trúc máy tính", f:"2023-cpu"}, {y:2023, t:"Bài toán sơ tán, nghiên cứu đầu tiên", f:"2023-research"}, {y:2023, t:"Một buổi trên giảng đường", f:"2023-lecture"},
+    {y:2023, t:"9.8 Xác suất thống kê", f:"2023-grades", fit:"contain"}, {y:2023, t:"Sinh nhật cùng bạn bè", f:"2023-birthday"},
+    {y:2024, t:"Những dòng mã khó nhằn", f:"2024-code"},
     {y:2025, t:"Geek Internship tại GeekUp", f:"2025-geek"}, {y:2025, t:"Học bổng Golf Bách Khoa", f:"2025-scholarship"},
     {y:2026, t:"Bài báo khoa học đầu tay", f:"2026-paper"}, {y:2026, t:"Những trang luận văn", f:"2026-thesis"}, {y:2026, t:"Chuyến đi cuối năm tư", f:"2026-trip"}, {y:2026, t:"Công việc đầu tiên tại VNG", f:"2026-vng"}, {y:2026, t:"Hoàng hôn cuối thời sinh viên", f:"2026-sunset"}
   ].map(p => ({...p, src: P + p.f + ".jpg", thumb: P + p.f + "-sm.jpg"}));
@@ -1156,7 +1158,7 @@ html.t-dawn body{background:#BFDDF8}
     PHOTOS.filter(p => p.y === year).forEach(p => {
       const b = document.createElement("button"); b.type = "button"; b.className = "pol";
       const ph = document.createElement("span"); ph.className = "ph";
-      if(p.src){ const im = document.createElement("img"); im.src = p.thumb || p.src; im.alt = p.t; im.loading = "lazy"; ph.append(im); }
+      if(p.src){ const im = document.createElement("img"); im.src = p.thumb || p.src; if(p.fit){ im.style.objectFit = p.fit; ph.style.background = "#fff"; } im.alt = p.t; im.loading = "lazy"; ph.append(im); }
       else ph.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="10" r="2"/><path d="m21 16-5-5-9 8"/></svg><span>Chạm để thêm ảnh</span>';
       const cap = document.createElement("b"); cap.textContent = p.t;
       b.append(ph, cap);
