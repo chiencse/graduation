@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#0A2E86">
+<meta name="theme-color" content="#4F97EA">
 <meta name="description" content="Thân mời bạn đến dự Lễ tốt nghiệp của Nông Minh Chiến, Kỹ sư Khoa học Máy tính, Trường Đại học Bách Khoa TP.HCM.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Thiệp mời Lễ tốt nghiệp · Nông Minh Chiến">
@@ -449,6 +449,65 @@ html.rv .rv.in{opacity:1;transform:none}
 .t-paper .sdots button[aria-current="true"]{background:#14213D}
 @media (prefers-reduced-motion:reduce){.fall,.fall > *,.clouds b{animation:none}.falls{display:none}}
 
+
+/* ================= Default theme: Bách Khoa daylight (light sky, brightening as you scroll) ================= */
+html.t-dawn{color-scheme:light;
+  --text:#22365E; --muted:#4F6286; --line:rgba(30,80,170,.26); --gold:#A8843F; --gold-soft:#8C6A2F; --ink-navy:#0B2A6E;
+  --glass:rgba(255,255,255,.58);
+  --metal:linear-gradient(100deg,#6E5122 0%,#B8914A 22%,#D9B977 34%,#9C7A3C 48%,#6E5122 62%,#B8914A 80%,#D9B977 92%,#8C6A2F 100%)}
+html.t-dawn body{background:#BFDDF8}
+.t-dawn .sky-night{background:
+  radial-gradient(ellipse 60% 40% at 18% 6%,rgba(255,255,255,.55),transparent 70%),
+  radial-gradient(ellipse 50% 35% at 86% 24%,rgba(200,230,255,.7),transparent 70%),
+  linear-gradient(180deg,#4F97EA 0%,#78B3F2 42%,#A6D0F8 100%)}
+.t-dawn .sky-dawn{background:
+  radial-gradient(ellipse 80% 45% at 50% 108%,rgba(255,250,232,.9),transparent 70%),
+  linear-gradient(180deg,#9BCBF6 0%,#C2E0FA 42%,#E2F1FD 78%,#F7FBFF 100%)}
+.t-dawn #sky{display:none}
+.t-dawn .clouds{opacity:calc(.75 + var(--dawn,0) * .2)}
+.t-dawn .campus-night{opacity:calc(var(--cn,0) * .7);filter:saturate(.9) brightness(1.04)}
+.t-dawn .campus-dawn{filter:brightness(1.1) saturate(.9)}
+.t-dawn .fall.spark > span{background:radial-gradient(circle,#FFF4CF 0 14%,rgba(232,190,100,.75) 34%,transparent 66%)}
+.t-dawn h1,.t-dawn h2,.t-dawn h3{color:var(--ink-navy)}
+.t-dawn .intro .to{color:var(--muted)}
+.t-dawn .intro-crest{color:var(--ink-navy)}
+.t-dawn .intro .guest{color:var(--ink-navy)}
+.t-dawn .hint{color:var(--ink-navy);text-shadow:0 0 12px rgba(255,255,255,.95),0 0 4px #fff}
+.t-dawn .card{background:rgba(255,255,255,.66);color:var(--text);box-shadow:0 30px 70px -30px rgba(11,42,110,.35)}
+.t-dawn .card::before{border-color:rgba(168,132,63,.8)}
+.t-dawn .card::after{border-color:rgba(168,132,63,.3)}
+.t-dawn .card .guest-name,.t-dawn .when-where .big,.t-dawn .dress b{color:var(--ink-navy)}
+.t-dawn .card .name{filter:none}
+.t-dawn .cd{background:rgba(255,255,255,.55)}
+.t-dawn .cd b{color:var(--ink-navy)}
+.t-dawn .schedule div{border-bottom-color:rgba(168,132,63,.4)}
+.t-dawn .btn{color:var(--ink-navy);border-color:var(--gold)}
+.t-dawn .btn:hover{background:rgba(168,132,63,.1)}
+.t-dawn .btn.solid{background:var(--ink-navy);border-color:var(--ink-navy);color:#F0DCA6}
+.t-dawn .btn.solid:hover{background:#1A3F96}
+.t-dawn input,.t-dawn textarea,.t-dawn select{background:rgba(255,255,255,.82);color:var(--ink-navy)}
+.t-dawn .choice label{color:var(--ink-navy)}
+.t-dawn .choice label:has(input:checked){background:var(--ink-navy);border-color:var(--ink-navy);color:#F0DCA6}
+.t-dawn .form-error{color:#B4432F}
+.t-dawn .gb-side label,.t-dawn .gb-side > p{color:var(--text);text-shadow:0 0 10px rgba(255,255,255,.9)}
+.t-dawn .portrait{box-shadow:0 20px 50px -24px rgba(11,42,110,.35)}
+.t-dawn .portrait-inner{background:linear-gradient(180deg,#E3F0FC,#CFE3F7)}
+.t-dawn .portrait .tag{background:#fff;color:var(--ink-navy)}
+.t-dawn .pol,.t-dawn .note{background:#FFFFFF;box-shadow:0 16px 30px -18px rgba(11,42,110,.4)}
+.t-dawn .finale .label{color:var(--gold)}
+.t-dawn .finale h2,.t-dawn .finale p{text-shadow:0 0 18px rgba(255,255,255,.8)}
+.t-dawn .finale h2 em{color:var(--gold-soft)}
+.t-dawn .finale p{color:var(--text)}
+.t-dawn footer{color:var(--ink-navy);text-shadow:0 0 10px rgba(255,255,255,.9)}
+.t-dawn .fab{background:rgba(11,42,110,.9)}
+.t-dawn .fab span{color:#F4F8FF}
+.t-dawn .music,.t-dawn .theme-switch{background:rgba(255,255,255,.82);color:var(--ink-navy)}
+.t-dawn .theme-switch button[aria-pressed="true"]{background:var(--ink-navy);color:#F0DCA6}
+.t-dawn .sdots button{border-color:var(--ink-navy);background:rgba(11,42,110,.12)}
+.t-dawn .sdots button[aria-current="true"]{background:var(--ink-navy)}
+.t-dawn .cur-ring{border-color:rgba(11,42,110,.5)}
+.t-dawn .ghost.dark{background:#FFFFFF}
+
 /* ---------- Responsive ---------- */
 @media (max-width:820px){
   section{padding-block:72px}
@@ -780,7 +839,7 @@ html.rv .rv.in{opacity:1;transform:none}
     function size(){ const d = devicePixelRatio || 1; canvas.width = innerWidth*d; canvas.height = innerHeight*d; c.setTransform(d,0,0,d,0,0); }
     size(); addEventListener("resize", size);
     const PAL = {
-      dawn: [["#F3DC9E","#FFF7DD","#D4AE63"],["#FFE9B8","#F6C77A","#FFFFFF"],["#E9D29A","#B9C8FF","#FFFFFF"],["#F7C9A8","#F3DC9E","#FFF2CA"]],
+      dawn: [["#C9A35A","#1E5BC6","#E8B04A"],["#E8B04A","#2F7FE0","#B8914A"],["#B8914A","#0B2A6E","#4F97EA"]],
       paper: [["#9C7A3C","#14213D","#B8914A"],["#8C6A2F","#C9A35A","#2A3A66"],["#B8914A","#6E5122","#14213D"]],
       stars: [["#7DB7FF","#FFFFFF","#CFE3FF"],["#F3DC9E","#7DB7FF","#FFFFFF"],["#A9CCFF","#E9D29A","#FFFFFF"]]
     };
@@ -791,7 +850,7 @@ html.rv .rv.in{opacity:1;transform:none}
         const a = (i/n)*Math.PI*2 + Math.random()*.08, v = sp * (ring ? .92 + Math.random()*.1 : .35 + Math.random()*.75);
         parts.push({x, y, vx:Math.cos(a)*v, vy:Math.sin(a)*v, life:0, max:55 + Math.random()*45, c:pal[i % pal.length], s:1 + Math.random()*1.6, fl:Math.random() < .4});
       }
-      for(let i=0;i<14;i++) parts.push({x, y, vx:(Math.random()-.5)*1.4, vy:(Math.random()-.5)*1.4, life:0, max:30, c:THEME === "paper" ? "#B8914A" : "#FFFFFF", s:2.4});
+      for(let i=0;i<14;i++) parts.push({x, y, vx:(Math.random()-.5)*1.4, vy:(Math.random()-.5)*1.4, life:0, max:30, c:THEME !== "stars" ? "#B8914A" : "#FFFFFF", s:2.4});
       go();
     }
     function launch(tx, ty, o = {}){ rockets.push({x: tx + (Math.random()-.5)*80, y: innerHeight + 10, tx, ty, o}); go(); }
@@ -814,12 +873,12 @@ html.rv .rv.in{opacity:1;transform:none}
     }
     function step(){
       c.globalCompositeOperation = "destination-out"; c.fillStyle = "rgba(0,0,0,.2)"; c.fillRect(0,0,innerWidth,innerHeight);
-      c.globalCompositeOperation = THEME === "paper" ? "source-over" : "lighter";
+      c.globalCompositeOperation = THEME !== "stars" ? "source-over" : "lighter";
       rockets = rockets.filter(r => {
         const dx = r.tx - r.x, dy = r.ty - r.y, d = Math.hypot(dx,dy);
         if(d < 12){ burst(r.tx, r.ty, r.o); return false; }
         const v = Math.max(6, d*.06); r.x += dx/d*v; r.y += dy/d*v;
-        c.fillStyle = THEME === "paper" ? "#9C7A3C" : "#FFE9B8"; c.beginPath(); c.arc(r.x, r.y, 1.8, 0, 7); c.fill();
+        c.fillStyle = THEME !== "stars" ? "#9C7A3C" : "#FFE9B8"; c.beginPath(); c.arc(r.x, r.y, 1.8, 0, 7); c.fill();
         return true;
       });
       parts = parts.filter(p => p.life < p.max);
@@ -1177,7 +1236,7 @@ html.rv .rv.in{opacity:1;transform:none}
     let dust = [], raf = 0, lastX = -1, lastY = -1;
     function size(){ const d = devicePixelRatio || 1; cv.width = innerWidth*d; cv.height = innerHeight*d; c.setTransform(d,0,0,d,0,0); }
     size(); addEventListener("resize", size);
-    const TONES = {dawn:["#FFF7DD","#F3DC9E","#E9C77E","#FFFFFF"], paper:["#B8914A","#9C7A3C","#D9B977","#14213D"], stars:["#CFE3FF","#7DB7FF","#F3DC9E","#FFFFFF"]};
+    const TONES = {dawn:["#C9A35A","#1E5BC6","#E8B04A","#4F97EA"], paper:["#B8914A","#9C7A3C","#D9B977","#14213D"], stars:["#CFE3FF","#7DB7FF","#F3DC9E","#FFFFFF"]};
     function add(x, y, n, spread){
       for(let i=0;i<n;i++){
         const a = Math.random()*Math.PI*2, v = Math.random()*spread;
@@ -1191,7 +1250,7 @@ html.rv .rv.in{opacity:1;transform:none}
       c.closePath(); c.fill(); c.restore();
     }
     function step(){
-      c.clearRect(0,0,innerWidth,innerHeight); c.globalCompositeOperation = THEME === "paper" ? "source-over" : "lighter";
+      c.clearRect(0,0,innerWidth,innerHeight); c.globalCompositeOperation = THEME !== "stars" ? "source-over" : "lighter";
       dust = dust.filter(p => p.life < p.max);
       for(const p of dust){
         p.life++; p.vx *= .96; p.vy = p.vy*.96 + .03; p.x += p.vx; p.y += p.vy; p.rot += .04;
