@@ -196,7 +196,8 @@ textarea{resize:vertical;min-height:96px}
 .demo-note{font-size:12px;color:var(--muted);opacity:.8;margin-top:14px}
 
 /* ---------- 4. Story ---------- */
-.story-open{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:56px;align-items:center;margin-bottom:96px}
+.story-open{display:grid;grid-template-columns:minmax(0,1fr);justify-items:center;text-align:center;max-width:760px;margin:0 auto 96px}
+.story-open .story-text p{margin:0 auto}
 .portrait{position:relative;aspect-ratio:4/5;max-width:340px;width:100%;margin:0 auto;border-radius:200px 200px 8px 8px;border:1px solid var(--gold);padding:12px;box-shadow:0 0 60px -12px rgba(212,176,106,.35)}
 .portrait-inner{width:100%;height:100%;border-radius:190px 190px 4px 4px;background:linear-gradient(180deg,#141F45,#070D24);display:grid;place-items:center;align-content:center;gap:14px;color:var(--muted);font-size:13px;text-align:center}
 .portrait-inner svg{width:90px;height:auto}
@@ -681,7 +682,6 @@ html.t-dawn body{background:#BFDDF8}
           <div><b>15:30</b><span>Đón khách tại tòa A3, Khoa Khoa học và Kỹ thuật Máy tính</span></div>
           <div><b>Sau đó</b><span>Chúc mừng, tặng hoa &amp; chụp ảnh lưu niệm tại sân trường</span></div>
         </div>
-        <p class="dress"><b>Trang phục:</b> lịch sự, gợi ý tông trắng hoặc xanh navy</p>
         <div class="card-actions">
           <button class="btn solid" type="button" data-rsvp>Xác nhận tham dự</button>
           <a class="btn" id="mapLink" target="_blank" rel="noopener">Chỉ đường</a>
@@ -737,13 +737,6 @@ html.t-dawn body{background:#BFDDF8}
   <section id="story">
     <div class="wrap">
       <div class="story-open">
-        <div class="portrait">
-          <div class="portrait-inner">
-            <svg viewBox="0 0 64 48" style="color:var(--gold)"><use href="#cap"/></svg>
-            <span>Ảnh chân dung lễ phục<br>đặt tại đây</span>
-          </div>
-          <span class="tag">Class of 2026</span>
-        </div>
         <div class="story-text">
           <span class="label">Câu chuyện bốn năm</span>
           <span class="big-num" id="daysBig">1.511</span>
