@@ -551,6 +551,21 @@ html.t-dawn body{background:#BFDDF8}
 .see-you{text-align:center;margin-top:26px;font-size:13px;font-weight:600;letter-spacing:.3em;color:var(--gold)}
 .t-stars .tip{background:rgba(10,21,48,.7);border-color:var(--line)}.t-stars .tip h3{color:#EAF2FF}.t-stars .tip i{background:#0A1532;color:#7DB7FF}
 @media (max-width:640px){.tips-grid{grid-template-columns:1fr}}
+/* ---------- Campus map ---------- */
+.map{max-width:980px;margin:30px auto 0;display:grid;gap:12px}
+.map figcaption{text-align:center;font-size:14.5px;line-height:1.6;color:var(--text);max-width:70ch;margin:0 auto}
+.map figcaption b{font-weight:600;color:var(--ink-navy,#0B2A6E)}
+.map-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:16px;box-shadow:0 18px 40px -26px rgba(11,42,110,.5)}
+.map-box{position:relative;display:block;background:#fff;border-radius:16px;overflow:hidden;min-width:640px}
+.map-box img{display:block;width:100%;height:auto;filter:contrast(1.08) saturate(1.05)}
+.map-ring{position:absolute;width:15%;aspect-ratio:1.9;transform:translate(-50%,-50%);border:3px solid #E53935;border-radius:50%;box-shadow:0 0 0 6px rgba(229,57,53,.18);animation:ring 1.8s ease-in-out infinite}
+@keyframes ring{50%{box-shadow:0 0 0 14px rgba(229,57,53,.05)}}
+.map-pin{position:absolute;transform:translate(-50%,-100%);white-space:nowrap;background:#E53935;color:#fff;font:600 13px/1.2 var(--sans);padding:7px 12px;border-radius:999px;box-shadow:0 6px 16px -6px rgba(0,0,0,.45)}
+.map-pin b{display:inline-block;background:#fff;color:#E53935;border-radius:999px;padding:1px 7px;margin-right:6px}
+.map-pin::after{content:"";position:absolute;left:50%;bottom:-6px;transform:translateX(-50%);border:6px solid transparent;border-top-color:#E53935;border-bottom:0}
+.map-hint{text-align:center;font-size:12px;color:var(--text)}
+.t-dawn .map-hint,.t-dawn .see-you,.t-dawn .map figcaption{text-shadow:0 0 10px rgba(255,255,255,.95),0 0 3px #fff}
+@media (prefers-reduced-motion:reduce){.map-ring{animation:none}}
 /* ---------- Responsive ---------- */
 @media (max-width:820px){
   section{padding-block:72px}
@@ -652,7 +667,7 @@ html.t-dawn body{background:#BFDDF8}
         <div class="when-where">
           <div class="col"><span class="lbl">Thời gian</span><span class="big">15:30 chiều</span><span class="sm">Buổi lễ bắt đầu từ 14:30</span></div>
           <div class="col date-block"><span class="mo">Thứ bảy</span><span class="day metal">28</span><span class="mo">Tháng 11 · 2026</span></div>
-          <div class="col"><span class="lbl">Địa điểm</span><span class="big">ĐH Bách Khoa</span><span class="sm">268 Lý Thường Kiệt, Phường Diên Hồng, TP. Hồ Chí Minh</span></div>
+          <div class="col"><span class="lbl">Địa điểm</span><span class="big">ĐH Bách Khoa</span><span class="sm">Tòa A3 · 268 Lý Thường Kiệt, Phường Diên Hồng, TP. Hồ Chí Minh</span></div>
         </div>
         <p class="cd-label" id="cdLabel">Còn lại đến giờ hẹn</p>
         <div class="countdown" role="timer" aria-live="off">
@@ -663,7 +678,7 @@ html.t-dawn body{background:#BFDDF8}
         </div>
         <div class="schedule" aria-label="Lịch trình buổi lễ">
           <div><b>14:30</b><span>Buổi lễ tốt nghiệp bắt đầu</span></div>
-          <div><b>15:30</b><span>Đón khách tại cổng Lý Thường Kiệt</span></div>
+          <div><b>15:30</b><span>Đón khách tại tòa A3, Khoa Khoa học và Kỹ thuật Máy tính</span></div>
           <div><b>Sau đó</b><span>Chúc mừng, tặng hoa &amp; chụp ảnh lưu niệm tại sân trường</span></div>
         </div>
         <p class="dress"><b>Trang phục:</b> lịch sự, gợi ý tông trắng hoặc xanh navy</p>
@@ -689,7 +704,7 @@ html.t-dawn body{background:#BFDDF8}
       <div class="sec-title"><span class="label">Lưu ý nhỏ</span><h2>Vài điều để buổi chiều thật trọn vẹn</h2></div>
       <div class="tips-grid">
         <article class="tip"><i aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></i><h3>Giờ giấc</h3>
-          <p>Buổi lễ của mình bắt đầu lúc 14:30 chiều Thứ bảy, 28/11. Bạn đến khoảng 15:30 là vừa, mình sẽ ra cổng đón và chụp ảnh cùng bạn nhé.</p></article>
+          <p>Buổi lễ của mình bắt đầu lúc 14:30 chiều Thứ bảy, 28/11. Bạn đến khoảng 15:30 là vừa, mình đón bạn ở tòa A3 (Khoa Khoa học và Kỹ thuật Máy tính) rồi cùng chụp ảnh nhé.</p></article>
         <article class="tip"><i aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="4"/><path d="M10 16V8h3a2.5 2.5 0 0 1 0 5h-3"/></svg></i><h3>Gửi xe</h3>
           <p>Bạn có thể gửi xe ở một trong các điểm sau:</p>
           <ul class="tip-list">
@@ -703,6 +718,17 @@ html.t-dawn body{background:#BFDDF8}
         <article class="tip"><i aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H8l-4 4Z"/><path d="M8 10h8M8 13h5"/></svg></i><h3>Tìm mình</h3>
           <p>Đến nơi mà chưa thấy mình thì cứ gọi hoặc nhắn tin cho mình qua số <a class="phone" href="tel:0388506847">0388 506 847</a>, mình sẽ ra đón ngay.</p></article>
       </div>
+      <figure class="map">
+        <figcaption><b>Bản đồ khuôn viên</b> · điểm đón là <b>tòa A3</b>. Bãi xe máy: <b>B1</b> (gần cổng 1, đường Lý Thường Kiệt), <b>B3</b>, và bãi <b>cổng 3</b> (đường Tô Hiến Thành).</figcaption>
+        <div class="map-scroll">
+          <a class="map-box" href="/assets/bk-map.jpg" target="_blank" rel="noopener" aria-label="Mở bản đồ khuôn viên cỡ lớn">
+            <img src="/assets/bk-map.jpg" alt="Bản đồ khuôn viên Trường Đại học Bách Khoa, tòa A3 được đánh dấu là điểm đón" width="1976" height="826" loading="lazy">
+            <span class="map-ring" style="left:71.2%;top:66.5%"></span>
+            <span class="map-pin" style="left:71.2%;top:58%"><b>A3</b> Điểm đón · Khoa KH&amp;KT Máy tính</span>
+          </a>
+        </div>
+        <p class="map-hint">Chạm vào bản đồ để xem cỡ lớn</p>
+      </figure>
       <p class="see-you">HẸN GẶP CÁC BẠN NHÉ!</p>
     </div>
   </section>
@@ -840,7 +866,7 @@ html.t-dawn body{background:#BFDDF8}
   $("mapLink").href = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent("Trường Đại học Bách Khoa, 268 Lý Thường Kiệt, TP. Hồ Chí Minh");
   $("calLink").href = "https://calendar.google.com/calendar/render?" + new URLSearchParams({
     action:"TEMPLATE", text:"Lễ tốt nghiệp Nông Minh Chiến", dates:"20261128T083000Z/20261128T110000Z",
-    location:"Trường Đại học Bách Khoa, " + ADDRESS, details:"Lễ tốt nghiệp Kỹ sư Khoa học Máy tính. Buổi lễ bắt đầu 14:30, đón khách từ 15:30 tại cổng Lý Thường Kiệt."
+    location:"Trường Đại học Bách Khoa, " + ADDRESS, details:"Lễ tốt nghiệp Kỹ sư Khoa học Máy tính. Buổi lễ bắt đầu 14:30, đón khách từ 15:30 tại tòa A3 (Khoa Khoa học và Kỹ thuật Máy tính)."
   });
   $("copyAddr").addEventListener("click", () => {
     const text = "Trường Đại học Bách Khoa, " + ADDRESS;
@@ -1104,7 +1130,7 @@ html.t-dawn body{background:#BFDDF8}
     rStatus.textContent = "";
     if(current){
       rStatus.append(yes
-        ? `Cảm ơn ${current.name}! Mình đã ghi nhận bạn sẽ đến, hẹn gặp lúc 15:30 chiều Thứ bảy, 28/11.`
+        ? `Cảm ơn ${current.name}! Mình đã ghi nhận bạn sẽ đến, hẹn gặp lúc 15:30 chiều Thứ bảy, 28/11 ở tòa A3.`
         : `Đã ghi nhận ${current.name} không đến được. Cảm ơn bạn đã báo cho mình.`);
       const change = document.createElement("button"); change.type = "button"; change.className = "linkbtn";
       change.textContent = yes ? "Không đến được?" : "Mình sẽ đến";
@@ -1331,7 +1357,7 @@ html.t-dawn body{background:#BFDDF8}
   /* ---- Reveal each part as it scrolls in, and section dots ---- */
   if(!reduce && "IntersectionObserver" in window){
     root.classList.add("rv");
-    const groups = [".tips .sec-title", ".tip", ".see-you", "#story .portrait", "#story .story-text > *", ".chapter .ch-text > *", ".chapter .strip", ".strip-note", ".gb-side > *", "#wall", ".finale .wrap > *"];
+    const groups = [".tips .sec-title", ".tip", ".map", ".see-you", "#story .portrait", "#story .story-text > *", ".chapter .ch-text > *", ".chapter .strip", ".strip-note", ".gb-side > *", "#wall", ".finale .wrap > *"];
     const rio = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting){ e.target.classList.add("in"); rio.unobserve(e.target); } }), {threshold: .12, rootMargin: "0px 0px -6% 0px"});
     groups.forEach(sel => document.querySelectorAll(sel).forEach(el => {
       const i = [...el.parentNode.children].indexOf(el);
