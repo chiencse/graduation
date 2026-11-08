@@ -543,6 +543,10 @@ html.t-dawn body{background:#BFDDF8}
 .tip i svg{width:21px;height:21px}
 .tip h3{font-size:22px;line-height:1.2;margin-bottom:4px;color:var(--ink-navy,#0B2A6E)}
 .tip p{font-size:14.5px;line-height:1.7;color:var(--text)}
+.tip-list{list-style:none;margin:6px 0 8px;padding:0;display:grid;gap:4px;font-size:14.5px;line-height:1.6;color:var(--text)}
+.tip-list li{position:relative;padding-left:16px}
+.tip-list li::before{content:"";position:absolute;left:2px;top:.62em;width:6px;height:6px;border-radius:50%;background:var(--gold)}
+.tip-list b{font-weight:600;color:var(--ink-navy,#0B2A6E)}
 .tip .phone{font-weight:600;color:var(--ink-navy,#0B2A6E);white-space:nowrap;text-decoration:underline;text-underline-offset:3px}
 .see-you{text-align:center;margin-top:26px;font-size:13px;font-weight:600;letter-spacing:.3em;color:var(--gold)}
 .t-stars .tip{background:rgba(10,21,48,.7);border-color:var(--line)}.t-stars .tip h3{color:#EAF2FF}.t-stars .tip i{background:#0A1532;color:#7DB7FF}
@@ -688,7 +692,13 @@ html.t-dawn body{background:#BFDDF8}
         <article class="tip"><i aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></i><h3>Giờ giấc</h3>
           <p>Mình có mặt từ 14:30, buổi lễ bắt đầu lúc 15:00 chiều Thứ bảy, 28/11. Bạn đến sớm một chút để kịp chụp vài tấm ảnh cùng mình trước giờ làm lễ nhé.</p></article>
         <article class="tip"><i aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="4"/><path d="M10 16V8h3a2.5 2.5 0 0 1 0 5h-3"/></svg></i><h3>Gửi xe</h3>
-          <p>Bạn có thể gửi xe ở bãi xe trong trường hoặc các điểm gửi xe quanh cổng Lý Thường Kiệt. Chiều thứ bảy đường khá đông, nên đi chung xe hoặc đặt xe công nghệ sẽ đỡ kẹt hơn nha.</p></article>
+          <p>Bạn có thể gửi xe ở một trong các điểm sau:</p>
+          <ul class="tip-list">
+            <li><b>Cổng 1</b> · cổng chính, đường Lý Thường Kiệt</li>
+            <li><b>Cổng 3</b> · đường Tô Hiến Thành</li>
+            <li><b>Bệnh viện Trưng Vương</b> · bãi xe ngay cạnh trường</li>
+          </ul>
+          <p>Chiều thứ bảy đường khá đông, nên đi chung xe hoặc đặt xe công nghệ sẽ đỡ kẹt hơn nha.</p></article>
         <article class="tip"><i aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 18 0Z"/><path d="M12 12v7a2 2 0 0 1-4 0"/></svg></i><h3>Chuẩn bị</h3>
           <p>Sự hiện diện của bạn đã là món quà lớn nhất rồi. Buổi chiều tháng 11 có thể nắng hoặc mưa bất chợt, bạn mang theo ô/dù và một chai nước cho thoải mái nhé.</p></article>
         <article class="tip"><i aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H8l-4 4Z"/><path d="M8 10h8M8 13h5"/></svg></i><h3>Tìm mình</h3>
