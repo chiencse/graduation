@@ -1233,51 +1233,29 @@ html.t-dawn body{background:#BFDDF8}
     celebrate(r.left + r.width/2, r.top, 240, true);
   });
 
-  /* ---- Music box: a soft generative melody, made in the browser ---- */
+  /* ---- Background music: the chorus of "A Thousand Years", looped, fades in and out ---- */
   (function(){
-    const btn = $("music"); let ctx = null, master = null, timer = null, nextT = 0, beat = 0;
-    const chords = [[146.83,220.00,293.66,369.99,440.00,587.33],[123.47,185.00,246.94,293.66,369.99,493.88],[98.00,196.00,246.94,293.66,392.00,493.88],[110.00,220.00,277.18,329.63,440.00,554.37]];
-    const melody = [587.33,659.25,739.99,880.00,987.77,1174.66];
-    function bell(freq, t, dur, vol){
-      const o = ctx.createOscillator(), o2 = ctx.createOscillator(), gn = ctx.createGain();
-      o.type = "sine"; o.frequency.value = freq; o2.type = "sine"; o2.frequency.value = freq*2.01;
-      const g2 = ctx.createGain(); g2.gain.value = .18;
-      o.connect(gn); o2.connect(g2); g2.connect(gn); gn.connect(master);
-      gn.gain.setValueAtTime(0, t); gn.gain.linearRampToValueAtTime(vol, t + .012); gn.gain.exponentialRampToValueAtTime(.0001, t + dur);
-      o.start(t); o2.start(t); o.stop(t + dur + .05); o2.stop(t + dur + .05);
+    const btn = $("music"), audio = new Audio("/assets/music/a-thousand-years-chorus.m4a");
+    audio.loop = true; audio.preload = "none"; audio.volume = 0;
+    let fadeT = null;
+    function fadeTo(v, ms, done){
+      clearInterval(fadeT); const from = audio.volume, t0 = performance.now();
+      fadeT = setInterval(() => {
+        const k = Math.min(1, (performance.now() - t0) / ms);
+        audio.volume = Math.max(0, Math.min(1, from + (v - from) * k));
+        if(k >= 1){ clearInterval(fadeT); if(done) done(); }
+      }, 40);
     }
-    function schedule(){
-      while(nextT < ctx.currentTime + .3){
-        const bar = Math.floor(beat / 8) % chords.length, ch = chords[bar], pos = beat % 8;
-        if(pos === 0) bell(ch[0], nextT, 3.2, .16);
-        if(pos === 4) bell(ch[1], nextT, 2.2, .08);
-        const arp = [2,3,4,5,4,3,2,3][pos];
-        bell(ch[arp], nextT, 1.6, .055);
-        if(Math.random() < .28 && pos % 2 === 0) bell(melody[Math.floor(Math.random()*melody.length)], nextT + .01, 1.8, .045);
-        nextT += .42; beat++;
-      }
-    }
+    function set(on){ btn.setAttribute("aria-pressed", on); btn.setAttribute("aria-label", on ? "Tắt nhạc nền" : "Bật nhạc nền"); }
     btn.addEventListener("click", async () => {
       const on = btn.getAttribute("aria-pressed") !== "true";
-      btn.setAttribute("aria-pressed", on); btn.setAttribute("aria-label", on ? "Tắt nhạc nền" : "Bật nhạc nền");
-      try {
-        if(on){
-          if(!ctx){
-            ctx = new (window.AudioContext || window.webkitAudioContext)();
-            master = ctx.createGain(); master.gain.value = 0;
-            const delay = ctx.createDelay(), fb = ctx.createGain(), wet = ctx.createGain();
-            delay.delayTime.value = .36; fb.gain.value = .38; wet.gain.value = .35;
-            master.connect(ctx.destination); master.connect(delay); delay.connect(fb); fb.connect(delay); delay.connect(wet); wet.connect(ctx.destination);
-          }
-          await ctx.resume(); nextT = ctx.currentTime + .1;
-          master.gain.cancelScheduledValues(ctx.currentTime); master.gain.linearRampToValueAtTime(.9, ctx.currentTime + 1.2);
-          timer = setInterval(schedule, 100);
-        } else if(ctx){
-          master.gain.cancelScheduledValues(ctx.currentTime); master.gain.linearRampToValueAtTime(0, ctx.currentTime + .5);
-          clearInterval(timer); setTimeout(() => { if(btn.getAttribute("aria-pressed") !== "true") ctx.suspend(); }, 600);
-        }
-      } catch(e){ btn.setAttribute("aria-pressed", "false"); }
+      set(on);
+      if(on){
+        try { await audio.play(); fadeTo(.8, 1200); }
+        catch(e){ set(false); }
+      } else fadeTo(0, 500, () => audio.pause());
     });
+    audio.addEventListener("ended", () => set(false));
   })();
 
   /* ---- Star cursor, stardust and a few graduation caps on every click ---- */
