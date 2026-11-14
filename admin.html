@@ -66,7 +66,15 @@ input{flex:1;min-width:0;font:400 14px var(--sans);color:var(--text);background:
 input:focus{outline:none;border-color:var(--gold)}
 .links{display:grid;gap:6px}
 .link{display:flex;gap:8px;align-items:center;justify-content:space-between;background:var(--panel-2);border-radius:6px;padding:8px 10px;font-size:13px}
-.link code{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--gold-soft);font-size:12px}
+.link code{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--gold-soft);font-size:12px;display:block}
+.link-main{min-width:0;flex:1;display:grid;gap:3px}
+.link-top{display:flex;gap:8px;align-items:center}
+.link-name{flex:1;min-width:0;padding:4px 8px;font-size:14px;background:transparent;border-color:transparent}
+.link-name:hover{border-color:var(--line)}
+.link-name:focus{background:var(--panel)}
+.link-acts{display:flex;gap:6px;flex:none}
+.btn.ghost{border-color:rgba(242,177,166,.5);color:var(--no)}
+.links{max-height:520px;overflow:auto}
 .login{max-width:420px;margin:12vh auto;display:grid;gap:14px}
 .login p{color:var(--muted);margin:0;font-size:14px}
 .err{color:var(--no);font-size:13px;min-height:1.2em;margin:0}
@@ -140,8 +148,8 @@ input:focus{outline:none;border-color:var(--gold)}
         </section>
 
         <section class="panel">
-          <div class="panel-head"><h2>Tạo link mời riêng</h2></div>
-          <p class="sub" style="margin:0">Tên khách sẽ hiện trên phong bì, trên thiệp và trong tiêu đề khi gửi link qua Zalo/Messenger.</p>
+          <div class="panel-head"><h2>Link mời riêng <span class="sub" id="inviteCount"></span></h2><button class="btn small" type="button" id="copyAll">Sao chép tất cả</button></div>
+          <p class="sub" style="margin:0">Tên khách hiện trên phong bì, trên thiệp và trong tiêu đề khi gửi link. Sửa tên ngay trong ô rồi bấm Enter, link đổi theo.</p>
           <form class="linkgen" id="linkForm">
             <div class="row">
               <input id="guestInput" placeholder="VD: Cô Lan, Anh Tuấn và gia đình" maxlength="40" required>
@@ -202,7 +210,7 @@ input:focus{outline:none;border-color:var(--gold)}
   });
 
   async function load(){
-    loadTime();
+    loadTime(); loadInvites();
     try {
       data = await call("/api/admin/summary");
       $("login").hidden = true; $("app").hidden = false;
@@ -271,33 +279,66 @@ input:focus{outline:none;border-color:var(--gold)}
   $("logout").addEventListener("click", () => { store.del("mc-admin-token"); token = ""; showLogin(); });
   $("login").addEventListener("submit", e => { e.preventDefault(); token = $("tokenInput").value.trim(); store.set("mc-admin-token", token); load(); });
 
-  /* Personal invite links */
-  let links = store.get("mc-admin-links", []);
+  /* Personal invite links, stored on the server so every device sees the same list */
+  let invites = [];
   function linkFor(name){ return SITE + "/?to=" + encodeURIComponent(name); }
   async function copy(text){
     try { await navigator.clipboard.writeText(text); toast("Đã sao chép link"); }
     catch(e){ prompt("Sao chép link:", text); }
   }
+  const norm = t => (t || "").trim().toLowerCase();
+  function inviteStatus(name){
+    const r = data.rsvps.find(x => norm(x.invited_as) === norm(name));
+    return r ? (r.attend ? ["yes", "Sẽ đến"] : ["no", "Không đến"]) : null;
+  }
   function renderLinks(){
     const box = $("links"); box.innerHTML = "";
-    links.forEach(name => {
+    $("inviteCount").textContent = invites.length ? `(${invites.length})` : "";
+    if(!invites.length){ const p = document.createElement("p"); p.className = "empty"; p.textContent = "Chưa có link nào."; box.append(p); return; }
+    invites.forEach(inv => {
       const row = document.createElement("div"); row.className = "link";
-      const left = document.createElement("div"); left.style.minWidth = "0";
-      const nm = document.createElement("div"); nm.textContent = name;
-      const code = document.createElement("code"); code.textContent = linkFor(name);
-      left.append(nm, code);
-      const b = document.createElement("button"); b.type = "button"; b.className = "btn small"; b.textContent = "Sao chép";
-      b.addEventListener("click", () => copy(linkFor(name)));
-      row.append(left, b); box.append(row);
+      const left = document.createElement("div"); left.className = "link-main";
+      const top = document.createElement("div"); top.className = "link-top";
+      const nm = document.createElement("input"); nm.className = "link-name"; nm.value = inv.name; nm.maxLength = 40; nm.setAttribute("aria-label", "Tên khách");
+      top.append(nm);
+      const st = inviteStatus(inv.name);
+      if(st){ const pill = document.createElement("span"); pill.className = "pill " + st[0]; pill.textContent = st[1]; top.append(pill); }
+      const code = document.createElement("code"); code.textContent = linkFor(inv.name);
+      left.append(top, code);
+      const acts = document.createElement("div"); acts.className = "link-acts";
+      const cp = document.createElement("button"); cp.type = "button"; cp.className = "btn small"; cp.textContent = "Sao chép";
+      cp.addEventListener("click", () => copy(linkFor(nm.value.trim() || inv.name)));
+      const del = document.createElement("button"); del.type = "button"; del.className = "btn small ghost"; del.textContent = "Xoá";
+      del.addEventListener("click", async () => {
+        if(del.dataset.armed !== "1"){ del.dataset.armed = "1"; del.textContent = "Chắc chắn?"; setTimeout(() => { del.dataset.armed = ""; del.textContent = "Xoá"; }, 3000); return; }
+        try { await call(`/api/admin/invites/${inv.id}/delete`, "POST", {}); invites = invites.filter(x => x.id !== inv.id); renderLinks(); toast("Đã xoá link"); }
+        catch(err){ toast(err.message); }
+      });
+      acts.append(cp, del);
+      const save = async () => {
+        const v = nm.value.trim();
+        if(!v){ nm.value = inv.name; return; }
+        if(v === inv.name) return;
+        try { await call(`/api/admin/invites/${inv.id}`, "POST", {name: v}); inv.name = v; code.textContent = linkFor(v); toast("Đã đổi tên, link mới đã cập nhật"); }
+        catch(err){ toast(err.message); nm.value = inv.name; }
+      };
+      nm.addEventListener("change", save);
+      nm.addEventListener("keydown", e => { if(e.key === "Enter"){ e.preventDefault(); nm.blur(); } });
+      row.append(left, acts); box.append(row);
     });
   }
-  $("linkForm").addEventListener("submit", e => {
+  async function loadInvites(){
+    try { invites = (await call("/api/admin/invites")).invites; renderLinks(); } catch(e){}
+  }
+  $("linkForm").addEventListener("submit", async e => {
     e.preventDefault();
     const name = $("guestInput").value.trim(); if(!name) return;
-    links = [name, ...links.filter(n => n !== name)].slice(0, 30);
-    store.set("mc-admin-links", links); renderLinks(); copy(linkFor(name)); $("guestInput").value = "";
+    try {
+      const r = await call("/api/admin/invites", "POST", {name});
+      invites.push({id: r.id, name}); renderLinks(); copy(linkFor(name)); $("guestInput").value = "";
+    } catch(err){ toast(err.message); }
   });
-  renderLinks();
+  $("copyAll").addEventListener("click", () => copy(invites.map(i => `${i.name}: ${linkFor(i.name)}`).join("\n")));
 
   if(token) load(); else showLogin();
   setInterval(() => { if(token && !document.hidden && !$("app").hidden) load(); }, 30000);

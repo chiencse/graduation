@@ -58,6 +58,11 @@ def init_db():
               created_at INTEGER NOT NULL,
               updated_at INTEGER NOT NULL
             );
+            CREATE TABLE IF NOT EXISTS invites(
+              id INTEGER PRIMARY KEY,
+              name TEXT NOT NULL,
+              created_at INTEGER NOT NULL
+            );
             CREATE TABLE IF NOT EXISTS settings(
               key TEXT PRIMARY KEY,
               value TEXT NOT NULL
@@ -203,6 +208,13 @@ class Handler(BaseHTTPRequestHandler):
                 return self.send_json({"error": "unauthorized"}, 401)
             return self.send_json(get_settings())
 
+        if path == "/api/admin/invites":
+            if not self.is_admin():
+                return self.send_json({"error": "unauthorized"}, 401)
+            with db() as con:
+                rows = [dict(r) for r in con.execute("SELECT id,name,created_at FROM invites ORDER BY id")]
+            return self.send_json({"invites": rows})
+
         if path == "/api/admin/rsvps.csv":
             if not self.is_admin(query):
                 return self.send_json({"error": "unauthorized"}, 401)
@@ -285,6 +297,30 @@ class Handler(BaseHTTPRequestHandler):
                 for k, v in new.items():
                     con.execute("INSERT INTO settings(key,value) VALUES(?,?) ON CONFLICT(key) DO UPDATE SET value=excluded.value", (k, v))
             return self.send_json(get_settings())
+
+        if path == "/api/admin/invites" or path.startswith("/api/admin/invites/"):
+            if not self.is_admin():
+                return self.send_json({"error": "unauthorized"}, 401)
+            data = self.read_json() or {}
+            parts = path.strip("/").split("/")   # api admin invites [id] [delete]
+            name = clean(data.get("name"), 40)
+            with db() as con:
+                if len(parts) == 3:
+                    if not name:
+                        return self.send_json({"error": "Vui lòng nhập tên khách."}, 400)
+                    cur = con.execute("INSERT INTO invites(name,created_at) VALUES(?,?)", (name, int(time.time())))
+                    return self.send_json({"ok": True, "id": cur.lastrowid})
+                if len(parts) >= 4 and parts[3].isdigit():
+                    iid = int(parts[3])
+                    if len(parts) == 5 and parts[4] == "delete":
+                        con.execute("DELETE FROM invites WHERE id=?", (iid,))
+                        return self.send_json({"ok": True})
+                    if len(parts) == 4:
+                        if not name:
+                            return self.send_json({"error": "Vui lòng nhập tên khách."}, 400)
+                        con.execute("UPDATE invites SET name=? WHERE id=?", (name, iid))
+                        return self.send_json({"ok": True})
+            return self.send_json({"error": "not found"}, 404)
 
         if path.startswith("/api/admin/wishes/"):
             if not self.is_admin():
