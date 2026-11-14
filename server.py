@@ -8,6 +8,8 @@ Layout (under APP_DIR, default ~/apps/totnghiep):
   admin.token    bearer token for /api/admin/*
 """
 import csv
+import re
+from datetime import date as _date, datetime as _dt, timedelta as _td
 import html
 import io
 import json
@@ -56,6 +58,10 @@ def init_db():
               created_at INTEGER NOT NULL,
               updated_at INTEGER NOT NULL
             );
+            CREATE TABLE IF NOT EXISTS settings(
+              key TEXT PRIMARY KEY,
+              value TEXT NOT NULL
+            );
             CREATE TABLE IF NOT EXISTS wishes(
               id INTEGER PRIMARY KEY,
               name TEXT NOT NULL,
@@ -68,6 +74,43 @@ def init_db():
     if not TOKEN_PATH.exists():
         TOKEN_PATH.write_text(secrets.token_urlsafe(24) + "\n")
         TOKEN_PATH.chmod(0o600)
+
+
+# Event time, editable from /admin without a redeploy.
+DEFAULTS = {"date": "2026-11-28", "ceremony": "14:30", "guest": "16:00"}
+WEEKDAYS = ["Thứ hai", "Thứ ba", "Thứ tư", "Thứ năm", "Thứ sáu", "Thứ bảy", "Chủ nhật"]
+
+
+def get_settings():
+    out = dict(DEFAULTS)
+    with db() as con:
+        for k, v in con.execute("SELECT key, value FROM settings"):
+            if k in out:
+                out[k] = v
+    return out
+
+
+def day_part(hm):
+    h = int(hm[:2])
+    return "sáng" if h < 11 else "trưa" if h < 13 else "chiều" if h < 18 else "tối"
+
+
+def render(page):
+    st = get_settings()
+    d = _date.fromisoformat(st["date"])
+    gh, gm = map(int, st["guest"].split(":"))
+    start = _dt(d.year, d.month, d.day, gh, gm) - _td(hours=7)   # Vietnam time -> UTC
+    values = {
+        "WEEKDAY": WEEKDAYS[d.weekday()], "DAY": str(d.day), "MONTH": str(d.month), "YEAR": str(d.year),
+        "DM": f"{d.day}/{d.month}", "DOTDATE": f"{d.day} · {d.month} · {d.year}", "OGDATE": f"{d.day:02d}.{d.month:02d}.{d.year}",
+        "GUEST": st["guest"], "CEREMONY": st["ceremony"],
+        "GUEST_PART": day_part(st["guest"]), "CEREMONY_PART": day_part(st["ceremony"]),
+        "EVENT_ISO": f"{st['date']}T{st['guest']}:00+07:00",
+        "CAL_START": start.strftime("%Y%m%dT%H%M%SZ"), "CAL_END": (start + _td(hours=2)).strftime("%Y%m%dT%H%M%SZ"),
+    }
+    for k, v in values.items():
+        page = page.replace("{{" + k + "}}", v)
+    return page
 
 
 def admin_token():
@@ -155,6 +198,11 @@ class Handler(BaseHTTPRequestHandler):
                 wishes = [dict(r) for r in con.execute("SELECT * FROM wishes ORDER BY id DESC")]
             return self.send_json({"rsvps": rsvps, "wishes": wishes})
 
+        if path == "/api/admin/settings":
+            if not self.is_admin():
+                return self.send_json({"error": "unauthorized"}, 401)
+            return self.send_json(get_settings())
+
         if path == "/api/admin/rsvps.csv":
             if not self.is_admin(query):
                 return self.send_json({"error": "unauthorized"}, 401)
@@ -215,6 +263,29 @@ class Handler(BaseHTTPRequestHandler):
                 cur = con.execute("INSERT INTO wishes(name,message,created_at) VALUES(?,?,?)", (name, message, now))
             return self.send_json({"ok": True, "id": cur.lastrowid, "created_at": now})
 
+        if path == "/api/admin/settings":
+            if not self.is_admin():
+                return self.send_json({"error": "unauthorized"}, 401)
+            data = self.read_json()
+            if not isinstance(data, dict):
+                return self.send_json({"error": "Dữ liệu không hợp lệ."}, 400)
+            new = {}
+            try:
+                if "date" in data:
+                    new["date"] = _date.fromisoformat(str(data["date"])).isoformat()
+                for k in ("ceremony", "guest"):
+                    if k in data:
+                        v = str(data[k]).strip()
+                        if not re.fullmatch(r"([01]\d|2[0-3]):[0-5]\d", v):
+                            raise ValueError
+                        new[k] = v
+            except ValueError:
+                return self.send_json({"error": "Ngày hoặc giờ không đúng định dạng."}, 400)
+            with db() as con:
+                for k, v in new.items():
+                    con.execute("INSERT INTO settings(key,value) VALUES(?,?) ON CONFLICT(key) DO UPDATE SET value=excluded.value", (k, v))
+            return self.send_json(get_settings())
+
         if path.startswith("/api/admin/wishes/"):
             if not self.is_admin():
                 return self.send_json({"error": "unauthorized"}, 401)
@@ -229,7 +300,7 @@ class Handler(BaseHTTPRequestHandler):
 
     # ---------- pages ----------
     def send_index(self, query):
-        page = (PUBLIC / "index.html").read_text()
+        page = render((PUBLIC / "index.html").read_text())
         guest = clean(query.get("to", [""])[0], 40)
         if guest:
             title = f"Thân mời {guest} · Lễ tốt nghiệp Nông Minh Chiến"
@@ -252,8 +323,9 @@ class Handler(BaseHTTPRequestHandler):
                 or PUBLIC.resolve() not in target.parents or not target.is_file()):
             return self.send_bytes(b"Not found", "text/plain; charset=utf-8", status=404)
         ctype = mimetypes.guess_type(target.name)[0] or "application/octet-stream"
-        cache = "no-cache" if target.suffix == ".html" else "public, max-age=3600"
-        return self.send_bytes(target.read_bytes(), ctype, cache)
+        if target.suffix == ".html":
+            return self.send_bytes(render(target.read_text()).encode(), ctype, "no-cache")
+        return self.send_bytes(target.read_bytes(), ctype, "public, max-age=3600")
 
 
 if __name__ == "__main__":

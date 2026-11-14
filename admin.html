@@ -72,6 +72,10 @@ input:focus{outline:none;border-color:var(--gold)}
 .err{color:var(--no);font-size:13px;min-height:1.2em;margin:0}
 .toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--gold);color:var(--bg);padding:8px 18px;border-radius:999px;font-size:13px;font-weight:500}
 @media (max-width:860px){.grid{grid-template-columns:1fr}.tiles{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.timeform{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:12px;align-items:end}
+.timeform label{display:grid;gap:4px;font-size:12px;color:var(--muted)}
+.timeform .btn{grid-column:1/-1;justify-self:start}
+@media (max-width:520px){.timeform{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -125,6 +129,17 @@ input:focus{outline:none;border-color:var(--gold)}
 
       <div style="display:grid;gap:20px">
         <section class="panel">
+          <div class="panel-head"><h2>Thời gian buổi lễ</h2></div>
+          <p class="sub" style="margin:0">Lưu là trang thiệp cập nhật ngay: thiệp, lịch trình, lưu ý, đếm ngược và link thêm vào lịch.</p>
+          <form class="timeform" id="timeForm">
+            <label>Ngày<input type="date" id="tDate" required></label>
+            <label>Buổi lễ bắt đầu<input type="time" id="tCeremony" required></label>
+            <label>Giờ đón khách<input type="time" id="tGuest" required></label>
+            <button class="btn solid" type="submit">Lưu thời gian</button>
+          </form>
+        </section>
+
+        <section class="panel">
           <div class="panel-head"><h2>Tạo link mời riêng</h2></div>
           <p class="sub" style="margin:0">Tên khách sẽ hiện trên phong bì, trên thiệp và trong tiêu đề khi gửi link qua Zalo/Messenger.</p>
           <form class="linkgen" id="linkForm">
@@ -157,8 +172,11 @@ input:focus{outline:none;border-color:var(--gold)}
   let data = {rsvps: [], wishes: []}, filter = "all";
   const $ = id => document.getElementById(id);
 
-  async function call(path, method){
-    const res = await fetch(path, {method: method || "GET", headers: {Authorization: "Bearer " + token}, cache: "no-store"});
+  async function call(path, method, body){
+    const headers = {Authorization: "Bearer " + token};
+    if(body) headers["Content-Type"] = "application/json";
+    const res = await fetch(path, {method: method || "GET", headers, body: body ? JSON.stringify(body) : undefined, cache: "no-store"});
+    if(res.status === 400){ let e = {}; try { e = await res.json(); } catch(_){} throw new Error(e.error || "Dữ liệu không hợp lệ."); }
     if(res.status === 401) throw Object.assign(new Error("Mã quản trị không đúng."), {auth: true});
     if(!res.ok) throw new Error("Máy chủ lỗi (" + res.status + ").");
     return res.json();
@@ -170,7 +188,21 @@ input:focus{outline:none;border-color:var(--gold)}
   const fmt = ts => new Date(ts*1000).toLocaleString("vi-VN", {day:"2-digit", month:"2-digit", hour:"2-digit", minute:"2-digit"});
   const size = r => r.attend ? (parseInt(r.party_size, 10) || 1) : 0;
 
+  async function loadTime(){
+    try { const t = await call("/api/admin/settings"); $("tDate").value = t.date; $("tCeremony").value = t.ceremony; $("tGuest").value = t.guest; } catch(e){}
+  }
+  $("timeForm").addEventListener("submit", async e => {
+    e.preventDefault();
+    const b = e.target.querySelector("button"); b.disabled = true;
+    try {
+      await call("/api/admin/settings", "POST", {date: $("tDate").value, ceremony: $("tCeremony").value, guest: $("tGuest").value});
+      toast("Đã lưu thời gian");
+    } catch(err){ toast(err.message); }
+    finally { b.disabled = false; }
+  });
+
   async function load(){
+    loadTime();
     try {
       data = await call("/api/admin/summary");
       $("login").hidden = true; $("app").hidden = false;
