@@ -140,8 +140,8 @@ input:focus{outline:none;border-color:var(--gold)}
           <p class="sub" style="margin:0">Lưu là trang thiệp cập nhật ngay: thiệp, lịch trình, lưu ý, đếm ngược và link thêm vào lịch.</p>
           <form class="timeform" id="timeForm">
             <label>Ngày<input type="date" id="tDate" required></label>
-            <label>Buổi lễ bắt đầu<input type="time" id="tCeremony" required></label>
-            <label>Giờ đón khách<input type="time" id="tGuest" required></label>
+                        <label>Giờ đón khách (khung 1)<input type="time" id="tGuest" required></label>
+            <label>Giờ đón khách (khung 2)<input type="time" id="tGuest2" required></label>
             <button class="btn solid" type="submit">Lưu thời gian</button>
           </form>
         </section>
@@ -196,13 +196,13 @@ input:focus{outline:none;border-color:var(--gold)}
   const size = r => r.attend ? (parseInt(r.party_size, 10) || 1) : 0;
 
   async function loadTime(){
-    try { const t = await call("/api/admin/settings"); $("tDate").value = t.date; $("tCeremony").value = t.ceremony; $("tGuest").value = t.guest; } catch(e){}
+    try { const t = await call("/api/admin/settings"); $("tDate").value = t.date; $("tGuest").value = t.guest; $("tGuest2").value = t.guest2; } catch(e){}
   }
   $("timeForm").addEventListener("submit", async e => {
     e.preventDefault();
     const b = e.target.querySelector("button"); b.disabled = true;
     try {
-      await call("/api/admin/settings", "POST", {date: $("tDate").value, ceremony: $("tCeremony").value, guest: $("tGuest").value});
+      await call("/api/admin/settings", "POST", {date: $("tDate").value, guest: $("tGuest").value, guest2: $("tGuest2").value});
       toast("Đã lưu thời gian");
     } catch(err){ toast(err.message); }
     finally { b.disabled = false; }

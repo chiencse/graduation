@@ -82,7 +82,7 @@ def init_db():
 
 
 # Event time, editable from /admin without a redeploy.
-DEFAULTS = {"date": "2026-11-28", "ceremony": "14:30", "guest": "16:00"}
+DEFAULTS = {"date": "2026-11-28", "ceremony": "14:30", "guest": "10:00", "guest2": "16:30"}
 WEEKDAYS = ["Thứ hai", "Thứ ba", "Thứ tư", "Thứ năm", "Thứ sáu", "Thứ bảy", "Chủ nhật"]
 
 
@@ -104,14 +104,19 @@ def render(page):
     st = get_settings()
     d = _date.fromisoformat(st["date"])
     gh, gm = map(int, st["guest"].split(":"))
+    g2h, g2m = map(int, st["guest2"].split(":"))
     start = _dt(d.year, d.month, d.day, gh, gm) - _td(hours=7)   # Vietnam time -> UTC
+    end = _dt(d.year, d.month, d.day, g2h, g2m) - _td(hours=7) + _td(hours=1)
+    if end <= start:
+        end = start + _td(hours=2)
     values = {
         "WEEKDAY": WEEKDAYS[d.weekday()], "DAY": str(d.day), "MONTH": str(d.month), "YEAR": str(d.year),
         "DM": f"{d.day}/{d.month}", "DOTDATE": f"{d.day} · {d.month} · {d.year}", "OGDATE": f"{d.day:02d}.{d.month:02d}.{d.year}",
         "GUEST": st["guest"], "CEREMONY": st["ceremony"],
+        "GUEST2": st["guest2"], "GUEST2_PART": day_part(st["guest2"]),
         "GUEST_PART": day_part(st["guest"]), "CEREMONY_PART": day_part(st["ceremony"]),
         "EVENT_ISO": f"{st['date']}T{st['guest']}:00+07:00",
-        "CAL_START": start.strftime("%Y%m%dT%H%M%SZ"), "CAL_END": (start + _td(hours=2)).strftime("%Y%m%dT%H%M%SZ"),
+        "CAL_START": start.strftime("%Y%m%dT%H%M%SZ"), "CAL_END": end.strftime("%Y%m%dT%H%M%SZ"),
     }
     for k, v in values.items():
         page = page.replace("{{" + k + "}}", v)
@@ -283,7 +288,7 @@ class Handler(BaseHTTPRequestHandler):
             try:
                 if "date" in data:
                     new["date"] = _date.fromisoformat(str(data["date"])).isoformat()
-                for k in ("ceremony", "guest"):
+                for k in ("ceremony", "guest", "guest2"):
                     if k in data:
                         v = str(data[k]).strip()
                         if not re.fullmatch(r"([01]\d|2[0-3]):[0-5]\d", v):

@@ -8,12 +8,12 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="Thiệp mời Lễ tốt nghiệp · Nông Minh Chiến">
 <meta property="og:url" content="https://grad.mchieens.io.vn/">
-<meta property="og:image" content="https://grad.mchieens.io.vn/og.jpg?v=6">
+<meta property="og:image" content="https://grad.mchieens.io.vn/og.jpg?v=7">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Thiệp mời Lễ tốt nghiệp của Nông Minh Chiến">
 <meta name="twitter:card" content="summary_large_image">
-<meta property="og:description" content="{{WEEKDAY}}, {{OGDATE}} · {{GUEST}} · Trường Đại học Bách Khoa, 268 Lý Thường Kiệt, TP.HCM">
+<meta property="og:description" content="{{WEEKDAY}}, {{OGDATE}} · {{GUEST}} hoặc {{GUEST2}} · Trường Đại học Bách Khoa, 268 Lý Thường Kiệt, TP.HCM">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 48'%3E%3Cpath d='M32 4 2 17l30 13 30-13z' fill='%23D4B06A'/%3E%3Cpath d='M14 23v11c0 4 8 8 18 8s18-4 18-8V23l-18 8z' fill='%23D4B06A' opacity='.78'/%3E%3C/svg%3E">
 <title>Minh Chiến Graduation</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -666,7 +666,7 @@ html.t-dawn body{background:#BFDDF8}
         <p class="major">Cử nhân · Khoa học Máy tính</p>
         <div class="divider"><svg width="22" height="16" viewBox="0 0 64 48"><use href="#cap"/></svg></div>
         <div class="when-where">
-          <div class="col"><span class="lbl">Thời gian</span><span class="big">{{GUEST}} {{GUEST_PART}}</span><span class="sm">Buổi lễ bắt đầu từ {{CEREMONY}}</span></div>
+          <div class="col"><span class="lbl">Thời gian</span><span class="big">{{GUEST}} {{GUEST_PART}}</span><span class="sm">hoặc {{GUEST2}} {{GUEST2_PART}}, bạn chọn giờ nào tiện nhé</span></div>
           <div class="col date-block"><span class="mo">{{WEEKDAY}}</span><span class="day metal">{{DAY}}</span><span class="mo">Tháng {{MONTH}} · {{YEAR}}</span></div>
           <div class="col"><span class="lbl">Địa điểm</span><span class="big">ĐH Bách Khoa</span><span class="sm">Tòa A3 · 268 Lý Thường Kiệt, Phường Diên Hồng, TP. Hồ Chí Minh</span></div>
         </div>
@@ -677,9 +677,9 @@ html.t-dawn body{background:#BFDDF8}
           <div class="cd"><b id="cdM">00</b><span>Phút</span></div>
           <div class="cd"><b id="cdS">00</b><span>Giây</span></div>
         </div>
-        <div class="schedule" aria-label="Lịch trình buổi lễ">
-          <div><b>{{CEREMONY}}</b><span>Buổi lễ tốt nghiệp bắt đầu</span></div>
-          <div><b>{{GUEST}}</b><span>Đón khách tại tòa A3, Khoa Khoa học và Kỹ thuật Máy tính</span></div>
+        <div class="schedule" aria-label="Giờ đón khách">
+          <div><b>{{GUEST}}</b><span>Đón khách buổi {{GUEST_PART}} tại tòa A3, Khoa Khoa học và Kỹ thuật Máy tính</span></div>
+          <div><b>{{GUEST2}}</b><span>Đón khách buổi {{GUEST2_PART}} tại tòa A3, Khoa Khoa học và Kỹ thuật Máy tính</span></div>
           <div><b>Sau đó</b><span>Chúc mừng, tặng hoa &amp; chụp ảnh lưu niệm tại sân trường</span></div>
         </div>
         <div class="card-actions">
@@ -701,10 +701,10 @@ html.t-dawn body{background:#BFDDF8}
   <!-- 2b. Notes -->
   <section class="tips" id="tips">
     <div class="wrap">
-      <div class="sec-title"><span class="label">Lưu ý nhỏ</span><h2>Vài điều để buổi chiều thật trọn vẹn</h2></div>
+      <div class="sec-title"><span class="label">Lưu ý nhỏ</span><h2>Vài điều để ngày hôm ấy thật trọn vẹn</h2></div>
       <div class="tips-grid">
         <article class="tip"><i aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></i><h3>Giờ giấc</h3>
-          <p>Buổi lễ của mình bắt đầu lúc {{CEREMONY}} {{CEREMONY_PART}} {{WEEKDAY}}, {{DM}}. Bạn đến khoảng {{GUEST}} là vừa, mình đón bạn ở tòa A3 (Khoa Khoa học và Kỹ thuật Máy tính) rồi cùng chụp ảnh nhé.</p></article>
+          <p>Mình đón khách {{WEEKDAY}}, {{DM}} vào hai khung giờ: {{GUEST}} {{GUEST_PART}} hoặc {{GUEST2}} {{GUEST2_PART}}. Bạn chọn giờ nào tiện, mình đón bạn ở tòa A3 (Khoa Khoa học và Kỹ thuật Máy tính) rồi cùng chụp ảnh nhé.</p></article>
         <article class="tip"><i aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="4"/><path d="M10 16V8h3a2.5 2.5 0 0 1 0 5h-3"/></svg></i><h3>Gửi xe</h3>
           <p>Bạn có thể gửi xe ở một trong các điểm sau:</p>
           <ul class="tip-list">
@@ -712,9 +712,9 @@ html.t-dawn body{background:#BFDDF8}
             <li><b>Cổng 3</b> · đường Tô Hiến Thành</li>
             <li><b>Bệnh viện Trưng Vương</b> · cạnh đường Tô Hiến Thành</li>
           </ul>
-          <p>Chiều thứ bảy đường khá đông, nên đi chung xe hoặc đặt xe công nghệ sẽ đỡ kẹt hơn nha.</p></article>
+          <p>Thứ bảy đường khá đông, nên đi chung xe hoặc đặt xe công nghệ sẽ đỡ kẹt hơn nha.</p></article>
         <article class="tip"><i aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 18 0Z"/><path d="M12 12v7a2 2 0 0 1-4 0"/></svg></i><h3>Chuẩn bị</h3>
-          <p>Sự hiện diện của bạn đã là món quà lớn nhất rồi. Buổi chiều tháng 11 có thể nắng hoặc mưa bất chợt, bạn mang theo ô/dù và một chai nước cho thoải mái nhé.</p></article>
+          <p>Sự hiện diện của bạn đã là món quà lớn nhất rồi. Cuối tháng 11 trời có thể nắng hoặc mưa bất chợt, bạn mang theo ô/dù và một chai nước cho thoải mái nhé.</p></article>
         <article class="tip"><i aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H8l-4 4Z"/><path d="M8 10h8M8 13h5"/></svg></i><h3>Tìm mình</h3>
           <p>Đến nơi mà chưa thấy mình thì cứ gọi hoặc nhắn tin cho mình qua số <a class="phone" href="tel:0388506847">0388 506 847</a>, mình sẽ ra đón ngay.</p></article>
       </div>
@@ -859,7 +859,7 @@ html.t-dawn body{background:#BFDDF8}
   $("mapLink").href = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent("Trường Đại học Bách Khoa, 268 Lý Thường Kiệt, TP. Hồ Chí Minh");
   $("calLink").href = "https://calendar.google.com/calendar/render?" + new URLSearchParams({
     action:"TEMPLATE", text:"Lễ tốt nghiệp Nông Minh Chiến", dates:"{{CAL_START}}/{{CAL_END}}",
-    location:"Trường Đại học Bách Khoa, " + ADDRESS, details:"Lễ tốt nghiệp Cử nhân Khoa học Máy tính. Buổi lễ bắt đầu {{CEREMONY}}, đón khách từ {{GUEST}} tại tòa A3 (Khoa Khoa học và Kỹ thuật Máy tính)."
+    location:"Trường Đại học Bách Khoa, " + ADDRESS, details:"Lễ tốt nghiệp Cử nhân Khoa học Máy tính. Đón khách lúc {{GUEST}} {{GUEST_PART}} hoặc {{GUEST2}} {{GUEST2_PART}} tại tòa A3 (Khoa Khoa học và Kỹ thuật Máy tính)."
   });
   $("copyAddr").addEventListener("click", () => {
     const text = "Trường Đại học Bách Khoa, " + ADDRESS;
@@ -1123,7 +1123,7 @@ html.t-dawn body{background:#BFDDF8}
     rStatus.textContent = "";
     if(current){
       rStatus.append(yes
-        ? `Cảm ơn ${current.name}! Mình đã ghi nhận bạn sẽ đến, hẹn gặp lúc {{GUEST}} {{GUEST_PART}} {{WEEKDAY}}, {{DM}} ở tòa A3.`
+        ? `Cảm ơn ${current.name}! Mình đã ghi nhận bạn sẽ đến, hẹn gặp bạn {{WEEKDAY}}, {{DM}} lúc {{GUEST}} {{GUEST_PART}} hoặc {{GUEST2}} {{GUEST2_PART}} ở tòa A3.`
         : `Đã ghi nhận ${current.name} không đến được. Cảm ơn bạn đã báo cho mình.`);
       const change = document.createElement("button"); change.type = "button"; change.className = "linkbtn";
       change.textContent = yes ? "Không đến được?" : "Mình sẽ đến";
