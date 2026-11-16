@@ -106,7 +106,6 @@ input:focus{outline:none;border-color:var(--gold)}
         <button class="btn" id="refresh" type="button">Làm mới</button>
         <a class="btn" id="csv" href="#">Tải CSV</a>
         <a class="btn" href="/" target="_blank" rel="noopener">Xem trang thiệp</a>
-        <button class="btn" id="logout" type="button">Đăng xuất</button>
       </div>
     </header>
 
@@ -185,7 +184,7 @@ input:focus{outline:none;border-color:var(--gold)}
     if(body) headers["Content-Type"] = "application/json";
     const res = await fetch(path, {method: method || "GET", headers, body: body ? JSON.stringify(body) : undefined, cache: "no-store"});
     if(res.status === 400){ let e = {}; try { e = await res.json(); } catch(_){} throw new Error(e.error || "Dữ liệu không hợp lệ."); }
-    if(res.status === 401) throw Object.assign(new Error("Mã quản trị không đúng."), {auth: true});
+    if(res.status === 401) throw new Error("Máy chủ từ chối truy cập.");
     if(!res.ok) throw new Error("Máy chủ lỗi (" + res.status + ").");
     return res.json();
   }
@@ -276,7 +275,6 @@ input:focus{outline:none;border-color:var(--gold)}
     render();
   });
   $("refresh").addEventListener("click", load);
-  $("logout").addEventListener("click", () => { store.del("mc-admin-token"); token = ""; showLogin(); });
   $("login").addEventListener("submit", e => { e.preventDefault(); token = $("tokenInput").value.trim(); store.set("mc-admin-token", token); load(); });
 
   /* Personal invite links, stored on the server so every device sees the same list */
@@ -340,8 +338,8 @@ input:focus{outline:none;border-color:var(--gold)}
   });
   $("copyAll").addEventListener("click", () => copy(invites.map(i => `${i.name}: ${linkFor(i.name)}`).join("\n")));
 
-  if(token) load(); else showLogin();
-  setInterval(() => { if(token && !document.hidden && !$("app").hidden) load(); }, 30000);
+  load();
+  setInterval(() => { if(!document.hidden && !$("app").hidden) load(); }, 30000);
 })();
 </script>
 </body>

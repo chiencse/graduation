@@ -3,7 +3,7 @@
 
 Layout (under APP_DIR, default ~/apps/totnghiep):
   public/        static files served at /
-  admin.html     served at /admin (data endpoints require the admin token)
+  admin.html     served at /admin (open, no password)
   data/site.db   SQLite database
   admin.token    bearer token for /api/admin/*
 """
@@ -176,9 +176,7 @@ class Handler(BaseHTTPRequestHandler):
         return False
 
     def is_admin(self, query=None):
-        auth = self.headers.get("Authorization", "")
-        token = auth[7:] if auth.startswith("Bearer ") else (query or {}).get("token", [""])[0]
-        return bool(token) and secrets.compare_digest(token, admin_token())
+        return True  # admin is open: no password (owner's choice)
 
     # ---------- routing ----------
     def do_HEAD(self):
