@@ -150,7 +150,7 @@ main,footer{position:relative;z-index:1}
 .when-where{display:grid;grid-template-columns:1fr auto 1fr;gap:22px;align-items:center}
 .when-where .col{display:grid;gap:4px}
 .when-where .lbl{font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);font-weight:500}
-.when-where .big{font-family:var(--serif);font-size:26px;font-weight:600;line-height:1.15;color:var(--ivory)}
+.when-where .big{font-family:var(--serif);font-size:26px;font-weight:600;line-height:1.15;color:var(--ivory);font-variant-numeric:lining-nums tabular-nums}
 .when-where .sm{font-size:14px;color:var(--muted)}
 .date-block{border-inline:1px solid rgba(212,176,106,.5);padding-inline:24px}
 .date-block .day{font-family:var(--serif);font-size:68px;font-weight:600;line-height:1;font-variant-numeric:lining-nums}
@@ -1379,6 +1379,25 @@ html.t-dawn body{background:#BFDDF8}
     });
   }
   applyTheme(THEME);
+})();
+
+/* Phones: the campus map is wider than the screen, so scroll it to put the A3 pin in the middle */
+(() => {
+  const sc = document.querySelector(".map-scroll"), pin = sc && sc.querySelector(".map-ring");
+  if(!sc || !pin) return;
+  const centre = () => {
+    if(sc.scrollWidth <= sc.clientWidth + 2) return;
+    const x = parseFloat(pin.style.left) / 100 * sc.scrollWidth;
+    sc.scrollLeft = Math.max(0, x - sc.clientWidth / 2);
+  };
+  const img = sc.querySelector("img");
+  if(img && !img.complete) img.addEventListener("load", centre, {once: true});
+  centre();
+  addEventListener("resize", centre);
+  if("IntersectionObserver" in window){
+    const io = new IntersectionObserver(es => { if(es[0].isIntersecting){ centre(); io.disconnect(); } });
+    io.observe(sc);
+  }
 })();
 </script>
 </body>
