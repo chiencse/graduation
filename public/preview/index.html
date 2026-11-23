@@ -789,7 +789,7 @@ html.t-dawn body{background:#BFDDF8}
       <div class="gb-side">
         <span class="label">Sổ lưu bút</span>
         <h2>Để lại vài dòng nhé</h2>
-        <p>Một lời chúc nhỏ sẽ là món quà lớn. Mọi lời chúc đều được dán lên bức tường bên cạnh.</p>
+        <p>Một lời chúc nhỏ sẽ là món quà lớn. Lời chúc của bạn chỉ có bạn và Chiến đọc được thôi.</p>
         <form id="gbForm">
           <label for="gName">Tên của bạn<input id="gName" required placeholder="Tên hoặc biệt danh" maxlength="60"></label>
           <label for="gMsg">Lời chúc<textarea id="gMsg" required maxlength="280" placeholder="Chúc mừng tân cử nhân…"></textarea></label>
@@ -1161,12 +1161,13 @@ html.t-dawn body{background:#BFDDF8}
     {n:"Chị Hai", m:"Tự hào về em lắm. Chặng tiếp theo cứ vững vàng mà bước nhé!", sample:true},
     {n:"Team đồ án", m:"Cảm ơn ông vì những đêm merge code không conflict. Chúc mừng nha!", sample:true}
   ];
-  let mine = store.get(KEY, []), liveWishes = [];
+  const IDS = "mc-my-wish-keys";
+  let mine = store.get(KEY, []), liveWishes = [], myIds = store.get(IDS, []);
   const wall = $("wall"), gf = $("gbForm"), gErr = $("gbError"), gBtn = gf.querySelector("button[type=submit]");
   function render(freshId){
     const list = live ? liveWishes : [...mine.slice().reverse().map((w,i) => ({...w, id: "local" + i})), ...samples];
     wall.innerHTML = "";
-    if(!list.length){ const p = document.createElement("p"); p.className = "wall-empty"; p.textContent = "Chưa có lời chúc nào. Bạn hãy là người đầu tiên nhé!"; wall.append(p); return; }
+    if(!list.length){ const p = document.createElement("p"); p.className = "wall-empty"; p.textContent = "Lời chúc bạn gửi sẽ hiện ở đây, chỉ bạn và Chiến thấy thôi."; wall.append(p); return; }
     list.forEach(w => {
       const d = document.createElement("div"); d.className = "note" + (freshId != null && w.id === freshId ? " new" : "");
       const p = document.createElement("p"); p.textContent = "“" + w.m + "”";
@@ -1178,7 +1179,7 @@ html.t-dawn body{background:#BFDDF8}
   }
   async function loadWishes(){
     try {
-      const d = await api("/api/wishes");
+      const d = myIds.length ? await api("/api/wishes?ids=" + myIds.join(",")) : {wishes: []};
       liveWishes = d.wishes.map(w => ({id: w.id, n: w.name, m: w.message}));
       if(!live){ live = true; document.querySelectorAll(".demo-note").forEach(n => n.hidden = true); }
       render();
@@ -1191,7 +1192,7 @@ html.t-dawn body{background:#BFDDF8}
     const n = $("gName").value.trim(), m = $("gMsg").value.trim(); if(!n || !m) return;
     gErr.textContent = ""; gBtn.disabled = true;
     try {
-      if(live){ const d = await api("/api/wishes", {name: n, message: m}); liveWishes.unshift({id: d.id, n, m}); render(d.id); }
+      if(live){ const d = await api("/api/wishes", {name: n, message: m}); myIds.push(d.key); store.set(IDS, myIds); liveWishes.unshift({id: d.id, n, m}); render(d.id); }
       else { mine.push({n, m}); store.set(KEY, mine); render("local0"); }
       $("gMsg").value = "";
       const b = gBtn.getBoundingClientRect(); celebrate(b.left + b.width/2, b.top, 40);

@@ -15,6 +15,8 @@ import io
 import json
 import mimetypes
 import os
+import hashlib
+import hmac
 import secrets
 import sqlite3
 import time
@@ -123,6 +125,11 @@ def render(page):
     return page
 
 
+def wish_sig(wid):
+    """Per-wish key so only the writer's browser can read a wish back."""
+    return hmac.new(admin_token().encode(), f"wish:{wid}".encode(), hashlib.sha256).hexdigest()[:20]
+
+
 def admin_token():
     return TOKEN_PATH.read_text().strip()
 
@@ -192,10 +199,19 @@ class Handler(BaseHTTPRequestHandler):
         path, query = url.path, parse_qs(url.query)
 
         if path == "/api/wishes":
-            with db() as con:
-                rows = con.execute(
-                    "SELECT id,name,message,created_at FROM wishes WHERE hidden=0 ORDER BY id DESC LIMIT 200"
-                ).fetchall()
+            # Wishes are private: a visitor only gets back the ids they wrote (kept in their browser).
+            ids = []
+            for part in (query.get("ids", [""])[0]).split(",")[:50]:
+                wid, _, sig = part.strip().partition(".")
+                if wid.isdigit() and secrets.compare_digest(sig, wish_sig(int(wid))):
+                    ids.append(int(wid))
+            rows = []
+            if ids:
+                with db() as con:
+                    rows = con.execute(
+                        "SELECT id,name,message,created_at FROM wishes WHERE hidden=0 AND id IN (%s) ORDER BY id DESC"
+                        % ",".join("?" * len(ids)), ids
+                    ).fetchall()
             return self.send_json({"wishes": [dict(r) for r in rows]})
 
         if path == "/api/admin/summary":
@@ -276,7 +292,7 @@ class Handler(BaseHTTPRequestHandler):
                 return self.send_json({"error": "Vui lòng nhập tên và lời chúc."}, 400)
             with db() as con:
                 cur = con.execute("INSERT INTO wishes(name,message,created_at) VALUES(?,?,?)", (name, message, now))
-            return self.send_json({"ok": True, "id": cur.lastrowid, "created_at": now})
+            return self.send_json({"ok": True, "id": cur.lastrowid, "key": f"{cur.lastrowid}.{wish_sig(cur.lastrowid)}", "created_at": now})
 
         if path == "/api/admin/settings":
             if not self.is_admin():
